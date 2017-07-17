@@ -8,24 +8,123 @@
 
 /* Begin PBXBuildFile section */
 		794815CB1F1CDD2700DD0783 /* P2PCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 794815C91F1CDD2700DD0783 /* P2PCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		794815DB1F1CDD5000DD0783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815DA1F1CDD5000DD0783 /* AppDelegate.swift */; };
-		794815DD1F1CDD5000DD0783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815DC1F1CDD5000DD0783 /* ViewController.swift */; };
-		794815E01F1CDD5000DD0783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794815DE1F1CDD5000DD0783 /* Main.storyboard */; };
-		794815E21F1CDD5000DD0783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794815E11F1CDD5000DD0783 /* Assets.xcassets */; };
-		794815E51F1CDD5000DD0783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794815E31F1CDD5000DD0783 /* LaunchScreen.storyboard */; };
+		794815F11F1CDDE200DD0783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815F01F1CDDE200DD0783 /* AppDelegate.swift */; };
+		794815F31F1CDDE200DD0783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815F21F1CDDE200DD0783 /* ViewController.swift */; };
+		794815F61F1CDDE200DD0783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794815F41F1CDDE200DD0783 /* Main.storyboard */; };
+		794815F81F1CDDE200DD0783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794815F71F1CDDE200DD0783 /* Assets.xcassets */; };
+		794815FB1F1CDDE200DD0783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794815F91F1CDDE200DD0783 /* LaunchScreen.storyboard */; };
+		794816091F1CDDFA00DD0783 /* P2PUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 794816071F1CDDFA00DD0783 /* P2PUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7948160C1F1CDDFA00DD0783 /* P2PUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; };
+		7948160D1F1CDDFA00DD0783 /* P2PUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		794816171F1CE1E400DD0783 /* P2PCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816161F1CE1E400DD0783 /* P2PCore.swift */; };
+		794816191F1CE72F00DD0783 /* DealsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816181F1CE72F00DD0783 /* DealsManager.swift */; };
+		7948161A1F1CE82100DD0783 /* P2PCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794815C71F1CDD2700DD0783 /* P2PCore.framework */; };
+		7948161D1F1CE84800DD0783 /* P2PNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */; };
+		7948161F1F1CE86900DD0783 /* P2PViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948161E1F1CE86900DD0783 /* P2PViewController.swift */; };
+		794816221F1CE93200DD0783 /* CurrencyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816211F1CE93200DD0783 /* CurrencyId.swift */; };
+		794816411F1CE9AC00DD0783 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 794816401F1CE9AC00DD0783 /* main.m */; };
+		794816441F1CE9AC00DD0783 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 794816431F1CE9AC00DD0783 /* AppDelegate.m */; };
+		794816471F1CE9AC00DD0783 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794816461F1CE9AC00DD0783 /* ViewController.m */; };
+		7948164A1F1CE9AC00DD0783 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794816481F1CE9AC00DD0783 /* Main.storyboard */; };
+		7948164C1F1CE9AC00DD0783 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7948164B1F1CE9AC00DD0783 /* Assets.xcassets */; };
+		7948164F1F1CE9AC00DD0783 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7948164D1F1CE9AC00DD0783 /* LaunchScreen.storyboard */; };
+		794816541F1CE9E200DD0783 /* P2PCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794815C71F1CDD2700DD0783 /* P2PCore.framework */; };
+		794816551F1CE9E200DD0783 /* P2PCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 794815C71F1CDD2700DD0783 /* P2PCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		794816581F1CE9E900DD0783 /* P2PCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794815C71F1CDD2700DD0783 /* P2PCore.framework */; };
+		794816591F1CE9E900DD0783 /* P2PCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 794815C71F1CDD2700DD0783 /* P2PCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7948165C1F1CE9E900DD0783 /* P2PUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; };
+		7948165D1F1CE9E900DD0783 /* P2PUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		794816621F1CEB2F00DD0783 /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816611F1CEB2F00DD0783 /* Deal.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7948160A1F1CDDFA00DD0783 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 794815A51F1CDC1A00DD0783 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 794816041F1CDDFA00DD0783;
+			remoteInfo = P2PUI;
+		};
+		794816561F1CE9E200DD0783 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 794815A51F1CDC1A00DD0783 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 794815C61F1CDD2700DD0783;
+			remoteInfo = P2PCore;
+		};
+		7948165A1F1CE9E900DD0783 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 794815A51F1CDC1A00DD0783 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 794815C61F1CDD2700DD0783;
+			remoteInfo = P2PCore;
+		};
+		7948165E1F1CE9E900DD0783 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 794815A51F1CDC1A00DD0783 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 794816041F1CDDFA00DD0783;
+			remoteInfo = P2PUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		794816111F1CDDFA00DD0783 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				794816551F1CE9E200DD0783 /* P2PCore.framework in Embed Frameworks */,
+				7948160D1F1CDDFA00DD0783 /* P2PUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		794816601F1CE9E900DD0783 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				794816591F1CE9E900DD0783 /* P2PCore.framework in Embed Frameworks */,
+				7948165D1F1CE9E900DD0783 /* P2PUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		794815C71F1CDD2700DD0783 /* P2PCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P2PCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		794815C91F1CDD2700DD0783 /* P2PCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P2PCore.h; sourceTree = "<group>"; };
 		794815CA1F1CDD2700DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		794815D81F1CDD5000DD0783 /* P2PUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		794815DA1F1CDD5000DD0783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		794815DC1F1CDD5000DD0783 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		794815DF1F1CDD5000DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		794815E11F1CDD5000DD0783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		794815E41F1CDD5000DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		794815E61F1CDD5000DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		794815EE1F1CDDE200DD0783 /* P2PExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		794815F01F1CDDE200DD0783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		794815F21F1CDDE200DD0783 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		794815F51F1CDDE200DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		794815F71F1CDDE200DD0783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		794815FA1F1CDDE200DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		794815FC1F1CDDE200DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		794816051F1CDDFA00DD0783 /* P2PUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P2PUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		794816071F1CDDFA00DD0783 /* P2PUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P2PUI.h; sourceTree = "<group>"; };
+		794816081F1CDDFA00DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		794816161F1CE1E400DD0783 /* P2PCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PCore.swift; sourceTree = "<group>"; };
+		794816181F1CE72F00DD0783 /* DealsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsManager.swift; sourceTree = "<group>"; };
+		7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PNavigationController.swift; sourceTree = "<group>"; };
+		7948161E1F1CE86900DD0783 /* P2PViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PViewController.swift; sourceTree = "<group>"; };
+		794816211F1CE93200DD0783 /* CurrencyId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyId.swift; sourceTree = "<group>"; };
+		7948163D1F1CE9AC00DD0783 /* P2PExampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PExampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		794816401F1CE9AC00DD0783 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		794816421F1CE9AC00DD0783 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		794816431F1CE9AC00DD0783 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		794816451F1CE9AC00DD0783 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		794816461F1CE9AC00DD0783 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		794816491F1CE9AC00DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7948164B1F1CE9AC00DD0783 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7948164E1F1CE9AC00DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		794816501F1CE9AC00DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		794816611F1CEB2F00DD0783 /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,10 +135,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		794815D51F1CDD5000DD0783 /* Frameworks */ = {
+		794815EB1F1CDDE200DD0783 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794816541F1CE9E200DD0783 /* P2PCore.framework in Frameworks */,
+				7948160C1F1CDDFA00DD0783 /* P2PUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		794816011F1CDDFA00DD0783 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7948161A1F1CE82100DD0783 /* P2PCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7948163A1F1CE9AC00DD0783 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				794816581F1CE9E900DD0783 /* P2PCore.framework in Frameworks */,
+				7948165C1F1CE9E900DD0783 /* P2PUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +167,9 @@
 		794815A41F1CDC1A00DD0783 = {
 			isa = PBXGroup;
 			children = (
-				794815D91F1CDD5000DD0783 /* P2PUI */,
+				794815EF1F1CDDE200DD0783 /* P2PExample */,
+				7948163E1F1CE9AC00DD0783 /* P2PExampleObjC */,
+				794816061F1CDDFA00DD0783 /* P2PUI */,
 				794815C81F1CDD2700DD0783 /* P2PCore */,
 				794815AE1F1CDC1A00DD0783 /* Products */,
 			);
@@ -59,7 +179,9 @@
 			isa = PBXGroup;
 			children = (
 				794815C71F1CDD2700DD0783 /* P2PCore.framework */,
-				794815D81F1CDD5000DD0783 /* P2PUI.app */,
+				794815EE1F1CDDE200DD0783 /* P2PExample.app */,
+				794816051F1CDDFA00DD0783 /* P2PUI.framework */,
+				7948163D1F1CE9AC00DD0783 /* P2PExampleObjC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,22 +190,109 @@
 			isa = PBXGroup;
 			children = (
 				794815C91F1CDD2700DD0783 /* P2PCore.h */,
+				794816161F1CE1E400DD0783 /* P2PCore.swift */,
+				794816201F1CE92400DD0783 /* Constants */,
+				794816141F1CE15A00DD0783 /* Models */,
+				794816131F1CE14F00DD0783 /* Managers */,
+				794816121F1CE14600DD0783 /* Library */,
 				794815CA1F1CDD2700DD0783 /* Info.plist */,
 			);
 			path = P2PCore;
 			sourceTree = "<group>";
 		};
-		794815D91F1CDD5000DD0783 /* P2PUI */ = {
+		794815EF1F1CDDE200DD0783 /* P2PExample */ = {
 			isa = PBXGroup;
 			children = (
-				794815DA1F1CDD5000DD0783 /* AppDelegate.swift */,
-				794815DC1F1CDD5000DD0783 /* ViewController.swift */,
-				794815DE1F1CDD5000DD0783 /* Main.storyboard */,
-				794815E11F1CDD5000DD0783 /* Assets.xcassets */,
-				794815E31F1CDD5000DD0783 /* LaunchScreen.storyboard */,
-				794815E61F1CDD5000DD0783 /* Info.plist */,
+				794815F01F1CDDE200DD0783 /* AppDelegate.swift */,
+				794815F21F1CDDE200DD0783 /* ViewController.swift */,
+				794815F41F1CDDE200DD0783 /* Main.storyboard */,
+				794815F71F1CDDE200DD0783 /* Assets.xcassets */,
+				794815F91F1CDDE200DD0783 /* LaunchScreen.storyboard */,
+				794815FC1F1CDDE200DD0783 /* Info.plist */,
+			);
+			path = P2PExample;
+			sourceTree = "<group>";
+		};
+		794816061F1CDDFA00DD0783 /* P2PUI */ = {
+			isa = PBXGroup;
+			children = (
+				7948161B1F1CE83200DD0783 /* Controllers */,
+				794816071F1CDDFA00DD0783 /* P2PUI.h */,
+				794816081F1CDDFA00DD0783 /* Info.plist */,
 			);
 			path = P2PUI;
+			sourceTree = "<group>";
+		};
+		794816121F1CE14600DD0783 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				794816151F1CE16700DD0783 /* NetworkManager */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		794816131F1CE14F00DD0783 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				794816181F1CE72F00DD0783 /* DealsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		794816141F1CE15A00DD0783 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				794816611F1CEB2F00DD0783 /* Deal.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		794816151F1CE16700DD0783 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		7948161B1F1CE83200DD0783 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */,
+				7948161E1F1CE86900DD0783 /* P2PViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		794816201F1CE92400DD0783 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				794816211F1CE93200DD0783 /* CurrencyId.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		7948163E1F1CE9AC00DD0783 /* P2PExampleObjC */ = {
+			isa = PBXGroup;
+			children = (
+				794816421F1CE9AC00DD0783 /* AppDelegate.h */,
+				794816431F1CE9AC00DD0783 /* AppDelegate.m */,
+				794816451F1CE9AC00DD0783 /* ViewController.h */,
+				794816461F1CE9AC00DD0783 /* ViewController.m */,
+				794816481F1CE9AC00DD0783 /* Main.storyboard */,
+				7948164B1F1CE9AC00DD0783 /* Assets.xcassets */,
+				7948164D1F1CE9AC00DD0783 /* LaunchScreen.storyboard */,
+				794816501F1CE9AC00DD0783 /* Info.plist */,
+				7948163F1F1CE9AC00DD0783 /* Supporting Files */,
+			);
+			path = P2PExampleObjC;
+			sourceTree = "<group>";
+		};
+		7948163F1F1CE9AC00DD0783 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				794816401F1CE9AC00DD0783 /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +303,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				794815CB1F1CDD2700DD0783 /* P2PCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		794816021F1CDDFA00DD0783 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				794816091F1CDDFA00DD0783 /* P2PUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,13 +335,34 @@
 			productReference = 794815C71F1CDD2700DD0783 /* P2PCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		794815D71F1CDD5000DD0783 /* P2PUI */ = {
+		794815ED1F1CDDE200DD0783 /* P2PExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 794815E71F1CDD5000DD0783 /* Build configuration list for PBXNativeTarget "P2PUI" */;
+			buildConfigurationList = 794815FD1F1CDDE200DD0783 /* Build configuration list for PBXNativeTarget "P2PExample" */;
 			buildPhases = (
-				794815D41F1CDD5000DD0783 /* Sources */,
-				794815D51F1CDD5000DD0783 /* Frameworks */,
-				794815D61F1CDD5000DD0783 /* Resources */,
+				794815EA1F1CDDE200DD0783 /* Sources */,
+				794815EB1F1CDDE200DD0783 /* Frameworks */,
+				794815EC1F1CDDE200DD0783 /* Resources */,
+				794816111F1CDDFA00DD0783 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7948160B1F1CDDFA00DD0783 /* PBXTargetDependency */,
+				794816571F1CE9E200DD0783 /* PBXTargetDependency */,
+			);
+			name = P2PExample;
+			productName = P2PExample;
+			productReference = 794815EE1F1CDDE200DD0783 /* P2PExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		794816041F1CDDFA00DD0783 /* P2PUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7948160E1F1CDDFA00DD0783 /* Build configuration list for PBXNativeTarget "P2PUI" */;
+			buildPhases = (
+				794816001F1CDDFA00DD0783 /* Sources */,
+				794816011F1CDDFA00DD0783 /* Frameworks */,
+				794816021F1CDDFA00DD0783 /* Headers */,
+				794816031F1CDDFA00DD0783 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -132,7 +370,27 @@
 			);
 			name = P2PUI;
 			productName = P2PUI;
-			productReference = 794815D81F1CDD5000DD0783 /* P2PUI.app */;
+			productReference = 794816051F1CDDFA00DD0783 /* P2PUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7948163C1F1CE9AC00DD0783 /* P2PExampleObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 794816511F1CE9AC00DD0783 /* Build configuration list for PBXNativeTarget "P2PExampleObjC" */;
+			buildPhases = (
+				794816391F1CE9AC00DD0783 /* Sources */,
+				7948163A1F1CE9AC00DD0783 /* Frameworks */,
+				7948163B1F1CE9AC00DD0783 /* Resources */,
+				794816601F1CE9E900DD0783 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7948165B1F1CE9E900DD0783 /* PBXTargetDependency */,
+				7948165F1F1CE9E900DD0783 /* PBXTargetDependency */,
+			);
+			name = P2PExampleObjC;
+			productName = P2PExampleObjC;
+			productReference = 7948163D1F1CE9AC00DD0783 /* P2PExampleObjC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -148,9 +406,21 @@
 					794815C61F1CDD2700DD0783 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P8A8G8XXL8;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
-					794815D71F1CDD5000DD0783 = {
+					794815ED1F1CDDE200DD0783 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = P8A8G8XXL8;
+						ProvisioningStyle = Automatic;
+					};
+					794816041F1CDDFA00DD0783 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = P8A8G8XXL8;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					7948163C1F1CE9AC00DD0783 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P8A8G8XXL8;
 						ProvisioningStyle = Automatic;
@@ -170,7 +440,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				794815D71F1CDD5000DD0783 /* P2PUI */,
+				794815ED1F1CDDE200DD0783 /* P2PExample */,
+				7948163C1F1CE9AC00DD0783 /* P2PExampleObjC */,
+				794816041F1CDDFA00DD0783 /* P2PUI */,
 				794815C61F1CDD2700DD0783 /* P2PCore */,
 			);
 		};
@@ -184,13 +456,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		794815D61F1CDD5000DD0783 /* Resources */ = {
+		794815EC1F1CDDE200DD0783 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				794815E51F1CDD5000DD0783 /* LaunchScreen.storyboard in Resources */,
-				794815E21F1CDD5000DD0783 /* Assets.xcassets in Resources */,
-				794815E01F1CDD5000DD0783 /* Main.storyboard in Resources */,
+				794815FB1F1CDDE200DD0783 /* LaunchScreen.storyboard in Resources */,
+				794815F81F1CDDE200DD0783 /* Assets.xcassets in Resources */,
+				794815F61F1CDDE200DD0783 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		794816031F1CDDFA00DD0783 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7948163B1F1CE9AC00DD0783 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7948164F1F1CE9AC00DD0783 /* LaunchScreen.storyboard in Resources */,
+				7948164C1F1CE9AC00DD0783 /* Assets.xcassets in Resources */,
+				7948164A1F1CE9AC00DD0783 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,33 +490,95 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				794816171F1CE1E400DD0783 /* P2PCore.swift in Sources */,
+				794816191F1CE72F00DD0783 /* DealsManager.swift in Sources */,
+				794816221F1CE93200DD0783 /* CurrencyId.swift in Sources */,
+				794816621F1CEB2F00DD0783 /* Deal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		794815D41F1CDD5000DD0783 /* Sources */ = {
+		794815EA1F1CDDE200DD0783 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				794815DD1F1CDD5000DD0783 /* ViewController.swift in Sources */,
-				794815DB1F1CDD5000DD0783 /* AppDelegate.swift in Sources */,
+				794815F31F1CDDE200DD0783 /* ViewController.swift in Sources */,
+				794815F11F1CDDE200DD0783 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		794816001F1CDDFA00DD0783 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7948161D1F1CE84800DD0783 /* P2PNavigationController.swift in Sources */,
+				7948161F1F1CE86900DD0783 /* P2PViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		794816391F1CE9AC00DD0783 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				794816471F1CE9AC00DD0783 /* ViewController.m in Sources */,
+				794816441F1CE9AC00DD0783 /* AppDelegate.m in Sources */,
+				794816411F1CE9AC00DD0783 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7948160B1F1CDDFA00DD0783 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 794816041F1CDDFA00DD0783 /* P2PUI */;
+			targetProxy = 7948160A1F1CDDFA00DD0783 /* PBXContainerItemProxy */;
+		};
+		794816571F1CE9E200DD0783 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 794815C61F1CDD2700DD0783 /* P2PCore */;
+			targetProxy = 794816561F1CE9E200DD0783 /* PBXContainerItemProxy */;
+		};
+		7948165B1F1CE9E900DD0783 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 794815C61F1CDD2700DD0783 /* P2PCore */;
+			targetProxy = 7948165A1F1CE9E900DD0783 /* PBXContainerItemProxy */;
+		};
+		7948165F1F1CE9E900DD0783 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 794816041F1CDDFA00DD0783 /* P2PUI */;
+			targetProxy = 7948165E1F1CE9E900DD0783 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		794815DE1F1CDD5000DD0783 /* Main.storyboard */ = {
+		794815F41F1CDDE200DD0783 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				794815DF1F1CDD5000DD0783 /* Base */,
+				794815F51F1CDDE200DD0783 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		794815E31F1CDD5000DD0783 /* LaunchScreen.storyboard */ = {
+		794815F91F1CDDE200DD0783 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				794815E41F1CDD5000DD0783 /* Base */,
+				794815FA1F1CDDE200DD0783 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		794816481F1CE9AC00DD0783 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				794816491F1CE9AC00DD0783 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7948164D1F1CE9AC00DD0783 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7948164E1F1CE9AC00DD0783 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -333,6 +684,7 @@
 		794815D01F1CDD2700DD0783 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -347,6 +699,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -356,6 +709,7 @@
 		794815D11F1CDD2700DD0783 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -376,29 +730,104 @@
 			};
 			name = Release;
 		};
-		794815E81F1CDD5000DD0783 /* Debug */ = {
+		794815FE1F1CDDE200DD0783 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P8A8G8XXL8;
-				INFOPLIST_FILE = P2PUI/Info.plist;
+				INFOPLIST_FILE = P2PExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		794815E91F1CDD5000DD0783 /* Release */ = {
+		794815FF1F1CDDE200DD0783 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P8A8G8XXL8;
-				INFOPLIST_FILE = P2PUI/Info.plist;
+				INFOPLIST_FILE = P2PExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7948160F1F1CDDFA00DD0783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = P2PUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		794816101F1CDDFA00DD0783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = P2PUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		794816521F1CE9AC00DD0783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				INFOPLIST_FILE = P2PExampleObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PExampleObjC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		794816531F1CE9AC00DD0783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				INFOPLIST_FILE = P2PExampleObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PExampleObjC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -422,11 +851,27 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		794815E71F1CDD5000DD0783 /* Build configuration list for PBXNativeTarget "P2PUI" */ = {
+		794815FD1F1CDDE200DD0783 /* Build configuration list for PBXNativeTarget "P2PExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				794815E81F1CDD5000DD0783 /* Debug */,
-				794815E91F1CDD5000DD0783 /* Release */,
+				794815FE1F1CDDE200DD0783 /* Debug */,
+				794815FF1F1CDDE200DD0783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7948160E1F1CDDFA00DD0783 /* Build configuration list for PBXNativeTarget "P2PUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7948160F1F1CDDFA00DD0783 /* Debug */,
+				794816101F1CDDFA00DD0783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		794816511F1CE9AC00DD0783 /* Build configuration list for PBXNativeTarget "P2PExampleObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				794816521F1CE9AC00DD0783 /* Debug */,
+				794816531F1CE9AC00DD0783 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
