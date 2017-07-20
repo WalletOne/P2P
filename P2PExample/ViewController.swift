@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import P2PCore
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        P2PCore.setPartner(id: "testplatform", signatureKey: "TestPlatformSignatureKey")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

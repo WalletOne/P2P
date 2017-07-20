@@ -10,11 +10,13 @@ import Foundation
 
 @objc public class P2PCore: NSObject {
     
-    static let `default` = P2PCore()
+    public static let `default` = P2PCore()
     
     var partnerId: String = ""
     
     var payerId: String = ""
+    
+    var signatureKey: String = ""
     
     var payerPhoneNumber: String = ""
     
@@ -22,8 +24,11 @@ import Foundation
     lazy var deals: DealsManager = { return .init(self) }()
     public class var deals: DealsManager { return P2PCore.default.deals }
     
-    public class func set(partnerId: String) {
-        P2PCore.default.partnerId = partnerId
+    lazy var networkManager: NetworkManager = { return .init(self) }()
+    
+    public class func setPartner(id: String, signatureKey: String) {
+        P2PCore.default.partnerId = id
+        P2PCore.default.signatureKey = signatureKey
     }
     
     public class func setPayer(id: String, phoneNumber: String) {
