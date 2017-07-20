@@ -62,7 +62,7 @@ import Foundation
     }
 }
 
-@objc public class Deal: NSObject {
+@objc public class Deal: NSObject, Mappable {
     
     public var platformDealId: String = ""
     
@@ -80,11 +80,11 @@ import Foundation
     
     public var platformPayerId: String = ""
     
-    public var payerCardId: String = ""
+    public var payerCardId: Int = 0
     
     public var platformBeneficiaryId: String = ""
     
-    public var beneficiaryCardId: String = ""
+    public var beneficiaryCardId: Int = 0
     
     public var shortDescription: String = ""
     
@@ -92,6 +92,21 @@ import Foundation
     
     public var dealTypeId: DealTypeId = .undefined
     
-    
+    public required init(json: [String: Any]) {
+        platformDealId = map(json["PlatformDealId"], "")
+        dealTypeId = map(json["DealStateId"], .undefined)
+        createDate = map(json["CreateDate"])
+        updatedate = map(json["UpdateDate"])
+        expireDate = map(json["ExpireDate"])
+        amount = map(json["Amount"], 0.0)
+        currencyId = map(json["CurrencyId"], .rub)
+        platformPayerId = map(json["PlatformPayerId"], "")
+        payerCardId = map(json["PayerCardId"], 0)
+        platformBeneficiaryId = map(json["PlatformBeneficiaryId"], "")
+        beneficiaryCardId = map(json["BeneficiaryCardId"], 0)
+        shortDescription = map(json["ShortDescription"], "")
+        fullDescription = map(json["FullDescription"], "")
+        dealTypeId = map(json["DealTypeId"], .undefined)
+    }
     
 }

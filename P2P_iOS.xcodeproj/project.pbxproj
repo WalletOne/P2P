@@ -35,6 +35,12 @@
 		7948165C1F1CE9E900DD0783 /* P2PUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; };
 		7948165D1F1CE9E900DD0783 /* P2PUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		794816621F1CEB2F00DD0783 /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816611F1CEB2F00DD0783 /* Deal.swift */; };
+		798680841F208E34000D541D /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
+		798680861F20960E000D541D /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
+		7986808A1F20980F000D541D /* PayoutsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680891F20980F000D541D /* PayoutsResult.swift */; };
+		7986808C1F209897000D541D /* Payout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808B1F209897000D541D /* Payout.swift */; };
+		7986808E1F209A59000D541D /* RefundsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808D1F209A59000D541D /* RefundsResult.swift */; };
+		798680901F209C27000D541D /* Refund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808F1F209C27000D541D /* Refund.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +131,12 @@
 		7948164E1F1CE9AC00DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		794816501F1CE9AC00DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		794816611F1CEB2F00DD0783 /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
+		798680831F208E34000D541D /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		798680851F20960E000D541D /* BankCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCard.swift; sourceTree = "<group>"; };
+		798680891F20980F000D541D /* PayoutsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsResult.swift; sourceTree = "<group>"; };
+		7986808B1F209897000D541D /* Payout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payout.swift; sourceTree = "<group>"; };
+		7986808D1F209A59000D541D /* RefundsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsResult.swift; sourceTree = "<group>"; };
+		7986808F1F209C27000D541D /* Refund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refund.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +255,11 @@
 			isa = PBXGroup;
 			children = (
 				794816611F1CEB2F00DD0783 /* Deal.swift */,
+				798680851F20960E000D541D /* BankCard.swift */,
+				798680891F20980F000D541D /* PayoutsResult.swift */,
+				7986808B1F209897000D541D /* Payout.swift */,
+				7986808D1F209A59000D541D /* RefundsResult.swift */,
+				7986808F1F209C27000D541D /* Refund.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +267,7 @@
 		794816151F1CE16700DD0783 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				798680831F208E34000D541D /* Mapper.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -490,10 +508,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7986808E1F209A59000D541D /* RefundsResult.swift in Sources */,
 				794816171F1CE1E400DD0783 /* P2PCore.swift in Sources */,
+				7986808C1F209897000D541D /* Payout.swift in Sources */,
 				794816191F1CE72F00DD0783 /* DealsManager.swift in Sources */,
 				794816221F1CE93200DD0783 /* CurrencyId.swift in Sources */,
+				7986808A1F20980F000D541D /* PayoutsResult.swift in Sources */,
+				798680861F20960E000D541D /* BankCard.swift in Sources */,
+				798680901F209C27000D541D /* Refund.swift in Sources */,
 				794816621F1CEB2F00DD0783 /* Deal.swift in Sources */,
+				798680841F208E34000D541D /* Mapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,6 +874,7 @@
 				794815D11F1CDD2700DD0783 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		794815FD1F1CDDE200DD0783 /* Build configuration list for PBXNativeTarget "P2PExample" */ = {
 			isa = XCConfigurationList;
@@ -858,6 +883,7 @@
 				794815FF1F1CDDE200DD0783 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7948160E1F1CDDFA00DD0783 /* Build configuration list for PBXNativeTarget "P2PUI" */ = {
 			isa = XCConfigurationList;
@@ -866,6 +892,7 @@
 				794816101F1CDDFA00DD0783 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		794816511F1CE9AC00DD0783 /* Build configuration list for PBXNativeTarget "P2PExampleObjC" */ = {
 			isa = XCConfigurationList;
@@ -874,6 +901,7 @@
 				794816531F1CE9AC00DD0783 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

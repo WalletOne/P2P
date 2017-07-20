@@ -14,12 +14,21 @@ import Foundation
     
     var partnerId: String = ""
     
+    var payerId: String = ""
+    
+    var payerPhoneNumber: String = ""
+    
     /// Manager for working with deals (fetch, create, delete, etc.)
     lazy var deals: DealsManager = { return .init(self) }()
     public class var deals: DealsManager { return P2PCore.default.deals }
     
     public class func set(partnerId: String) {
         P2PCore.default.partnerId = partnerId
+    }
+    
+    public class func setPayer(id: String, phoneNumber: String) {
+        P2PCore.default.payerId = id
+        P2PCore.default.payerId = phoneNumber
     }
 }
 
