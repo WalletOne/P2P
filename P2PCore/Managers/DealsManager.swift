@@ -42,13 +42,13 @@ extension URLComposer {
     ///   - payerPhoneNumber: Phone number of payer
     ///   - card: Bank card, to which funds will be transferred
 
-    @discardableResult public func create(dealId: String, payerId: String, payerPhoneNumber: String, card: BankCard, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func create(dealId: String, payerId: String, payerPhoneNumber: String, cardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         let parameters: [String: Any] = [
             "PlatformDealId": dealId,
             "PlatformPayerId": payerId,
             "PayerPhoneNumber": payerPhoneNumber,
             "PlatformBeneficiaryId": core.userId,
-            "BeneficiaryCardId": card.cardId,
+            "BeneficiaryCardId": cardId,
             "Amount": amount,
             "CurrencyId": currencyId.rawValue,
             "ShortDescription": shortDescription,
@@ -81,9 +81,9 @@ extension URLComposer {
     /// - Parameters:
     ///   - autoComplete: Perfrom transaction after the card has been updated
 
-    @discardableResult public func set(bankCard: BankCard, for dealId: String, autoComplete: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func set(bankCard: Int, for dealId: String, autoComplete: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         let parameters: [String: Any] = [
-            "BeneficiaryCardId": dealId,
+            "BeneficiaryCardId": bankCard,
             "AutoComplete": autoComplete
         ]
         return core.networkManager.request(URLComposer.default.dealsBeneficiaryCard(platformDealId: dealId), method: .put, parameters: parameters, complete: complete)

@@ -14,9 +14,15 @@ import Foundation
     
     public var cardId: Int = 0
     
+    public var cardHolder: String = ""
+    
+    public var expireDate: String = ""
+    
     public required init(json: [String : Any]) {
         cardMask = map(json["CardMask"], "")
         cardId = map(json["CardId"], 0)
+        cardHolder = map(json["CardHolder"], "")
+        expireDate = map(json["ExpireDate"], "")
     }
     
 }

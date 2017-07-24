@@ -18,9 +18,17 @@ import Foundation
     
     var userId: String = ""
     
-    /// Manager for working with deals (fetch, create, delete, etc.)
+    /// Manager for working with deals
     lazy var deals: DealsManager = { return .init(self) }()
     public class var deals: DealsManager { return P2PCore.default.deals }
+    
+    /// Manager for working with beneficiaries cards
+    lazy var beneficiariesCards: BeneficiariesCardsManager = { return .init(self) }()
+    public class var beneficiariesCards: BeneficiariesCardsManager { return P2PCore.default.beneficiariesCards }
+    
+    /// Manager for working with payers cards
+    lazy var payersCards: PayersCardsManager = { return .init(self) }()
+    public class var payersCards: PayersCardsManager { return P2PCore.default.payersCards }
     
     lazy var networkManager: NetworkManager = { return .init(self) }()
     
