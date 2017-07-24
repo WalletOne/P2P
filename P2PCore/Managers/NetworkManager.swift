@@ -24,14 +24,24 @@ extension Data {
     
     // https://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
     
-    func sha256(data : Data) -> Data {
+    var sha256: Data {
         var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
-        data.withUnsafeBytes {
-            _ = CC_SHA256($0, CC_LONG(data.count), &hash)
+        withUnsafeBytes {
+            _ = CC_SHA256($0, CC_LONG(count), &hash)
         }
         return Data(bytes: hash)
     }
 
+}
+
+extension Date {
+    
+    fileprivate var ISO8601TimeStamp: String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return df.string(from: self)
+    }
+    
 }
 
 class NetworkManager: Manager {
@@ -47,18 +57,67 @@ class NetworkManager: Manager {
     
     var dataTasks: [URLSessionDataTask] = []
     
-    func makeSignature(url: String, timeStamp: Date, requestBody: String) -> String {
-        
-        let format = String("%@%@%@%@", 
-        
-        return ""
+    func makeSignature(url: String, timeStamp: String, requestBody: String) -> String {
+        let stringValue = String(format: "%@%@%@%@", url, timeStamp, requestBody, core.signatureKey)
+        let dataValue = stringValue.data(using: .utf8)!
+        return String(data: dataValue.sha256, encoding: .utf8) ?? ""
     }
     
-    func request(_ url: String, method: Method = .get, parameters: [String: Any] = [:], complete: @escaping (Any?, Error?) -> Void) -> URLSessionDataTask {
-        let url = URL(string: url)!
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
+    func request<T: Mappable>(_ urlString: String, method: Method = .get, parameters: Any?, complete: @escaping ([T]?, Error?) -> Void) -> URLSessionDataTask {
+        return request(urlString, method: method, parameters: parameters, complete: { (JSON, error) in
+            if let error = error {
+                complete(nil, error)
+            } else if let JSON = JSON as? [[String: Any]] {
+                let array = JSON.map({ (_json) -> T in
+                    return T(json: _json)
+                })
+                complete(array, nil)
+            }
+        })
+    }
+    
+    func request<T: Mappable>(_ urlString: String, method: Method = .get, parameters: Any?, complete: @escaping (T?, Error?) -> Void) -> URLSessionDataTask {
+        return request(urlString, method: method, parameters: parameters, complete: { (JSON, error) in
+            if let error = error {
+                complete(nil, error)
+            } else if let JSON = JSON as? [String: Any] {
+                complete(T(json: JSON), nil)
+            }
+        })
+    }
+    
+    func request(_ urlString: String, method: Method = .get, parameters: Any?, complete: @escaping (Any?, Error?) -> Void) -> URLSessionDataTask {
+        let url = URL(string: urlString)!
         
+        var request = URLRequest(url: url)
+        
+        var bodyAsString = ""
+        
+        let timeStamp = Date().ISO8601TimeStamp
+        
+        if let parameters = parameters {
+            let body = try? JSONSerialization.data(withJSONObject: parameters)
+            bodyAsString = String(data: body ?? .init(), encoding: .utf8) ?? ""
+            
+            request.httpBody = body
+        }
+        
+        let signature = makeSignature(url: urlString, timeStamp: timeStamp, requestBody: bodyAsString)
+        
+        request.addValue(core.platformId, forHTTPHeaderField: "X-Wallet-PlatformId")
+        request.addValue(timeStamp, forHTTPHeaderField: "X-Wallet-Timestamp")
+        request.addValue(signature, forHTTPHeaderField: "X-Wallet-Signature")
+        
+        print("BEGIN NEW REQUEST")
+        print("\(method.rawValue) \(urlString)")
+        print("SIGNATURE: \(signature)")
+        print("BODY\n\n \(bodyAsString)")
+        print("END NEW REQUEST\n")
+        
+        return lowLevelRequest(request, complete: complete)
+    }
+    
+    private func lowLevelRequest(_ request: URLRequest, complete: @escaping (Any?, Error?) -> Void) -> URLSessionDataTask {
         let dataTask = defaultSession.dataTask(with: request) { data, response, error in
             if let error = error {
                 complete(nil, error)

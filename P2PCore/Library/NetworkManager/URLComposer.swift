@@ -1,9 +1,9 @@
 //
 //  URLComposer.swift
-//  Locals
+//  P2PCore
 //
 //  Created by Vitaliy Kuzmenko on 01/08/16.
-//  Copyright © 2016 Locals. All rights reserved.
+//  Copyright © 2016 Wallet One. All rights reserved.
 //
 
 import Foundation
@@ -16,20 +16,20 @@ public class URLComposer {
         case sandbox, product
     }
     
-    public static let instance = URLComposer()
+    public static let `default` = URLComposer()
     
-    var mode: Mode = .product
+    var mode: Mode = .sandbox
     
-    var sandboxURL = "http://locals.dev.ikitlab.co/"
+    var sandboxURL = "https://api.dev.walletone.com/"
     
-    var productURL = "https://thelocals.ru/"
+    var productURL = "https://api.dev.walletone.com/"
     
-    var apiPath = "api/mobile/"
+    var apiPath = "p2p/api/v2/"
     
     var `protocol`: String {
         switch mode {
         case .sandbox:
-            return "http"
+            return "https"
         case .product:
             return "https"
         }
@@ -48,17 +48,7 @@ public class URLComposer {
         return baseURL + apiPath
     }
     
-    class var baseURL: String { return instance.baseURL }
-    
-    func set(domain: String, subdomain: String) {
-        let url = `protocol` + "://" + subdomain + (subdomain.isEmpty ? "" : ".") + domain + "/"
-        switch mode {
-        case .sandbox:
-            sandboxURL = url
-        case .product:
-            productURL = url
-        }
-    }
+    class var baseURL: String { return URLComposer.default.baseURL }
     
     // MARK: - Utitlites
     
