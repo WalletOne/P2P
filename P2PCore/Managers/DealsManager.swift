@@ -41,11 +41,7 @@ extension URLComposer {
     ///   - payerId: Payer identifier in your system
     ///   - payerPhoneNumber: Phone number of payer
     ///   - card: Bank card, to which funds will be transferred
-    ///   - amount: Amount of deal
-    ///   - currencyId: Currency of deal
-    ///   - shortDescription: Short description of deal
-    ///   - fullDescription: Full description of deal
-    ///   - complete: Completion handler with Object (Deal) id success and error if fail
+
     @discardableResult public func create(dealId: String, payerId: String, payerPhoneNumber: String, card: BankCard, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         let parameters: [String: Any] = [
             "PlatformDealId": dealId,
@@ -62,21 +58,35 @@ extension URLComposer {
     }
     
     /// Complete deal
-    ///
-    /// - Parameters:
-    ///   - dealId: Deal identifier in your system
-    ///   - complete: Completion handler with Object (Deal) id success and error if fail
+
     @discardableResult public func complete(dealId: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.dealsComplete(platformDealId: dealId), method: .put, parameters: nil, complete: complete)
     }
     
     /// Cancel deal
-    ///
-    /// - Parameters:
-    ///   - dealId: Deal identifier in your system
-    ///   - complete: Completion handler with Object (Deal) id success and error if fail
+    
     @discardableResult public func cancel(dealId: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.dealsCancel(platformDealId: dealId), method: .put, parameters: nil, complete: complete)
+    }
+    
+    /// Get deal status
+
+    @discardableResult public func status(dealId: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.deals(platformDealId: dealId), method: .get, parameters: nil, complete: complete)
+    }
+    
+    /// Change bank card in deal.
+    /// This action acceptable when deal status one of (Created | PaymentProcessing | PaymentProcessError | Paid | PayoutProcessError)
+    ///
+    /// - Parameters:
+    ///   - autoComplete: Perfrom transaction after the card has been updated
+
+    @discardableResult public func set(bankCard: BankCard, for dealId: String, autoComplete: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+        let parameters: [String: Any] = [
+            "BeneficiaryCardId": dealId,
+            "AutoComplete": autoComplete
+        ]
+        return core.networkManager.request(URLComposer.default.dealsBeneficiaryCard(platformDealId: dealId), method: .put, parameters: parameters, complete: complete)
     }
     
 }

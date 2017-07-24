@@ -8,30 +8,35 @@
 
 import Foundation
 
+extension String {
+    var uppercaseFirst: String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+}
+
 @objc public enum DealStateId: Int, RawRepresentable {
     
     case undefined
     
-    case created
+    case created, paymentProcessing, paymentProcessError, paid, payoutProcessing, payoutProcessError, completed, canceling, cancelError, canceled
     
     public typealias RawValue = String
     
     public var rawValue: RawValue {
-        switch self {
-        case .created:
-            return "Created"
-        case .undefined:
-            return ""
-        }
+        return String(describing: self).uppercaseFirst
     }
     
     public init?(rawValue: RawValue) {
-        switch rawValue {
-            case "Created":
-            self = .created
-        default:
-            self = .undefined
+        let all: [DealStateId] = [.created, .paymentProcessing, .paymentProcessError, .paid, .payoutProcessing, .payoutProcessError, .completed, .canceling, .cancelError, .canceled]
+        for item in all {
+            if rawValue == item.rawValue {
+                self = item
+                return
+            }
         }
+        self = .undefined
     }
 }
 
@@ -78,6 +83,10 @@ import Foundation
     
     public var currencyId: CurrencyId = .rub
     
+    public var payerCommissionAmount: NSDecimalNumber = 0.0
+    
+    public var platformBonusAmount: NSDecimalNumber = 0.0
+    
     public var platformPayerId: String = ""
     
     public var payerCardId: Int = 0
@@ -100,6 +109,8 @@ import Foundation
         expireDate = map(json["ExpireDate"])
         amount = map(json["Amount"], 0.0)
         currencyId = map(json["CurrencyId"], .rub)
+        payerCommissionAmount = map(json["PayerCommissionAmount"], 0.0)
+        platformBonusAmount = map(json["PlatformBonusAmount"], 0.0)
         platformPayerId = map(json["PlatformPayerId"], "")
         payerCardId = map(json["PayerCardId"], 0)
         platformBeneficiaryId = map(json["PlatformBeneficiaryId"], "")
