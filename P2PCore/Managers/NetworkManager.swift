@@ -36,7 +36,7 @@ extension Data {
 
 extension Date {
     
-    fileprivate var ISO8601TimeStamp: String {
+    var ISO8601TimeStamp: String {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return df.string(from: self)

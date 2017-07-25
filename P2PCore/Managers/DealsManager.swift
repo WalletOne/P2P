@@ -10,8 +10,16 @@ import Foundation
 
 extension URLComposer {
  
+    func deal() -> String {
+        return relativeToBase("deal")
+    }
+    
+    func dealPay() -> String {
+        return relative(deal(), to: "pay")
+    }
+    
     func deals() -> String {
-        return relativeToBase("deals")
+        return relativeToApi("deals")
     }
     
     func deals(platformDealId: String) -> String {
@@ -42,12 +50,12 @@ extension URLComposer {
     ///   - payerPhoneNumber: Phone number of payer
     ///   - card: Bank card, to which funds will be transferred
 
-    @discardableResult public func create(dealId: String, payerId: String, payerPhoneNumber: String, cardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func create(dealId: String, payerId: String, beneficiaryId: String, payerPhoneNumber: String, cardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         let parameters: [String: Any] = [
             "PlatformDealId": dealId,
             "PlatformPayerId": payerId,
             "PayerPhoneNumber": payerPhoneNumber,
-            "PlatformBeneficiaryId": core.userId,
+            "PlatformBeneficiaryId": beneficiaryId,
             "BeneficiaryCardId": cardId,
             "Amount": amount,
             "CurrencyId": currencyId.rawValue,
@@ -88,5 +96,41 @@ extension URLComposer {
         ]
         return core.networkManager.request(URLComposer.default.dealsBeneficiaryCard(platformDealId: dealId), method: .put, parameters: parameters, complete: complete)
     }
+    
+    // Pay deal
+    
+    public func payRequest(dealId: String, authData: String? = nil, title: String? = nil, returnUrl: String) -> URLRequest {
+        
+        let url = URL(string: URLComposer.default.dealPay())!
+
+        let timeStamp = Date().ISO8601TimeStamp
+
+        var items: [String] = [
+            .init(format: "PlatformId=%@", core.platformId),
+            .init(format: "PlatformDealId=%@", dealId),
+            .init(format: "RedirectToCardAddition=%@", "true")
+        ]
+
+        if let authData = authData {
+            items.append(.init(format: "AuthData=%@", authData))
+        }
+
+        let queryStringPre = items.joined(separator: "&")
+
+        let signature = core.networkManager.makeSignature(url: URLComposer.default.dealPay(), timeStamp: timeStamp, requestBody: queryStringPre)
+
+        items.append(.init(format: "Signature=%@", signature))
+        items.append(.init(format: "Timestamp=%@", timeStamp))
+
+        let queryString = items.joined(separator: "&")
+        let queryData = queryString.data(using: .utf8)
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = queryData
+
+        return request
+    }
+
     
 }

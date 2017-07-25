@@ -11,7 +11,7 @@ import Foundation
 extension URLComposer {
     
     func payers() -> String {
-        return relativeToBase("payers")
+        return relativeToApi("payers")
     }
     
     func payers(_ id: String) -> String {
@@ -48,4 +48,5 @@ extension URLComposer {
         return core.networkManager.request(URLComposer.default.payersCardsCard(beneficiaryId, card: id), method: .delete, parameters: nil, complete: complete)
     }
     
+        
 }

@@ -53,6 +53,10 @@ public class URLComposer {
     // MARK: - Utitlites
     
     func relativeToBase(_ to: String) -> String {
+        return relative(baseURL, to: to)
+    }
+    
+    func relativeToApi(_ to: String) -> String {
         return relative(apiURL, to: to)
     }
     

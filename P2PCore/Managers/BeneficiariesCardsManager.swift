@@ -10,6 +10,14 @@ import Foundation
 
 extension URLComposer {
     
+    func beneficiary() -> String {
+        return relativeToBase("beneficiary")
+    }
+    
+    func beneficiaryCard() -> String {
+        return relative(beneficiary(), to: "card")
+    }
+    
     func beneficiaries() -> String {
         return relativeToBase("beneficiaries")
     }
@@ -24,6 +32,16 @@ extension URLComposer {
     
     func beneficiariesCardsCard(_ id: String, card: Int) -> String {
         return relative(beneficiariesCards(id), to: String(card))
+    }
+    
+}
+
+extension String {
+    
+    var urlEncode: String {
+        var set = CharacterSet.alphanumerics
+        set.insert(charactersIn: "_.-~")
+        return addingPercentEncoding(withAllowedCharacters: set) ?? self
     }
     
 }
@@ -46,6 +64,43 @@ extension URLComposer {
     
     @discardableResult public func delete(cardWith id: Int, of beneficiaryId: String, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(beneficiaryId, card: id), method: .delete, parameters: nil, complete: complete)
+    }
+    
+    /// Link new bank card request
+    
+    public func linkNewCardRequest(beneficiaryId: String, phoneNumber: String, title: String? = nil, returnUrl: String) -> URLRequest {
+        
+        let url = URL(string: URLComposer.default.beneficiaryCard())!
+        
+        let timeStamp = Date().ISO8601TimeStamp
+        
+        var items: [String] = [
+            .init(format: "PlatformId=%@", core.platformId),
+            .init(format: "PlatformBeneficiaryId=%@", beneficiaryId),
+            .init(format: "PhoneNumber=%@", phoneNumber.urlEncode),
+            .init(format: "ReturnUrl=%@", returnUrl.urlEncode),
+            .init(format: "RedirectToCardAddition=%@", "true")
+        ]
+        
+        if let title = title {
+            items.append(.init(format: "title=%@", title))
+        }
+        
+        let queryStringPre = items.joined(separator: "&")
+        
+        let signature = core.networkManager.makeSignature(url: URLComposer.default.beneficiaryCard(), timeStamp: timeStamp, requestBody: queryStringPre)
+        
+        items.append(.init(format: "Signature=%@", signature))
+        items.append(.init(format: "Timestamp=%@", timeStamp))
+        
+        let queryString = items.joined(separator: "&")
+        let queryData = queryString.data(using: .utf8)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = queryData
+        
+        return request
     }
     
 }

@@ -16,8 +16,6 @@ import Foundation
     
     var signatureKey: String = ""
     
-    var userId: String = ""
-    
     /// Manager for working with deals
     lazy var deals: DealsManager = { return .init(self) }()
     public class var deals: DealsManager { return P2PCore.default.deals }
@@ -35,10 +33,6 @@ import Foundation
     public class func setPlatform(id: String, signatureKey: String) {
         P2PCore.default.platformId = id
         P2PCore.default.signatureKey = signatureKey
-    }
-    
-    public class func setUser(_ id: String) {
-        P2PCore.default.userId = id
     }
 
 }
