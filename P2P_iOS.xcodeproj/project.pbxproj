@@ -11,6 +11,23 @@
 		79430D2B1F2622240075EB8E /* PayersCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2A1F2622240075EB8E /* PayersCardsManager.swift */; };
 		79430D2D1F26245E0075EB8E /* PayoutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2C1F26245E0075EB8E /* PayoutsManager.swift */; };
 		79430D2F1F2629D40075EB8E /* RefundsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2E1F2629D40075EB8E /* RefundsManager.swift */; };
+		79430D4C1F28B29C0075EB8E /* CollectionStructuredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D491F28B29C0075EB8E /* CollectionStructuredController.swift */; };
+		79430D4D1F28B29C0075EB8E /* StructuredSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D4A1F28B29C0075EB8E /* StructuredSection.swift */; };
+		79430D4E1F28B29C0075EB8E /* TableStructuredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D4B1F28B29C0075EB8E /* TableStructuredController.swift */; };
+		79430D501F28BF080075EB8E /* P2PViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79430D4F1F28BF080075EB8E /* P2PViewController.xib */; };
+		79430D5A1F28CD620075EB8E /* BankCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D581F28CD620075EB8E /* BankCardsViewController.swift */; };
+		79430D5B1F28CD620075EB8E /* BankCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79430D591F28CD620075EB8E /* BankCardsViewController.xib */; };
+		79430D611F28CD9A0075EB8E /* BankCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D5F1F28CD9A0075EB8E /* BankCardTableViewCell.swift */; };
+		79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */; };
+		79430D6E1F28CE5D0075EB8E /* MasterCardMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D651F28CE5D0075EB8E /* MasterCardMini.png */; };
+		79430D6F1F28CE5D0075EB8E /* MasterCardMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D661F28CE5D0075EB8E /* MasterCardMini@2x.png */; };
+		79430D701F28CE5D0075EB8E /* MasterCardMini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D671F28CE5D0075EB8E /* MasterCardMini@3x.png */; };
+		79430D711F28CE5D0075EB8E /* MirMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D681F28CE5D0075EB8E /* MirMini.png */; };
+		79430D721F28CE5D0075EB8E /* MirMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D691F28CE5D0075EB8E /* MirMini@2x.png */; };
+		79430D731F28CE5D0075EB8E /* MirMini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6A1F28CE5D0075EB8E /* MirMini@3x.png */; };
+		79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6B1F28CE5D0075EB8E /* VisaMini.png */; };
+		79430D751F28CE5D0075EB8E /* VisaMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6C1F28CE5D0075EB8E /* VisaMini@2x.png */; };
+		79430D761F28CE5D0075EB8E /* VisaMini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6D1F28CE5D0075EB8E /* VisaMini@3x.png */; };
 		794815CB1F1CDD2700DD0783 /* P2PCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 794815C91F1CDD2700DD0783 /* P2PCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		794815F11F1CDDE200DD0783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815F01F1CDDE200DD0783 /* AppDelegate.swift */; };
 		794815F31F1CDDE200DD0783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815F21F1CDDE200DD0783 /* ViewController.swift */; };
@@ -112,6 +129,23 @@
 		79430D2A1F2622240075EB8E /* PayersCardsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayersCardsManager.swift; sourceTree = "<group>"; };
 		79430D2C1F26245E0075EB8E /* PayoutsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsManager.swift; sourceTree = "<group>"; };
 		79430D2E1F2629D40075EB8E /* RefundsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsManager.swift; sourceTree = "<group>"; };
+		79430D491F28B29C0075EB8E /* CollectionStructuredController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionStructuredController.swift; sourceTree = "<group>"; };
+		79430D4A1F28B29C0075EB8E /* StructuredSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructuredSection.swift; sourceTree = "<group>"; };
+		79430D4B1F28B29C0075EB8E /* TableStructuredController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStructuredController.swift; sourceTree = "<group>"; };
+		79430D4F1F28BF080075EB8E /* P2PViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = P2PViewController.xib; sourceTree = "<group>"; };
+		79430D581F28CD620075EB8E /* BankCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCardsViewController.swift; sourceTree = "<group>"; };
+		79430D591F28CD620075EB8E /* BankCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardsViewController.xib; sourceTree = "<group>"; };
+		79430D5F1F28CD9A0075EB8E /* BankCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCardTableViewCell.swift; sourceTree = "<group>"; };
+		79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardTableViewCell.xib; sourceTree = "<group>"; };
+		79430D651F28CE5D0075EB8E /* MasterCardMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MasterCardMini.png; sourceTree = "<group>"; };
+		79430D661F28CE5D0075EB8E /* MasterCardMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterCardMini@2x.png"; sourceTree = "<group>"; };
+		79430D671F28CE5D0075EB8E /* MasterCardMini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterCardMini@3x.png"; sourceTree = "<group>"; };
+		79430D681F28CE5D0075EB8E /* MirMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MirMini.png; sourceTree = "<group>"; };
+		79430D691F28CE5D0075EB8E /* MirMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MirMini@2x.png"; sourceTree = "<group>"; };
+		79430D6A1F28CE5D0075EB8E /* MirMini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MirMini@3x.png"; sourceTree = "<group>"; };
+		79430D6B1F28CE5D0075EB8E /* VisaMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VisaMini.png; sourceTree = "<group>"; };
+		79430D6C1F28CE5D0075EB8E /* VisaMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaMini@2x.png"; sourceTree = "<group>"; };
+		79430D6D1F28CE5D0075EB8E /* VisaMini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaMini@3x.png"; sourceTree = "<group>"; };
 		794815C71F1CDD2700DD0783 /* P2PCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P2PCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		794815C91F1CDD2700DD0783 /* P2PCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P2PCore.h; sourceTree = "<group>"; };
 		794815CA1F1CDD2700DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,6 +223,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79430D471F28B2420075EB8E /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				79430D481F28B2520075EB8E /* TableCollectionStructured */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		79430D481F28B2520075EB8E /* TableCollectionStructured */ = {
+			isa = PBXGroup;
+			children = (
+				79430D491F28B29C0075EB8E /* CollectionStructuredController.swift */,
+				79430D4A1F28B29C0075EB8E /* StructuredSection.swift */,
+				79430D4B1F28B29C0075EB8E /* TableStructuredController.swift */,
+			);
+			path = TableCollectionStructured;
+			sourceTree = "<group>";
+		};
+		79430D571F28CD560075EB8E /* BankCards */ = {
+			isa = PBXGroup;
+			children = (
+				79430D5C1F28CD6E0075EB8E /* TableViewCell */,
+				79430D581F28CD620075EB8E /* BankCardsViewController.swift */,
+				79430D591F28CD620075EB8E /* BankCardsViewController.xib */,
+			);
+			path = BankCards;
+			sourceTree = "<group>";
+		};
+		79430D5C1F28CD6E0075EB8E /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				79430D5F1F28CD9A0075EB8E /* BankCardTableViewCell.swift */,
+				79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		79430D631F28CDD70075EB8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79430D641F28CDEC0075EB8E /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		79430D641F28CDEC0075EB8E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				79430D651F28CE5D0075EB8E /* MasterCardMini.png */,
+				79430D661F28CE5D0075EB8E /* MasterCardMini@2x.png */,
+				79430D671F28CE5D0075EB8E /* MasterCardMini@3x.png */,
+				79430D681F28CE5D0075EB8E /* MirMini.png */,
+				79430D691F28CE5D0075EB8E /* MirMini@2x.png */,
+				79430D6A1F28CE5D0075EB8E /* MirMini@3x.png */,
+				79430D6B1F28CE5D0075EB8E /* VisaMini.png */,
+				79430D6C1F28CE5D0075EB8E /* VisaMini@2x.png */,
+				79430D6D1F28CE5D0075EB8E /* VisaMini@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		794815A41F1CDC1A00DD0783 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +337,8 @@
 			isa = PBXGroup;
 			children = (
 				7948161B1F1CE83200DD0783 /* Controllers */,
+				79430D471F28B2420075EB8E /* Library */,
+				79430D631F28CDD70075EB8E /* Resources */,
 				794816071F1CDDFA00DD0783 /* P2PUI.h */,
 				794816081F1CDDFA00DD0783 /* Info.plist */,
 			);
@@ -295,8 +392,10 @@
 		7948161B1F1CE83200DD0783 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				79430D571F28CD560075EB8E /* BankCards */,
 				7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */,
 				7948161E1F1CE86900DD0783 /* P2PViewController.swift */,
+				79430D4F1F28BF080075EB8E /* P2PViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -516,6 +615,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79430D721F28CE5D0075EB8E /* MirMini@2x.png in Resources */,
+				79430D6E1F28CE5D0075EB8E /* MasterCardMini.png in Resources */,
+				79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */,
+				79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */,
+				79430D701F28CE5D0075EB8E /* MasterCardMini@3x.png in Resources */,
+				79430D761F28CE5D0075EB8E /* VisaMini@3x.png in Resources */,
+				79430D6F1F28CE5D0075EB8E /* MasterCardMini@2x.png in Resources */,
+				79430D501F28BF080075EB8E /* P2PViewController.xib in Resources */,
+				79430D751F28CE5D0075EB8E /* VisaMini@2x.png in Resources */,
+				79430D711F28CE5D0075EB8E /* MirMini.png in Resources */,
+				79430D5B1F28CD620075EB8E /* BankCardsViewController.xib in Resources */,
+				79430D731F28CE5D0075EB8E /* MirMini@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +679,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79430D4D1F28B29C0075EB8E /* StructuredSection.swift in Sources */,
+				79430D4E1F28B29C0075EB8E /* TableStructuredController.swift in Sources */,
+				79430D611F28CD9A0075EB8E /* BankCardTableViewCell.swift in Sources */,
+				79430D5A1F28CD620075EB8E /* BankCardsViewController.swift in Sources */,
+				79430D4C1F28B29C0075EB8E /* CollectionStructuredController.swift in Sources */,
 				7948161D1F1CE84800DD0783 /* P2PNavigationController.swift in Sources */,
 				7948161F1F1CE86900DD0783 /* P2PViewController.swift in Sources */,
 			);
