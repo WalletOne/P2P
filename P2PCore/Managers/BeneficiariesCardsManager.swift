@@ -19,7 +19,7 @@ extension URLComposer {
     }
     
     func beneficiaries() -> String {
-        return relativeToBase("beneficiaries")
+        return relativeToApi("beneficiaries")
     }
     
     func beneficiaries(_ id: String) -> String {
@@ -50,25 +50,25 @@ extension String {
     
     /// Get all cards of beneficiary
     
-    @discardableResult public func cards(of beneficiaryId: String, complete: @escaping ([BankCard]?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesCards(beneficiaryId), method: .get, parameters: nil, complete: complete)
+    @discardableResult public func cards(complete: @escaping ([BankCard]?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.beneficiariesCards(core.benificaryId), method: .get, parameters: nil, complete: complete)
     }
 
     /// Get card of beneficiary by id
     
-    @discardableResult public func card(with id: Int, of beneficiaryId: String, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(beneficiaryId, card: id), method: .get, parameters: nil, complete: complete)
+    @discardableResult public func card(with id: Int, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(core.benificaryId, card: id), method: .get, parameters: nil, complete: complete)
     }
     
     ///  Delete linked card of beneficiary
     
-    @discardableResult public func delete(cardWith id: Int, of beneficiaryId: String, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(beneficiaryId, card: id), method: .delete, parameters: nil, complete: complete)
+    @discardableResult public func delete(cardWith id: Int, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(core.benificaryId, card: id), method: .delete, parameters: nil, complete: complete)
     }
     
     /// Link new bank card request
     
-    public func linkNewCardRequest(beneficiaryId: String, phoneNumber: String, title: String? = nil, returnUrl: String) -> URLRequest {
+    public func linkNewCardRequest(returnUrl: String) -> URLRequest {
         
         let url = URL(string: URLComposer.default.beneficiaryCard())!
         
@@ -76,19 +76,16 @@ extension String {
         
         var items: [String] = [
             .init(format: "PlatformId=%@", core.platformId),
-            .init(format: "PlatformBeneficiaryId=%@", beneficiaryId),
-            .init(format: "PhoneNumber=%@", phoneNumber.urlEncode),
+            .init(format: "PlatformBeneficiaryId=%@", core.benificaryId),
+            .init(format: "PhoneNumber=%@", core.benificaryTitle.urlEncode),
             .init(format: "ReturnUrl=%@", returnUrl.urlEncode),
-            .init(format: "RedirectToCardAddition=%@", "true")
+            .init(format: "RedirectToCardAddition=%@", "true"),
+            .init(format: "title=%@", core.benificaryTitle)
         ]
         
-        if let title = title {
-            items.append(.init(format: "title=%@", title))
-        }
-        
         let queryStringPre = items.joined(separator: "&")
-        
-        let signature = core.networkManager.makeSignature(url: URLComposer.default.beneficiaryCard(), timeStamp: timeStamp, requestBody: queryStringPre)
+        //URLComposer.default.beneficiaryCard()
+        let signature = core.networkManager.makeSignature(url: "https://dev.walletone.com/p2p/beneficiary/card", timeStamp: timeStamp, requestBody: queryStringPre)
         
         items.append(.init(format: "Signature=%@", signature))
         items.append(.init(format: "Timestamp=%@", timeStamp))

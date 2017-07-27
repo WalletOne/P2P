@@ -43,6 +43,11 @@
                     <constraint firstItem="NlJ-NG-0xB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zRQ-Fy-9u1"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="maskedLabel" destination="ma8-MP-BK5" id="77J-0j-m2g"/>
+                <outlet property="typeImageView" destination="NlJ-NG-0xB" id="8BR-lb-XhM"/>
+                <outlet property="typeNameLabel" destination="zfj-Jf-4Su" id="caT-XW-ZYU"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

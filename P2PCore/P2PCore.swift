@@ -16,6 +16,18 @@ import Foundation
     
     var signatureKey: String = ""
     
+    var payerId: String = ""
+    
+    var payerTitle: String = ""
+    
+    var payerPhoneNumber: String = ""
+    
+    var benificaryId: String = ""
+    
+    var benificaryTitle: String = ""
+    
+    var benificaryPhoneNumber: String = ""
+    
     /// Manager for working with deals
     lazy var deals: DealsManager = { return .init(self) }()
     public class var deals: DealsManager { return P2PCore.default.deals }
@@ -33,6 +45,18 @@ import Foundation
     public class func setPlatform(id: String, signatureKey: String) {
         P2PCore.default.platformId = id
         P2PCore.default.signatureKey = signatureKey
+    }
+    
+    public class func setPayer(id: String, title: String, phoneNumber: String) {
+        P2PCore.default.payerId = id
+        P2PCore.default.payerTitle = title
+        P2PCore.default.payerPhoneNumber = phoneNumber
+    }
+    
+    public class func setBenificiary(id: String, title: String, phoneNumber: String) {
+        P2PCore.default.benificaryId = id
+        P2PCore.default.benificaryTitle = title
+        P2PCore.default.benificaryPhoneNumber = phoneNumber
     }
 
 }

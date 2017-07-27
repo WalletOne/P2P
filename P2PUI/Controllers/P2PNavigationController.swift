@@ -15,18 +15,18 @@ import P2PCore
 
 let kBundle = Bundle(identifier: "com.walletone.ios.P2PUI")
 
-@objc class P2PNavigationController: UINavigationController {
-    
-    public convenience init(typeId: P2PViewControllerTypeId) {
-        
-        let vc: UIViewController
-        
-        switch typeId {
-        case .bankCards:
-            vc = BankCardsViewController(nibName: "BankCardsViewController", bundle: kBundle)
-        }
-        
-        self.init(rootViewController: vc)
-    }
-    
-}
+//@objc public class P2PNavigationController: UINavigationController {
+//    
+//    public convenience init(typeId: P2PViewControllerTypeId) {
+//        
+//        let vc: UIViewController
+//        
+//        switch typeId {
+//        case .bankCards:
+//            vc = BankCardsViewController(nibName: "BankCardsViewController", bundle: kBundle)
+//        }
+//        
+//        self.init(rootViewController: vc)
+//    }
+//    
+//}

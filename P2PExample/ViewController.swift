@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import P2PUI
 import P2PCore
 
 class ViewController: UIViewController {
@@ -15,18 +16,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        P2PCore.setPartner(id: "testplatform", signatureKey: "TestPlatformSignatureKey")
+        P2PCore.setPlatform(id: "testplatform", signatureKey: "TestPlatformSignatureKey")
+        P2PCore.setBenificiary(id: "vitkuzmenko", title: "Виталий Кузьменко", phoneNumber: "79286634400")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let vc = BankCardsViewController(owner: .benificiary)
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let nvc = UINavigationController(rootViewController: vc)
+        present(nvc, animated: true, completion: nil)
     }
 
 

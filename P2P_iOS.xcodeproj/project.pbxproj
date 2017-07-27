@@ -64,6 +64,13 @@
 		7986808E1F209A59000D541D /* RefundsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808D1F209A59000D541D /* RefundsResult.swift */; };
 		798680901F209C27000D541D /* Refund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808F1F209C27000D541D /* Refund.swift */; };
 		798680921F209EC3000D541D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680911F209EC3000D541D /* NetworkManager.swift */; };
+		79E96B711F2A134100AE064B /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B6F1F2A134100AE064B /* LoadingTableViewCell.swift */; };
+		79E96B721F2A134100AE064B /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E96B701F2A134100AE064B /* LoadingTableViewCell.xib */; };
+		79E96B751F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B731F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift */; };
+		79E96B761F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E96B741F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib */; };
+		79E96B791F2A229200AE064B /* CreditCardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B781F2A229200AE064B /* CreditCardValidator.swift */; };
+		79E96B7C1F2A333400AE064B /* LinkCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B7B1F2A333400AE064B /* LinkCardViewController.swift */; };
+		79E96B7E1F2A333E00AE064B /* LinkCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E96B7D1F2A333E00AE064B /* LinkCardViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +191,13 @@
 		7986808D1F209A59000D541D /* RefundsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsResult.swift; sourceTree = "<group>"; };
 		7986808F1F209C27000D541D /* Refund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refund.swift; sourceTree = "<group>"; };
 		798680911F209EC3000D541D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		79E96B6F1F2A134100AE064B /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		79E96B701F2A134100AE064B /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		79E96B731F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCardLinkNewTableViewCell.swift; sourceTree = "<group>"; };
+		79E96B741F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardLinkNewTableViewCell.xib; sourceTree = "<group>"; };
+		79E96B781F2A229200AE064B /* CreditCardValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardValidator.swift; sourceTree = "<group>"; };
+		79E96B7B1F2A333400AE064B /* LinkCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCardViewController.swift; sourceTree = "<group>"; };
+		79E96B7D1F2A333E00AE064B /* LinkCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkCardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +240,8 @@
 		79430D471F28B2420075EB8E /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				79E96B771F2A228700AE064B /* CreditCardValidator */,
+				79E96B6E1F2A132F00AE064B /* TableViewCells */,
 				79430D481F28B2520075EB8E /* TableCollectionStructured */,
 			);
 			path = Library;
@@ -256,6 +272,8 @@
 			children = (
 				79430D5F1F28CD9A0075EB8E /* BankCardTableViewCell.swift */,
 				79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */,
+				79E96B731F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift */,
+				79E96B741F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -392,6 +410,7 @@
 		7948161B1F1CE83200DD0783 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				79E96B7A1F2A332700AE064B /* LinkCard */,
 				79430D571F28CD560075EB8E /* BankCards */,
 				7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */,
 				7948161E1F1CE86900DD0783 /* P2PViewController.swift */,
@@ -438,6 +457,32 @@
 				795F0B291F20D23400FB95D9 /* module.map */,
 			);
 			path = CommonCrypto;
+			sourceTree = "<group>";
+		};
+		79E96B6E1F2A132F00AE064B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				79E96B6F1F2A134100AE064B /* LoadingTableViewCell.swift */,
+				79E96B701F2A134100AE064B /* LoadingTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		79E96B771F2A228700AE064B /* CreditCardValidator */ = {
+			isa = PBXGroup;
+			children = (
+				79E96B781F2A229200AE064B /* CreditCardValidator.swift */,
+			);
+			path = CreditCardValidator;
+			sourceTree = "<group>";
+		};
+		79E96B7A1F2A332700AE064B /* LinkCard */ = {
+			isa = PBXGroup;
+			children = (
+				79E96B7B1F2A333400AE064B /* LinkCardViewController.swift */,
+				79E96B7D1F2A333E00AE064B /* LinkCardViewController.xib */,
+			);
+			path = LinkCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -619,7 +664,10 @@
 				79430D6E1F28CE5D0075EB8E /* MasterCardMini.png in Resources */,
 				79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */,
 				79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */,
+				79E96B7E1F2A333E00AE064B /* LinkCardViewController.xib in Resources */,
 				79430D701F28CE5D0075EB8E /* MasterCardMini@3x.png in Resources */,
+				79E96B721F2A134100AE064B /* LoadingTableViewCell.xib in Resources */,
+				79E96B761F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib in Resources */,
 				79430D761F28CE5D0075EB8E /* VisaMini@3x.png in Resources */,
 				79430D6F1F28CE5D0075EB8E /* MasterCardMini@2x.png in Resources */,
 				79430D501F28BF080075EB8E /* P2PViewController.xib in Resources */,
@@ -682,9 +730,13 @@
 				79430D4D1F28B29C0075EB8E /* StructuredSection.swift in Sources */,
 				79430D4E1F28B29C0075EB8E /* TableStructuredController.swift in Sources */,
 				79430D611F28CD9A0075EB8E /* BankCardTableViewCell.swift in Sources */,
+				79E96B7C1F2A333400AE064B /* LinkCardViewController.swift in Sources */,
+				79E96B791F2A229200AE064B /* CreditCardValidator.swift in Sources */,
+				79E96B751F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift in Sources */,
 				79430D5A1F28CD620075EB8E /* BankCardsViewController.swift in Sources */,
 				79430D4C1F28B29C0075EB8E /* CollectionStructuredController.swift in Sources */,
 				7948161D1F1CE84800DD0783 /* P2PNavigationController.swift in Sources */,
+				79E96B711F2A134100AE064B /* LoadingTableViewCell.swift in Sources */,
 				7948161F1F1CE86900DD0783 /* P2PViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,20 +32,20 @@ extension URLComposer {
     
     /// Get all cards of payer
     
-    @discardableResult public func cards(of beneficiaryId: String, complete: @escaping ([BankCard]?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.payersCards(beneficiaryId), method: .get, parameters: nil, complete: complete)
+    @discardableResult public func cards(complete: @escaping ([BankCard]?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.payersCards(core.payerId), method: .get, parameters: nil, complete: complete)
     }
     
     /// Get card of payer by id
     
-    @discardableResult public func card(with id: Int, of beneficiaryId: String, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.payersCardsCard(beneficiaryId, card: id), method: .get, parameters: nil, complete: complete)
+    @discardableResult public func card(with id: Int, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.payersCardsCard(core.payerId, card: id), method: .get, parameters: nil, complete: complete)
     }
     
     ///  Delete linked card of payer
     
-    @discardableResult public func delete(cardWith id: Int, of beneficiaryId: String, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.payersCardsCard(beneficiaryId, card: id), method: .delete, parameters: nil, complete: complete)
+    @discardableResult public func delete(cardWith id: Int, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.payersCardsCard(core.payerId, card: id), method: .delete, parameters: nil, complete: complete)
     }
     
         

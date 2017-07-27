@@ -24,6 +24,10 @@ extension Data {
     
     // https://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
     
+    var hexString: String {
+        return map { String(format: "%02hhx", $0) }.joined()
+    }
+    
     var sha256: Data {
         var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
         withUnsafeBytes {
@@ -38,6 +42,7 @@ extension Date {
     
     var ISO8601TimeStamp: String {
         let df = DateFormatter()
+        df.timeZone = TimeZone(identifier: "UTC")
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return df.string(from: self)
     }
@@ -59,8 +64,11 @@ class NetworkManager: Manager {
     
     func makeSignature(url: String, timeStamp: String, requestBody: String) -> String {
         let stringValue = String(format: "%@%@%@%@", url, timeStamp, requestBody, core.signatureKey)
+        print("SIGNATURE RAW: \(stringValue)")
         let dataValue = stringValue.data(using: .utf8)!
-        return String(data: dataValue.sha256, encoding: .utf8) ?? ""
+        let signatureEncoded = dataValue.sha256
+        let base64 = signatureEncoded.base64EncodedString()
+        return base64
     }
     
     func request<T: Mappable>(_ urlString: String, method: Method = .get, parameters: Any?, complete: @escaping ([T]?, Error?) -> Void) -> URLSessionDataTask {
@@ -112,6 +120,7 @@ class NetworkManager: Manager {
         print("\(method.rawValue) \(urlString)")
         print("SIGNATURE: \(signature)")
         print("BODY\n\n \(bodyAsString)")
+        print("Headers\n\n \(String(describing: request.allHTTPHeaderFields))")
         print("END NEW REQUEST\n")
         
         return lowLevelRequest(request, complete: complete)
