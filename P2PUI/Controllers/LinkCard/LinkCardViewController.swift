@@ -25,6 +25,10 @@ class LinkCardViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let request = P2PCore.beneficiariesCards.linkNewCardRequest(returnUrl: "http://p2p_success_link_new_card")
+        
+        print(request.httpMethod ?? "" + "=======")
+        print(request)
+        
         webView.loadRequest(request)
     }
 

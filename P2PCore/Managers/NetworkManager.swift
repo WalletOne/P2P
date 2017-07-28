@@ -23,11 +23,7 @@ extension NSError {
 extension Data {
     
     // https://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
-    
-    var hexString: String {
-        return map { String(format: "%02hhx", $0) }.joined()
-    }
-    
+
     var sha256: Data {
         var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
         withUnsafeBytes {
@@ -64,7 +60,22 @@ class NetworkManager: Manager {
     
     func makeSignature(url: String, timeStamp: String, requestBody: String) -> String {
         let stringValue = String(format: "%@%@%@%@", url, timeStamp, requestBody, core.signatureKey)
-        print("SIGNATURE RAW: \(stringValue)")
+        let dataValue = stringValue.data(using: .utf8)!
+        let signatureEncoded = dataValue.sha256
+        let base64 = signatureEncoded.base64EncodedString()
+        return base64
+    }
+    
+    func makeSignatureForWeb(parameters: [(key: String, value: String)]) -> String {
+
+        let array = parameters.sorted(by: { (l, r) -> Bool in
+            return l.key < r.key
+        })
+        
+        let stringValue = array.map({ $0.value }).joined() + core.signatureKey
+        
+        print(stringValue)
+        
         let dataValue = stringValue.data(using: .utf8)!
         let signatureEncoded = dataValue.sha256
         let base64 = signatureEncoded.base64EncodedString()
@@ -116,12 +127,14 @@ class NetworkManager: Manager {
         request.addValue(timeStamp, forHTTPHeaderField: "X-Wallet-Timestamp")
         request.addValue(signature, forHTTPHeaderField: "X-Wallet-Signature")
         
+        print("=======")
         print("BEGIN NEW REQUEST")
         print("\(method.rawValue) \(urlString)")
         print("SIGNATURE: \(signature)")
-        print("BODY\n\n \(bodyAsString)")
-        print("Headers\n\n \(String(describing: request.allHTTPHeaderFields))")
+        print("BODY:\n \(bodyAsString)")
+        print("Headers:\n\n \(String(describing: request.allHTTPHeaderFields))")
         print("END NEW REQUEST\n")
+        print("=======")
         
         return lowLevelRequest(request, complete: complete)
     }

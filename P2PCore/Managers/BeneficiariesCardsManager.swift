@@ -70,32 +70,36 @@ extension String {
     
     public func linkNewCardRequest(returnUrl: String) -> URLRequest {
         
-        let url = URL(string: URLComposer.default.beneficiaryCard())!
+        let urlString = "https://api.dev.walletone.com/p2p/beneficiary/card"
+        
+        let url = URL(string: urlString)!
         
         let timeStamp = Date().ISO8601TimeStamp
         
-        var items: [String] = [
-            .init(format: "PlatformId=%@", core.platformId),
-            .init(format: "PlatformBeneficiaryId=%@", core.benificaryId),
-            .init(format: "PhoneNumber=%@", core.benificaryTitle.urlEncode),
-            .init(format: "ReturnUrl=%@", returnUrl.urlEncode),
-            .init(format: "RedirectToCardAddition=%@", "true"),
-            .init(format: "title=%@", core.benificaryTitle)
+        var items: [(key: String, value: String)] = [
+            ("PhoneNumber", core.benificaryPhoneNumber),
+            ("PlatformBeneficiaryId", core.benificaryId),
+            ("PlatformId", core.platformId),
+            ("RedirectToCardAddition", "true"),
+            ("ReturnUrl", returnUrl),
+            ("Timestamp", timeStamp),
+            ("Title", core.benificaryTitle),
         ]
         
-        let queryStringPre = items.joined(separator: "&")
-        //URLComposer.default.beneficiaryCard()
-        let signature = core.networkManager.makeSignature(url: "https://dev.walletone.com/p2p/beneficiary/card", timeStamp: timeStamp, requestBody: queryStringPre)
+        let signature = core.networkManager.makeSignatureForWeb(parameters: items)
         
-        items.append(.init(format: "Signature=%@", signature))
-        items.append(.init(format: "Timestamp=%@", timeStamp))
+        items.append(("Signature", signature))
         
-        let queryString = items.joined(separator: "&")
+        let queryString = items.map({ String(format: "%@=%@", $0.key, $0.value.urlEncode) }).joined(separator: "&")
+        
+        print(queryString)
+        
         let queryData = queryString.data(using: .utf8)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = queryData
+        
         
         return request
     }

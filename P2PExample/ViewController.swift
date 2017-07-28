@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         P2PCore.setPlatform(id: "testplatform", signatureKey: "TestPlatformSignatureKey")
-        P2PCore.setBenificiary(id: "vitkuzmenko", title: "Виталий Кузьменко", phoneNumber: "79286634400")
+        P2PCore.setBenificiary(id: "vitkuzmenko", title: "Vitaliy", phoneNumber: "79286634400")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         let nvc = UINavigationController(rootViewController: vc)
         present(nvc, animated: true, completion: nil)
     }
-
 
 }
 

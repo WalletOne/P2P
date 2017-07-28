@@ -410,8 +410,8 @@
 		7948161B1F1CE83200DD0783 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				79E96B7A1F2A332700AE064B /* LinkCard */,
 				79430D571F28CD560075EB8E /* BankCards */,
+				79E96B7A1F2A332700AE064B /* LinkCard */,
 				7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */,
 				7948161E1F1CE86900DD0783 /* P2PViewController.swift */,
 				79430D4F1F28BF080075EB8E /* P2PViewController.xib */,
