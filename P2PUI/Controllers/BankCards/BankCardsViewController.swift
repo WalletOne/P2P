@@ -9,7 +9,7 @@
 import UIKit
 import P2PCore
 
-@objc public class BankCardsViewController: UIViewController, TableStructuredViewController {
+@objc public class BankCardsViewController: P2PViewController, TableStructuredViewController {
     
     @objc public enum Owner: Int {
         case benificiary, payer
@@ -33,6 +33,8 @@ import P2PCore
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = NSLocalizedString("Bank Cards", comment: "")
+        
         tableController.buildTableStructure(reloadData: false)
         
         loadData()
@@ -40,10 +42,10 @@ import P2PCore
 
     func loadData() {
         
-        let completion: ([BankCard]?, Error?) -> Void = { cards, error in
-            self.isLoading = false
-            self.cards = cards ?? []
-            self.tableController.buildTableStructure(reloadData: false)
+        let completion: ([BankCard]?, Error?) -> Void = { [weak self] cards, error in
+            self?.isLoading = false
+            self?.cards = cards ?? []
+            self?.tableController.buildTableStructure(reloadData: true)
             
             if let error = error {
                 print(error.localizedDescription)
@@ -51,6 +53,10 @@ import P2PCore
         }
         
         isLoading = true
+        
+        self.cards = []
+        
+        self.tableController.buildTableStructure(reloadData: true)
         
         switch owner {
         case .benificiary:
@@ -62,8 +68,18 @@ import P2PCore
     
     func presentLinkCardViewController() {
         let vc = LinkCardViewController(nibName: "LinkCardViewController", bundle: kBundle)
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension BankCardsViewController: LinkCardViewControllerDelegate {
+ 
+    func linkCardViewControllerSuccess(_ vc: LinkCardViewController) {
+        navigationController?.popViewController(animated: true)
+        loadData()
+    }
+    
 }
 
 class BankCardsTableViewController: TableStructuredController<BankCardsViewController> {
@@ -88,6 +104,7 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
             section.append("LoadingTableViewCell")
             append(section: &section)
         } else {
+            section.headerTitle = NSLocalizedString("Linked Cards", comment: "")
             section.append(contentsOf: vc.cards)
             if !vc.cards.isEmpty {
                 append(section: &section)
@@ -98,7 +115,7 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         
         append(section: &section)
         
-        super.buildTableStructure(reloadData: true)
+        super.buildTableStructure(reloadData: reloadData)
     }
     
     override func tableView(_ tableView: UITableView, reuseIdentifierFor object: Any) -> String? {
@@ -115,6 +132,12 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         }
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, for object: Any) {
+        if let cell = cell as? LoadingTableViewCell {
+            cell.startAnimating()
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectCellWith identifier: String, object: Any, at indexPath: IndexPath) {
         switch identifier {
         case "BankCardTableViewCell":
@@ -126,6 +149,56 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         }
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowWith object: Any, at indexPath: IndexPath) -> Bool {
+        return object is BankCard
+    }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, for object: Any, forRowAt indexPath: IndexPath) {
+        guard let card = object as? BankCard else { return }
+        let alert = UIAlertController(title: NSLocalizedString("Delete Card", comment: ""), message: NSLocalizedString("Are you really want to delete this card?", comment: ""), preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .destructive, handler: { (_) in
+            self.delete(card: card)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        let cell = tableView.cellForRow(at: indexPath)
+        alert.popoverPresentationController?.sourceRect = cell?.frame ?? .zero
+        alert.popoverPresentationController?.sourceView = cell?.superview
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
+    func delete(card: BankCard) {
+        let completion: (Error?) -> Void = { [weak self] (error) in
+            self?.vc.stopAnimating()
+            self?.tableView.isUserInteractionEnabled = true
+            if let error = error {
+                self?.vc.present(error: error)
+            } else {
+                self?.deleteRow(with: card)
+            }
+        }
+        
+        vc.startAnimating()
+        tableView.isUserInteractionEnabled = false
+        
+        switch vc.owner {
+        case .benificiary:
+            P2PCore.beneficiariesCards.delete(cardWith: card.cardId, complete: completion)
+        case .payer:
+            P2PCore.payersCards.delete(cardWith: card.cardId, complete: completion)
+        }
+    }
+    
+    func deleteRow(with card: BankCard) {
+        guard let row = vc.cards.index(of: card), let indexPath = self.indexPath(for: card), row == indexPath.row else {
+            return self.buildTableStructure(reloadData: true)
+        }
+        vc.cards.remove(at: row)
+        self.buildTableStructure(reloadData: false)
+        if self.vc.cards.isEmpty {
+            self.tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+        } else {
+            self.tableView.deleteRows(at: [indexPath], with: .left)
+        }
+    }
     
 }

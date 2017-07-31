@@ -105,10 +105,17 @@ class NetworkManager: Manager {
         })
     }
     
+    func request(_ urlString: String, method: Method = .get, parameters: Any?, complete: @escaping (Error?) -> Void) -> URLSessionDataTask {
+        return request(urlString, method: method, parameters: parameters, complete: { (JSON, error) in
+            complete(error)
+        })
+    }
+    
     func request(_ urlString: String, method: Method = .get, parameters: Any?, complete: @escaping (Any?, Error?) -> Void) -> URLSessionDataTask {
         let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
         
         var bodyAsString = ""
         
@@ -160,10 +167,10 @@ class NetworkManager: Manager {
         guard let response = response as? HTTPURLResponse else { return complete(nil, nil) }
         guard let data = data else { return complete(nil, NSError.missingDataObject) }
         guard let stringValue = String(data: data, encoding: .utf8) else { return complete(nil, NSError.dataStringError) }
-        guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) else { return complete(nil, NSError.jsonParsingError) }
+        let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
         switch response.statusCode {
         case 200...226:
-            complete(json, nil)
+            complete(json ?? stringValue, nil)
         default:
             guard let errorJson = json as? [String: String] else {
                 let userInfo: [AnyHashable: Any] = [

@@ -44,7 +44,7 @@ extension URLComposer {
     
     ///  Delete linked card of payer
     
-    @discardableResult public func delete(cardWith id: Int, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func delete(cardWith id: Int, complete: @escaping (Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.payersCardsCard(core.payerId, card: id), method: .delete, parameters: nil, complete: complete)
     }
     

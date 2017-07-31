@@ -16,7 +16,8 @@ extension String {
             return self
         }
         let last4digitsIndex = characters.index(endIndex, offsetBy: -4)
-        let last4digits = self.substring(from: last4digitsIndex)
+        var last4digits = self.substring(from: last4digitsIndex)
+        last4digits = last4digits.replacingOccurrences(of: "*", with: "•")
         return String(format: "•••• %@", last4digits)
     }
     

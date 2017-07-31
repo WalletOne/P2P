@@ -43,6 +43,8 @@
                     <constraint firstItem="NlJ-NG-0xB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zRQ-Fy-9u1"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <inset key="separatorInset" minX="55" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="maskedLabel" destination="ma8-MP-BK5" id="77J-0j-m2g"/>
                 <outlet property="typeImageView" destination="NlJ-NG-0xB" id="8BR-lb-XhM"/>

@@ -62,7 +62,7 @@ extension String {
     
     ///  Delete linked card of beneficiary
     
-    @discardableResult public func delete(cardWith id: Int, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func delete(cardWith id: Int, complete: @escaping (Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(core.benificaryId, card: id), method: .delete, parameters: nil, complete: complete)
     }
     

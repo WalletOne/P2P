@@ -10,23 +10,21 @@ import UIKit
 import P2PCore
 
 
-//class P2PViewController: UIViewController {
-//
-//    public var dealId: String = ""
-//    
-//    public var typeId: P2PTypeId = .payment
-//    
-//    public convenience init(typeId: P2PTypeId, dealId: String) {
-//        let bundle = Bundle(identifier: "com.walletone.ios.P2PUI")
-//        self.init(nibName: "P2PViewController", bundle: bundle)
-//        self.dealId = dealId
-//        self.typeId = typeId
-//    }
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        
-//    }
-//
-//}
+open class P2PViewController: UIViewController {
+
+    let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
+    lazy var activityViewBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(customView: self.activityView)
+    }()
+    
+    func startAnimating() {
+        navigationItem.rightBarButtonItem = activityViewBarButtonItem
+        activityView.startAnimating()
+    }
+    
+    func stopAnimating() {
+        navigationItem.rightBarButtonItem = nil
+    }
+    
+}

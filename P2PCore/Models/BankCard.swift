@@ -25,4 +25,9 @@ import Foundation
         expireDate = map(json["ExpireDate"], "")
     }
     
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard let card = object as? BankCard else { return false }
+        return card.cardId == self.cardId && self.cardId != 0
+    }
+    
 }

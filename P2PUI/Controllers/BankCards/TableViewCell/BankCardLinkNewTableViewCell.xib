@@ -18,11 +18,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MasterCardMini.png" translatesAutoresizingMaskIntoConstraints="NO" id="QcF-Ox-oLP">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkNewCard.png" translatesAutoresizingMaskIntoConstraints="NO" id="QcF-Ox-oLP">
                         <rect key="frame" x="15" y="9" width="25" height="25"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34G-It-kWZ">
-                        <rect key="frame" x="55" y="11.5" width="106" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link New Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34G-It-kWZ">
+                        <rect key="frame" x="55" y="11.5" width="112" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,6 +38,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="MasterCardMini.png" width="25" height="25"/>
+        <image name="linkNewCard.png" width="25" height="25"/>
     </resources>
 </document>
