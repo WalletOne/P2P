@@ -53,12 +53,16 @@ extension URLComposer {
     @discardableResult public func create(dealId: String, payerId: String, beneficiaryId: String, payerPhoneNumber: String, cardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         let parameters: [String: Any] = [
             "PlatformDealId": dealId,
+            
             "PlatformPayerId": payerId,
             "PayerPhoneNumber": payerPhoneNumber,
+            
             "PlatformBeneficiaryId": beneficiaryId,
             "BeneficiaryCardId": cardId,
+            
             "Amount": amount,
             "CurrencyId": currencyId.rawValue,
+            
             "ShortDescription": shortDescription,
             "FullDescription": fullDescription
         ]
@@ -101,34 +105,33 @@ extension URLComposer {
     
     public func payRequest(dealId: String, authData: String? = nil, title: String? = nil, returnUrl: String) -> URLRequest {
         
-        let url = URL(string: URLComposer.default.dealPay())!
-
+        let urlString = URLComposer.default.dealPay()
+        
+        let url = URL(string: urlString)!
+        
         let timeStamp = Date().ISO8601TimeStamp
-
-        var items: [String] = [
-            .init(format: "PlatformId=%@", core.platformId),
-            .init(format: "PlatformDealId=%@", dealId),
-            .init(format: "RedirectToCardAddition=%@", "true")
+        
+        var items: [(key: String, value: String)] = [
+            ("PlatformDealId", core.benificaryId),
+            ("PlatformId", core.platformId),
+            ("RedirectToCardAddition", "true"),
+            ("Timestamp", timeStamp)
         ]
-
-        if let authData = authData {
-            items.append(.init(format: "AuthData=%@", authData))
-        }
-
-        let queryStringPre = items.joined(separator: "&")
-
-        let signature = core.networkManager.makeSignature(url: URLComposer.default.dealPay(), timeStamp: timeStamp, requestBody: queryStringPre)
-
-        items.append(.init(format: "Signature=%@", signature))
-        items.append(.init(format: "Timestamp=%@", timeStamp))
-
-        let queryString = items.joined(separator: "&")
+        
+        let signature = core.networkManager.makeSignatureForWeb(parameters: items)
+        
+        items.append(("Signature", signature))
+        
+        let queryString = items.map({ String(format: "%@=%@", $0.key, $0.value.urlEncode) }).joined(separator: "&")
+        
+        print(queryString)
+        
         let queryData = queryString.data(using: .utf8)
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = queryData
-
+        
         return request
     }
 

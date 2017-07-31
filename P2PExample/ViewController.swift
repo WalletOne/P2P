@@ -10,23 +10,37 @@ import UIKit
 import P2PUI
 import P2PCore
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        DataStorage.default.fillTestData()
+        
+        let fl = DataStorage.default.freelancer!
+        let em = DataStorage.default.employer!
+        
+        // Core initialization
         P2PCore.setPlatform(id: "testplatform", signatureKey: "TestPlatformSignatureKey")
-        P2PCore.setBenificiary(id: "vitkuzmenko", title: "Vitaliy", phoneNumber: "79286634400")
+        
+        // Set this data when user login
+        P2PCore.setBenificiary(id: fl.id, title: fl.title, phoneNumber: fl.phoneNumber)
+        P2PCore.setPayer(id: em.id, title: em.title, phoneNumber: em.phoneNumber)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! DealsViewController
         
-        let vc = BankCardsViewController(owner: .benificiary)
-        
-        let nvc = UINavigationController(rootViewController: vc)
-        present(nvc, animated: true, completion: nil)
+        super.prepare(for: segue, sender: sender)
+        switch segue.identifier! {
+        case "Employer":
+            vc.userTypeId = .employer
+        case "Freelancer":
+            vc.userTypeId = .freelancer
+        default:
+            break
+        }
     }
 
 }

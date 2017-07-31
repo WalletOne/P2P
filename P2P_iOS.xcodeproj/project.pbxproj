@@ -60,6 +60,13 @@
 		794FB2E31F2F3D53005610DF /* linkNewCard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2E01F2F3D53005610DF /* linkNewCard@2x.png */; };
 		794FB2E41F2F3D53005610DF /* linkNewCard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2E11F2F3D53005610DF /* linkNewCard@3x.png */; };
 		794FB2E71F2F4194005610DF /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2E61F2F4194005610DF /* UIAlertController+Error.swift */; };
+		794FB2E91F2F550E005610DF /* DealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2E81F2F550E005610DF /* DealsViewController.swift */; };
+		794FB2EC1F2F554B005610DF /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2EB1F2F554B005610DF /* Deal.swift */; };
+		794FB2EE1F2F559A005610DF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2ED1F2F559A005610DF /* DataStorage.swift */; };
+		794FB2F01F2F55D9005610DF /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2EF1F2F55D9005610DF /* Employer.swift */; };
+		794FB2F21F2F560C005610DF /* Freelancer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2F11F2F560C005610DF /* Freelancer.swift */; };
+		794FB2F41F2F5D61005610DF /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2F31F2F5D61005610DF /* DealViewController.swift */; };
+		794FB2F61F2F5DE5005610DF /* DealRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2F51F2F5DE5005610DF /* DealRequest.swift */; };
 		795F0B271F20CAAA00FB95D9 /* URLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B261F20CAAA00FB95D9 /* URLComposer.swift */; };
 		798680841F208E34000D541D /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
 		798680861F20960E000D541D /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
@@ -190,6 +197,13 @@
 		794FB2E01F2F3D53005610DF /* linkNewCard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkNewCard@2x.png"; sourceTree = "<group>"; };
 		794FB2E11F2F3D53005610DF /* linkNewCard@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkNewCard@3x.png"; sourceTree = "<group>"; };
 		794FB2E61F2F4194005610DF /* UIAlertController+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
+		794FB2E81F2F550E005610DF /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
+		794FB2EB1F2F554B005610DF /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
+		794FB2ED1F2F559A005610DF /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		794FB2EF1F2F55D9005610DF /* Employer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employer.swift; sourceTree = "<group>"; };
+		794FB2F11F2F560C005610DF /* Freelancer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Freelancer.swift; sourceTree = "<group>"; };
+		794FB2F31F2F5D61005610DF /* DealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
+		794FB2F51F2F5DE5005610DF /* DealRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealRequest.swift; sourceTree = "<group>"; };
 		795F0B261F20CAAA00FB95D9 /* URLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComposer.swift; sourceTree = "<group>"; };
 		795F0B291F20D23400FB95D9 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		798680831F208E34000D541D /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
@@ -353,8 +367,12 @@
 		794815EF1F1CDDE200DD0783 /* P2PExample */ = {
 			isa = PBXGroup;
 			children = (
+				794FB2EA1F2F553E005610DF /* Models */,
 				794815F01F1CDDE200DD0783 /* AppDelegate.swift */,
+				794FB2ED1F2F559A005610DF /* DataStorage.swift */,
 				794815F21F1CDDE200DD0783 /* ViewController.swift */,
+				794FB2E81F2F550E005610DF /* DealsViewController.swift */,
+				794FB2F31F2F5D61005610DF /* DealViewController.swift */,
 				794815F41F1CDDE200DD0783 /* Main.storyboard */,
 				794815F71F1CDDE200DD0783 /* Assets.xcassets */,
 				794815F91F1CDDE200DD0783 /* LaunchScreen.storyboard */,
@@ -469,6 +487,17 @@
 				794FB2E61F2F4194005610DF /* UIAlertController+Error.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		794FB2EA1F2F553E005610DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				794FB2EB1F2F554B005610DF /* Deal.swift */,
+				794FB2EF1F2F55D9005610DF /* Employer.swift */,
+				794FB2F11F2F560C005610DF /* Freelancer.swift */,
+				794FB2F51F2F5DE5005610DF /* DealRequest.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		795F0B281F20D21200FB95D9 /* CommonCrypto */ = {
@@ -742,7 +771,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				794815F31F1CDDE200DD0783 /* ViewController.swift in Sources */,
+				794FB2EC1F2F554B005610DF /* Deal.swift in Sources */,
+				794FB2EE1F2F559A005610DF /* DataStorage.swift in Sources */,
 				794815F11F1CDDE200DD0783 /* AppDelegate.swift in Sources */,
+				794FB2F41F2F5D61005610DF /* DealViewController.swift in Sources */,
+				794FB2F01F2F55D9005610DF /* Employer.swift in Sources */,
+				794FB2E91F2F550E005610DF /* DealsViewController.swift in Sources */,
+				794FB2F61F2F5DE5005610DF /* DealRequest.swift in Sources */,
+				794FB2F21F2F560C005610DF /* Freelancer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

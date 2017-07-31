@@ -100,7 +100,6 @@ extension String {
         request.httpMethod = "POST"
         request.httpBody = queryData
         
-        
         return request
     }
     

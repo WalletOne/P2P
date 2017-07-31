@@ -20,11 +20,11 @@ public class URLComposer {
     
     var mode: Mode = .sandbox
     
-    var sandboxURL = "https://api.dev.walletone.com/"
+    var sandboxURL = "https://api.dev.walletone.com/p2p/"
     
-    var productURL = "https://api.dev.walletone.com/"
+    var productURL = "https://api.dev.walletone.com/p2p"
     
-    var apiPath = "p2p/api/v2/"
+    var apiPath = "api/v2/"
     
     var `protocol`: String {
         switch mode {
