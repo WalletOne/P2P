@@ -50,22 +50,29 @@ extension URLComposer {
     ///   - payerPhoneNumber: Phone number of payer
     ///   - card: Bank card, to which funds will be transferred
 
-    @discardableResult public func create(dealId: String, payerId: String, beneficiaryId: String, payerPhoneNumber: String, cardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
-        let parameters: [String: Any] = [
+    @discardableResult public func create(dealId: String, payerId: String, beneficiaryId: String, payerPhoneNumber: String, payerCardId: Int?, beneficiaryCardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, deferPayout: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+        var parameters: [String: Any] = [
             "PlatformDealId": dealId,
             
             "PlatformPayerId": payerId,
             "PayerPhoneNumber": payerPhoneNumber,
             
             "PlatformBeneficiaryId": beneficiaryId,
-            "BeneficiaryCardId": cardId,
+            "BeneficiaryCardId": beneficiaryCardId,
             
             "Amount": amount,
             "CurrencyId": currencyId.rawValue,
             
             "ShortDescription": shortDescription,
-            "FullDescription": fullDescription
+            "FullDescription": fullDescription,
+            
+            "DeferPayout": deferPayout ? "true" : "false"
         ]
+        
+        if let payerCardId = payerCardId {
+            parameters["PayerCardId"] = payerCardId
+        }
+        
         return core.networkManager.request(URLComposer.default.deals(), method: .post, parameters: parameters, complete: complete)
     }
     
@@ -103,7 +110,7 @@ extension URLComposer {
     
     // Pay deal
     
-    public func payRequest(dealId: String, authData: String? = nil, title: String? = nil, returnUrl: String) -> URLRequest {
+    public func payRequest(dealId: String, redirectToCardAddition: Bool, authData: String? = nil) -> URLRequest {
         
         let urlString = URLComposer.default.dealPay()
         
@@ -114,9 +121,13 @@ extension URLComposer {
         var items: [(key: String, value: String)] = [
             ("PlatformDealId", core.benificaryId),
             ("PlatformId", core.platformId),
-            ("RedirectToCardAddition", "true"),
+            ("RedirectToCardAddition", redirectToCardAddition ? "true" : "false"),
             ("Timestamp", timeStamp)
         ]
+        
+        if let authData = authData {
+            items.append(("AuthData", authData))
+        }
         
         let signature = core.networkManager.makeSignatureForWeb(parameters: items)
         

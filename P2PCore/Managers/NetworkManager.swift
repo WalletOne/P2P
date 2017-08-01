@@ -122,10 +122,10 @@ class NetworkManager: Manager {
         let timeStamp = Date().ISO8601TimeStamp
         
         if let parameters = parameters {
-            let body = try? JSONSerialization.data(withJSONObject: parameters)
+            let body = try? JSONSerialization.data(withJSONObject: parameters, options: [])
             bodyAsString = String(data: body ?? .init(), encoding: .utf8) ?? ""
             
-            request.httpBody = body
+            request.httpBody = bodyAsString.data(using: .utf8)
         }
         
         let signature = makeSignature(url: urlString, timeStamp: timeStamp, requestBody: bodyAsString)
@@ -133,13 +133,13 @@ class NetworkManager: Manager {
         request.addValue(core.platformId, forHTTPHeaderField: "X-Wallet-PlatformId")
         request.addValue(timeStamp, forHTTPHeaderField: "X-Wallet-Timestamp")
         request.addValue(signature, forHTTPHeaderField: "X-Wallet-Signature")
+        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         print("=======")
         print("BEGIN NEW REQUEST")
-        print("\(method.rawValue) \(urlString)")
-        print("SIGNATURE: \(signature)")
-        print("BODY:\n \(bodyAsString)")
-        print("Headers:\n\n \(String(describing: request.allHTTPHeaderFields))")
+        print("\(request.httpMethod!) \(urlString)")
+        print("BODY:\n\(bodyAsString)")
+        print("Headers:\n\(String(describing: request.allHTTPHeaderFields ?? [:]))\n")
         print("END NEW REQUEST\n")
         print("=======")
         
@@ -182,7 +182,7 @@ class NetworkManager: Manager {
                 return complete(nil, error)
             }
             let errorCode = errorJson["Error"] ?? "UNKNOWN"
-            let errorDescription = errorJson["ErrorDescription"] ?? "UNKNOWN"
+            let errorDescription = errorJson["ErrorDescription"] ?? errorJson["Message"] ?? "UNKNOWN"
             let userInfo: [AnyHashable: Any] = [
                 P2PResponseErrorCodeKey: errorCode,
                 NSLocalizedDescriptionKey: errorDescription,

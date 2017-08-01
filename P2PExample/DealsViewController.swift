@@ -45,12 +45,8 @@ class DealsViewController: UITableViewController {
             textField.text = self.creatingDeal?.title
         }
         alert.addTextField { (textField) in
-            textField.placeholder = NSLocalizedString("Short Description", comment: "")
+            textField.placeholder = NSLocalizedString("Description", comment: "")
             textField.text = self.creatingDeal?.shortDescription
-        }
-        alert.addTextField { (textField) in
-            textField.placeholder = NSLocalizedString("Full Description", comment: "")
-            textField.text = self.creatingDeal?.fullDescription
         }
         alert.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default, handler: { (action) in
             if self.creatingDeal == nil {
@@ -59,7 +55,6 @@ class DealsViewController: UITableViewController {
             }
             self.creatingDeal!.title = alert.textFields?[0].text ?? ""
             self.creatingDeal?.shortDescription = alert.textFields?[1].text ?? ""
-            self.creatingDeal?.fullDescription = alert.textFields?[2].text ?? ""
             
             self.checkNewDeal()
         }))
@@ -69,7 +64,7 @@ class DealsViewController: UITableViewController {
     
     func checkNewDeal() {
         
-        if creatingDeal!.title.isEmpty || creatingDeal!.shortDescription.isEmpty || creatingDeal!.fullDescription.isEmpty {
+        if creatingDeal!.title.isEmpty || creatingDeal!.shortDescription.isEmpty {
             self.createDeal()
         } else {
             DataStorage.default.deals.append(creatingDeal!)

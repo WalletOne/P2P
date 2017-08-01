@@ -9,6 +9,11 @@
 import UIKit
 import P2PCore
 
+@objc public protocol BankCardsViewControllerDelegate: NSObjectProtocol {
+    func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard)
+    func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController)
+}
+
 @objc public class BankCardsViewController: P2PViewController, TableStructuredViewController {
     
     @objc public enum Owner: Int {
@@ -17,6 +22,10 @@ import P2PCore
     
     @IBOutlet weak public var tableView: UITableView!
     
+    lazy var cancelButton: UIBarButtonItem = {
+        return UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
+    }()
+    
     lazy var tableController: BankCardsTableViewController = { return .init(vc: self) }()
     
     public var cards: [BankCard] = []
@@ -24,6 +33,8 @@ import P2PCore
     public var owner: Owner = .benificiary
     
     var isLoading = true
+    
+    public weak var delegate: BankCardsViewControllerDelegate?
     
     public convenience init(owner: Owner) {
         self.init(nibName: "BankCardsViewController", bundle: kBundle)
@@ -37,7 +48,17 @@ import P2PCore
         
         tableController.buildTableStructure(reloadData: false)
         
+        configureControls()
+        
         loadData()
+    }
+    
+    func configureControls() {
+        guard let nc = navigationController else { return }
+        
+        if nc.viewControllers.count == 1 {
+            navigationItem.leftBarButtonItem = cancelButton
+        }
     }
 
     func loadData() {
@@ -70,6 +91,10 @@ import P2PCore
         let vc = LinkCardViewController(nibName: "LinkCardViewController", bundle: kBundle)
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func dismissViewController() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -111,6 +136,7 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
             }
         }
         
+        
         section.append("BankCardLinkNewTableViewCell")
         
         append(section: &section)
@@ -141,9 +167,14 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
     override func tableView(_ tableView: UITableView, didSelectCellWith identifier: String, object: Any, at indexPath: IndexPath) {
         switch identifier {
         case "BankCardTableViewCell":
-            break
+            vc.delegate?.bankCardsViewController(vc, didSelect: object as! BankCard)
         case "BankCardLinkNewTableViewCell":
-            vc.presentLinkCardViewController()
+            switch self.vc.owner {
+            case .benificiary:
+                vc.presentLinkCardViewController()
+            case .payer:
+                vc.delegate?.bankCardsViewControllerDidSelectLinkNew(vc)
+            }
         default:
             break
         }

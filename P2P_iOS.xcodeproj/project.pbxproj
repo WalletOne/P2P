@@ -28,6 +28,8 @@
 		79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6B1F28CE5D0075EB8E /* VisaMini.png */; };
 		79430D751F28CE5D0075EB8E /* VisaMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6C1F28CE5D0075EB8E /* VisaMini@2x.png */; };
 		79430D761F28CE5D0075EB8E /* VisaMini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6D1F28CE5D0075EB8E /* VisaMini@3x.png */; };
+		794510191F30B09A00DC39EC /* PayDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794510171F30B09A00DC39EC /* PayDealViewController.swift */; };
+		7945101A1F30B09A00DC39EC /* PayDealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 794510181F30B09A00DC39EC /* PayDealViewController.xib */; };
 		794815CB1F1CDD2700DD0783 /* P2PCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 794815C91F1CDD2700DD0783 /* P2PCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		794815F11F1CDDE200DD0783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815F01F1CDDE200DD0783 /* AppDelegate.swift */; };
 		794815F31F1CDDE200DD0783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794815F21F1CDDE200DD0783 /* ViewController.swift */; };
@@ -164,6 +166,8 @@
 		79430D6B1F28CE5D0075EB8E /* VisaMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VisaMini.png; sourceTree = "<group>"; };
 		79430D6C1F28CE5D0075EB8E /* VisaMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaMini@2x.png"; sourceTree = "<group>"; };
 		79430D6D1F28CE5D0075EB8E /* VisaMini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaMini@3x.png"; sourceTree = "<group>"; };
+		794510171F30B09A00DC39EC /* PayDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayDealViewController.swift; sourceTree = "<group>"; };
+		794510181F30B09A00DC39EC /* PayDealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayDealViewController.xib; sourceTree = "<group>"; };
 		794815C71F1CDD2700DD0783 /* P2PCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P2PCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		794815C91F1CDD2700DD0783 /* P2PCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P2PCore.h; sourceTree = "<group>"; };
 		794815CA1F1CDD2700DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -328,6 +332,15 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		794510161F30B09A00DC39EC /* PayDeal */ = {
+			isa = PBXGroup;
+			children = (
+				794510171F30B09A00DC39EC /* PayDealViewController.swift */,
+				794510181F30B09A00DC39EC /* PayDealViewController.xib */,
+			);
+			path = PayDeal;
+			sourceTree = "<group>";
+		};
 		794815A41F1CDC1A00DD0783 = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				79430D571F28CD560075EB8E /* BankCards */,
+				794510161F30B09A00DC39EC /* PayDeal */,
 				79E96B7A1F2A332700AE064B /* LinkCard */,
 				7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */,
 				7948161E1F1CE86900DD0783 /* P2PViewController.swift */,
@@ -715,6 +729,7 @@
 				794FB2E31F2F3D53005610DF /* linkNewCard@2x.png in Resources */,
 				79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */,
 				79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */,
+				7945101A1F30B09A00DC39EC /* PayDealViewController.xib in Resources */,
 				794FB2E21F2F3D53005610DF /* linkNewCard.png in Resources */,
 				79E96B7E1F2A333E00AE064B /* LinkCardViewController.xib in Resources */,
 				79430D701F28CE5D0075EB8E /* MasterCardMini@3x.png in Resources */,
@@ -792,6 +807,7 @@
 				794FB2E71F2F4194005610DF /* UIAlertController+Error.swift in Sources */,
 				79E96B7C1F2A333400AE064B /* LinkCardViewController.swift in Sources */,
 				79E96B791F2A229200AE064B /* CreditCardValidator.swift in Sources */,
+				794510191F30B09A00DC39EC /* PayDealViewController.swift in Sources */,
 				79E96B751F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift in Sources */,
 				79430D5A1F28CD620075EB8E /* BankCardsViewController.swift in Sources */,
 				79430D4C1F28B29C0075EB8E /* CollectionStructuredController.swift in Sources */,

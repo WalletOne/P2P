@@ -22,13 +22,13 @@ class DataStorage: NSObject {
     
     func fillTestData() {
         employer = Employer()
-        employer.id = NSUUID().uuidString
-        employer.title = "Vitaliy Kuzmenko"
+        employer.id = "alinakuzmenko" // NSUUID().uuidString
+        employer.title = "Alina Kuzmenko"
         employer.phoneNumber = "79281234567"
         
         freelancer = Freelancer()
-        freelancer.id = NSUUID().uuidString
-        freelancer.title = "Mark Kuzmenko"
+        freelancer.id = "vitaliykuzmenko" // NSUUID().uuidString
+        freelancer.title = "Vitaliy Kuzmenko"
         freelancer.phoneNumber = "79287654321"
     }
     

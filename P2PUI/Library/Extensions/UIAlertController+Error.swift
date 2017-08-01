@@ -19,7 +19,7 @@ extension UIAlertController {
 
 extension UIViewController {
     
-    func present(error: Error) {
+    public func present(error: Error) {
         let alert = UIAlertController(error: error)
         self.present(alert, animated: true, completion: nil)
     }

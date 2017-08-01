@@ -20,6 +20,10 @@ class DealRequest: Equatable {
     
     var amount: NSDecimalNumber = 0.0
     
+    var isAccepted: Bool = false
+    
+    var freelancerCardId: Int = 0
+    
     init(deal: Deal, freelancer: Freelancer, amount: NSDecimalNumber) {
         self.deal = deal
         self.freelancer = freelancer
