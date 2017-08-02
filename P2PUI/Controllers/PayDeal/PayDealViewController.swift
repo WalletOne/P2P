@@ -9,7 +9,7 @@
 import UIKit
 import P2PCore
 
-protocol PayDealViewControllerDelegate: class {
+@objc public protocol PayDealViewControllerDelegate: NSObjectProtocol {
     func payDealViewControllerComplete(_ vc: PayDealViewController)
 }
 
@@ -23,7 +23,13 @@ protocol PayDealViewControllerDelegate: class {
     
     public var redirectToCardAddition: Bool = false
     
-    weak var delegate: PayDealViewControllerDelegate?
+    let returnHost = "p2p-success-pay-deal"
+    
+    public weak var delegate: PayDealViewControllerDelegate?
+    
+    lazy var cancelButton: UIBarButtonItem = {
+        return UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
+    }()
     
     public convenience init(dealId: String, redirectToCardAddition: Bool, authData: String? = nil) {
         self.init(nibName: "PayDealViewController", bundle: kBundle)
@@ -36,12 +42,26 @@ protocol PayDealViewControllerDelegate: class {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let request = P2PCore.deals.payRequest(dealId: dealId, redirectToCardAddition: redirectToCardAddition, authData: authData)
+        let request = P2PCore.deals.payRequest(dealId: dealId, redirectToCardAddition: redirectToCardAddition, authData: authData, returnUrl: "http://" + returnHost)
         
         print(request.httpMethod ?? "" + "=======")
         print(request)
         
         webView.loadRequest(request)
+        
+        configureControls()
+    }
+    
+    func configureControls() {
+        guard let nc = navigationController else { return }
+        
+        if nc.viewControllers.count == 1 {
+            navigationItem.leftBarButtonItem = cancelButton
+        }
+    }
+    
+    func dismissViewController() {
+        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -60,7 +80,9 @@ extension PayDealViewController: UIWebViewDelegate {
         guard let url = request.url else { return true }
         guard let host = url.host else { return true }
         switch host {
-
+        case returnHost:
+            delegate?.payDealViewControllerComplete(self)
+            return false
         default:
             return true
         }

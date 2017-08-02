@@ -9,15 +9,19 @@
 import Foundation
 import CCommonCrypto
 
-let errorDomain = "com.walletone.ios.P2PCore.error"
+let kP2PErrorDomain = "com.walletone.ios.P2PCore.error"
 
 public let P2PResponseStringKey = "P2PResponseStringKey"
 public let P2PResponseErrorCodeKey = "P2PResponseErrorCodeKey"
 
 extension NSError {
-    static let missingDataObject = NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("MISSING_RESPONSE_DATA_OBJECT", comment: "")])
-    static let jsonParsingError = NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("JSON_PARSING_ERROR", comment: "")])
-    static let dataStringError = NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("DATA_STRING_ERROR", comment: "")])
+    static let missingDataObject = NSError(domain: kP2PErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("MISSING_RESPONSE_DATA_OBJECT", comment: "")])
+    static let jsonParsingError = NSError(domain: kP2PErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("JSON_PARSING_ERROR", comment: "")])
+    static let dataStringError = NSError(domain: kP2PErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("DATA_STRING_ERROR", comment: "")])
+    
+    class public func error(_ error: String) -> NSError {
+        return NSError(domain: kP2PErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: error])
+    }
 }
 
 extension Data {
@@ -178,7 +182,7 @@ class NetworkManager: Manager {
                     NSLocalizedDescriptionKey: NSLocalizedString("IS_NOT_NSDICTIONARY", comment: ""),
                     P2PResponseStringKey: stringValue
                 ]
-                let error = NSError(domain: errorDomain, code: 0, userInfo: userInfo)
+                let error = NSError(domain: kP2PErrorDomain, code: 0, userInfo: userInfo)
                 return complete(nil, error)
             }
             let errorCode = errorJson["Error"] ?? "UNKNOWN"
@@ -188,7 +192,7 @@ class NetworkManager: Manager {
                 NSLocalizedDescriptionKey: errorDescription,
                 P2PResponseStringKey: stringValue
             ]
-            complete(nil, NSError(domain: errorDomain, code: 0, userInfo: userInfo))
+            complete(nil, NSError(domain: kP2PErrorDomain, code: 0, userInfo: userInfo))
         }
     }
     

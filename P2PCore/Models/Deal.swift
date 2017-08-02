@@ -16,62 +16,25 @@ extension String {
     }
 }
 
-@objc public enum DealStateId: Int, RawRepresentable {
-    
-    case undefined
-    
-    case created, paymentProcessing, paymentProcessError, paid, payoutProcessing, payoutProcessError, completed, canceling, cancelError, canceled
-    
-    public typealias RawValue = String
-    
-    public var rawValue: RawValue {
-        return String(describing: self).uppercaseFirst
-    }
-    
-    public init?(rawValue: RawValue) {
-        let all: [DealStateId] = [.created, .paymentProcessing, .paymentProcessError, .paid, .payoutProcessing, .payoutProcessError, .completed, .canceling, .cancelError, .canceled]
-        for item in all {
-            if rawValue == item.rawValue {
-                self = item
-                return
-            }
-        }
-        self = .undefined
-    }
-}
+public let DealStateIdCreated = "Created"
+public let DealStateIdPaymentProcessing = "PaymentProcessing"
+public let DealStateIdPaymentProcessError = "PaymentProcessError"
+public let DealStateIdPaid = "Paid"
+public let DealStateIdPayoutProcessing = "PayoutProcessing"
+public let DealStateIdPayoutProcessError = "PayoutProcessError"
+public let DealStateIdCompleted = "Completed"
+public let DealStateIdCanceling = "Canceling"
+public let DealStateIdCancelError = "CancelError"
+public let DealStateIdCanceled = "Canceled"
 
-@objc public enum DealTypeId: Int, RawRepresentable {
-    
-    case undefined
-    
-    case deferred
-    
-    public typealias RawValue = String
-    
-    public var rawValue: RawValue {
-        switch self {
-        case .deferred:
-            return "Deferred"
-        case .undefined:
-            return ""
-        }
-    }
-    
-    public init?(rawValue: RawValue) {
-        switch rawValue {
-        case "Deferred":
-            self = .deferred
-        default:
-            self = .undefined
-        }
-    }
-}
+public let DealTypeIdDeferred = "Deferred"
+public let DealTypeIdInstant = "Instant"
 
 @objc public class Deal: NSObject, Mappable {
     
     public var platformDealId: String = ""
     
-    public var dealStateId: DealStateId = .undefined
+    public var dealStateId: String = ""
     
     public var createDate: Date?
     
@@ -99,11 +62,11 @@ extension String {
     
     public var fullDescription: String = ""
     
-    public var dealTypeId: DealTypeId = .undefined
+    public var dealTypeId: String = ""
     
     public required init(json: [String: Any]) {
         platformDealId = map(json["PlatformDealId"], "")
-        dealTypeId = map(json["DealStateId"], .undefined)
+        dealStateId = map(json["DealStateId"], "")
         createDate = map(json["CreateDate"])
         updatedate = map(json["UpdateDate"])
         expireDate = map(json["ExpireDate"])
@@ -117,7 +80,7 @@ extension String {
         beneficiaryCardId = map(json["BeneficiaryCardId"], 0)
         shortDescription = map(json["ShortDescription"], "")
         fullDescription = map(json["FullDescription"], "")
-        dealTypeId = map(json["DealTypeId"], .undefined)
+        dealTypeId = map(json["DealTypeId"], "")
     }
     
 }

@@ -20,20 +20,12 @@ class DataStorage: NSObject {
     
     var dealRequests: [DealRequest] = []
     
-    func fillTestData() {
-        employer = Employer()
-        employer.id = "alinakuzmenko" // NSUUID().uuidString
-        employer.title = "Alina Kuzmenko"
-        employer.phoneNumber = "79281234567"
-        
-        freelancer = Freelancer()
-        freelancer.id = "vitaliykuzmenko" // NSUUID().uuidString
-        freelancer.title = "Vitaliy Kuzmenko"
-        freelancer.phoneNumber = "79287654321"
-    }
-    
     func dealRequests(for deal: Deal) -> [DealRequest] {
-        return dealRequests.filter({ $0.deal == deal })
+        if let payed = dealRequests.filter({ $0.deal == deal && $0.isPayed }).first {
+            return [payed]
+        } else {
+            return dealRequests.filter({ $0.deal == deal })
+        }
     }
     
     func cancel(request: DealRequest) {

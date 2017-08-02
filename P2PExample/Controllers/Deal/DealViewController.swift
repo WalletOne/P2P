@@ -40,16 +40,7 @@ class DealViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        switch userTypeId {
-        case .employer:
-            return 2
-        case .freelancer:
-            if requests.contains(where: {$0.freelancer == DataStorage.default.freelancer }) {
-                return 2
-            } else {
-                return 3
-            }
-        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,7 +70,17 @@ class DealViewController: UITableViewController {
             } else {
                 let request = requests[indexPath.row]
                 cell.textLabel?.text = request.freelancer.title
-                cell.detailTextLabel?.text = String(format: "%@ ₽", request.amount.stringValue)
+                if deal.isClosed {
+                    cell.detailTextLabel?.text = String(format: "Deal closed", request.amount.stringValue)
+                } else {
+                    if request.isCompleted {
+                        cell.detailTextLabel?.text = String(format: "Completed", request.amount.stringValue)
+                    } else if request.isPayed {
+                        cell.detailTextLabel?.text = String(format: "Payed: %@ ₽", request.amount.stringValue)
+                    } else {
+                        cell.detailTextLabel?.text = String(format: "%@ ₽", request.amount.stringValue)
+                    }
+                }
                 cell.selectionStyle = .default
             }
         case .newRequest:
@@ -127,10 +128,42 @@ class DealViewController: UITableViewController {
     func presentEmployerAlert(for request: DealRequest) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Accept", comment: ""), style: .default, handler: { (_) in
-            self.selectedRequest = request
-            self.presentBankCardsViewController(for: .payer)
-        }))
+        if deal.isClosed {
+            return
+        }
+        
+        if request.isPayed {
+            if request.isCompleted {
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm completion", comment: ""), style: .default, handler: { (_) in
+                    P2PCore.deals.complete(dealId: self.deal.id, complete: { (deal, error) in
+                        if let error = error {
+                            self.present(error: error)
+                        } else {
+                            request.deal.isClosed = true
+                            self.tableView.reloadData()
+                        }
+                    })
+                }))
+            } else {
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel Deal", comment: ""), style: .destructive, handler: { (_) in
+                    P2PCore.deals.cancel(dealId: self.deal.id, complete: { (deal, error) in
+                        if let error = error {
+                            self.present(error: error)
+                        } else {
+                            request.isPayed = false
+                            self.loadRequests()
+                            self.tableView.reloadData()
+                        }
+                    })
+                }))
+            }
+        
+        } else {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Accept", comment: ""), style: .default, handler: { (_) in
+                self.selectedRequest = request
+                self.presentBankCardsViewController(for: .payer)
+            }))
+        }
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .cancel, handler: nil))
         
@@ -144,11 +177,18 @@ class DealViewController: UITableViewController {
     func presentFreelancerAlert(for request: DealRequest) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel Request", comment: ""), style: .destructive, handler: { (_) in
-            DataStorage.default.cancel(request: request)
-            self.loadRequests()
-            self.tableView.reloadData()
-        }))
+        if request.isPayed {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Complete", comment: ""), style: .default, handler: { (_) in
+                request.isCompleted = true
+                self.tableView.reloadData()
+            }))
+        } else {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel Request", comment: ""), style: .destructive, handler: { (_) in
+                DataStorage.default.cancel(request: request)
+                self.loadRequests()
+                self.tableView.reloadData()
+            }))
+        }
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .cancel, handler: nil))
         
@@ -183,7 +223,7 @@ class DealViewController: UITableViewController {
 
 }
 
-extension DealViewController: BankCardsViewControllerDelegate {
+extension DealViewController: BankCardsViewControllerDelegate, PayDealViewControllerDelegate {
     
     func presentBankCardsViewController(for owner: BankCardsViewController.Owner) {
         
@@ -245,13 +285,16 @@ extension DealViewController: BankCardsViewControllerDelegate {
     func presentPaymentViewController(redirectToCardAddition: Bool) {
         
         let vc = PayDealViewController(dealId: deal.id, redirectToCardAddition: redirectToCardAddition)
+        vc.delegate = self
         
         if !redirectToCardAddition {
             let alert = UIAlertController(title: NSLocalizedString("Enter CVV", comment: ""), message: nil, preferredStyle: .alert)
+            
             alert.addTextField(configurationHandler: { (textField) in
                 textField.placeholder = "CVV/CVC - 3 digits"
                 textField.keyboardType = .numberPad
             })
+            
             alert.addAction(UIAlertAction(title: NSLocalizedString("Next", comment: ""), style: .default, handler: { (_) in
                 let cvv = alert.textFields?[0].text ?? ""
                 if cvv.characters.count != 3 {
@@ -261,7 +304,8 @@ extension DealViewController: BankCardsViewControllerDelegate {
                 }
                 self.present(payment: vc)
             }))
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: nil))
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
         } else {
@@ -275,6 +319,30 @@ extension DealViewController: BankCardsViewControllerDelegate {
         
         present(nc, animated: true, completion: nil)
         
+    }
+    
+    func payDealViewControllerComplete(_ vc: PayDealViewController) {
+        
+        vc.dismiss(animated: true) { }
+        
+        P2PCore.deals.status(dealId: deal.id) { (deal, error) in
+            if let error = error {
+                self.present(error: error)
+            } else if let deal = deal {
+                
+                if deal.dealStateId == DealStateIdPaid || deal.dealStateId == DealStateIdPaymentProcessing {
+                    guard let request = self.selectedRequest else { return }
+                    request.isPayed = true
+                    self.loadRequests()
+                    self.tableView.reloadData()
+                } else {
+                    let error = NSError.error(deal.dealStateId)
+                    self.present(error: error)
+                    self.loadRequests()
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
 }

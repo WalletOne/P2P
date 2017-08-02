@@ -13,6 +13,10 @@ enum UserTypeId {
     case employer, freelancer
 }
 
+extension Notification.Name {
+    static let dealsUpdated = Notification.Name("dealsUpdated")
+}
+
 class DealsViewController: UITableViewController {
 
     @IBOutlet var plusBarButton: UIBarButtonItem!
@@ -24,6 +28,12 @@ class DealsViewController: UITableViewController {
 
         // Do any additional setup after loading the view.
         configurePlusButton()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .dealsUpdated, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func configurePlusButton() {
@@ -69,7 +79,9 @@ class DealsViewController: UITableViewController {
         } else {
             DataStorage.default.deals.append(creatingDeal!)
             creatingDeal = nil
-            self.tableView.reloadData()
+            
+            // Post notificication for table update need for all deals instances
+            NotificationCenter.default.post(name: .dealsUpdated, object: nil)
         }
     }
     
@@ -79,6 +91,10 @@ class DealsViewController: UITableViewController {
         let vc = segue.destination as! DealViewController
         vc.deal = DataStorage.default.deals[indexPath!.row]
         vc.userTypeId = userTypeId
+    }
+    
+    func reload() {
+        tableView.reloadData()
     }
     
     // MARK: - TableView

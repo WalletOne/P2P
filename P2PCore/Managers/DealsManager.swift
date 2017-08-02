@@ -110,7 +110,7 @@ extension URLComposer {
     
     // Pay deal
     
-    public func payRequest(dealId: String, redirectToCardAddition: Bool, authData: String? = nil) -> URLRequest {
+    public func payRequest(dealId: String, redirectToCardAddition: Bool, authData: String? = nil, returnUrl: String) -> URLRequest {
         
         let urlString = URLComposer.default.dealPay()
         
@@ -119,10 +119,11 @@ extension URLComposer {
         let timeStamp = Date().ISO8601TimeStamp
         
         var items: [(key: String, value: String)] = [
-            ("PlatformDealId", core.benificaryId),
+            ("PlatformDealId", dealId),
             ("PlatformId", core.platformId),
             ("RedirectToCardAddition", redirectToCardAddition ? "true" : "false"),
-            ("Timestamp", timeStamp)
+            ("Timestamp", timeStamp),
+            ("ReturnUrl", returnUrl)
         ]
         
         if let authData = authData {
