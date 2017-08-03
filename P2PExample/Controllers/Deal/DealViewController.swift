@@ -240,6 +240,8 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
                 P2PCore.deals.complete(dealId: self.deal.id, complete: { [weak self] (deal, error) in
                     if let error = error {
                         self?.present(error: error)
+                        request.stateId = .completed
+                        self?.postReload()
                     } else {
                         self?.checkStatus()
                     }

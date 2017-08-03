@@ -41,7 +41,7 @@ class CoreModelsTests: XCTestCase {
         
         XCTAssertEqual(deal.platformDealId, json["PlatformDealId"] as! String)
         XCTAssertEqual(deal.dealStateId, json["DealStateId"] as! String)
-        //XCTAssertEqual(deal.createDate., json["CreateDate"] as! String)
+//        XCTAssertEqual(deal.createDate., json["CreateDate"] as! String)
 //        XCTAssertEqual(deal.expireDate, json["ExpireDate"] as! String)
 //        XCTAssertEqual(deal.updatedate, json["UpdateDate"] as! String)
         XCTAssertEqual(deal.amount, 1)
@@ -56,6 +56,10 @@ class CoreModelsTests: XCTestCase {
         XCTAssertEqual(deal.shortDescription, json["ShortDescription"] as! String)
         XCTAssertEqual(deal.fullDescription, json["FullDescription"] as! String)
         XCTAssertEqual(deal.dealTypeId, json["DealTypeId"] as! String)
+    }
+    
+    func testBankCardModel() {
+        
     }
     
 }
