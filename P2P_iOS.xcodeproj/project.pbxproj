@@ -105,6 +105,7 @@
 		797C1C841F3349CC0009E61A /* Refund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808F1F209C27000D541D /* Refund.swift */; };
 		797C1C851F3349D20009E61A /* URLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B261F20CAAA00FB95D9 /* URLComposer.swift */; };
 		797C1C861F3349D20009E61A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
+		797C1C881F33591F0009E61A /* CoreModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C871F33591F0009E61A /* CoreModelsTests.swift */; };
 		798680841F208E34000D541D /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
 		798680861F20960E000D541D /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
 		7986808A1F20980F000D541D /* PayoutsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680891F20980F000D541D /* PayoutsResult.swift */; };
@@ -273,6 +274,7 @@
 		797C1C6D1F3347FF0009E61A /* P2PCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PCoreTests.swift; sourceTree = "<group>"; };
 		797C1C6F1F3347FF0009E61A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		797C1C751F3348410009E61A /* CoreNetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNetworkManagerTests.swift; sourceTree = "<group>"; };
+		797C1C871F33591F0009E61A /* CoreModelsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreModelsTests.swift; sourceTree = "<group>"; };
 		798680831F208E34000D541D /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		798680851F20960E000D541D /* BankCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCard.swift; sourceTree = "<group>"; };
 		798680891F20980F000D541D /* PayoutsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsResult.swift; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				797C1C6D1F3347FF0009E61A /* P2PCoreTests.swift */,
 				797C1C6F1F3347FF0009E61A /* Info.plist */,
 				797C1C751F3348410009E61A /* CoreNetworkManagerTests.swift */,
+				797C1C871F33591F0009E61A /* CoreModelsTests.swift */,
 			);
 			path = P2PCoreTests;
 			sourceTree = "<group>";
@@ -1083,6 +1086,7 @@
 				797C1C7F1F3349CC0009E61A /* Deal.swift in Sources */,
 				797C1C861F3349D20009E61A /* Mapper.swift in Sources */,
 				797C1C801F3349CC0009E61A /* BankCard.swift in Sources */,
+				797C1C881F33591F0009E61A /* CoreModelsTests.swift in Sources */,
 				797C1C7A1F3349BC0009E61A /* PayersCardsManager.swift in Sources */,
 				797C1C831F3349CC0009E61A /* RefundsResult.swift in Sources */,
 				797C1C7D1F3349CC0009E61A /* P2PCore.swift in Sources */,
