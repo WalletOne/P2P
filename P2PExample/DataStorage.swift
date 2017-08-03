@@ -21,7 +21,7 @@ class DataStorage: NSObject {
     var dealRequests: [DealRequest] = []
     
     func dealRequests(for deal: Deal) -> [DealRequest] {
-        if let payed = dealRequests.filter({ $0.deal == deal && $0.isPayed }).first {
+        if let payed = dealRequests.filter({ $0.deal == deal && ($0.stateId == .paid || $0.stateId == .paymentProcessing || $0.stateId == .paymentError) }).first {
             return [payed]
         } else {
             return dealRequests.filter({ $0.deal == deal })

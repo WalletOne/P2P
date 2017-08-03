@@ -27,8 +27,8 @@ extension URLComposer {
     
     /// Get all payouts by beneficiary id
     
-    @discardableResult public func payouts(of beneficiaryId: String, pageNumber: Int, itemsPerPage: Int, dealId: String? = nil, complete: @escaping ([PayoutsResult]?, Error?) -> Void) -> URLSessionDataTask {
-        let url = URLComposer.default.beneficiariesPayouts(beneficiaryId, pageNumber: pageNumber, itemsPerPage: itemsPerPage, dealId: dealId)
+    @discardableResult public func payouts(pageNumber: Int, itemsPerPage: Int, dealId: String? = nil, complete: @escaping (PayoutsResult?, Error?) -> Void) -> URLSessionDataTask {
+        let url = URLComposer.default.beneficiariesPayouts(core.benificaryId, pageNumber: pageNumber, itemsPerPage: itemsPerPage, dealId: dealId)
         return core.networkManager.request(url, method: .get, parameters: nil, complete: complete)
     }
     

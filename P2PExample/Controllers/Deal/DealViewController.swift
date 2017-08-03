@@ -10,7 +10,11 @@ import UIKit
 import P2PCore
 import P2PUI
 
-class DealViewController: UITableViewController {
+extension Notification.Name {
+    static let dealUpdated = Notification.Name("dealUpdated")
+}
+
+class DealViewController: UITableViewController, BankCardsViewControllerDelegate, PayDealViewControllerDelegate  {
 
     enum Section: Int {
         case description, requests, newRequest
@@ -26,26 +30,56 @@ class DealViewController: UITableViewController {
     
     var selectedRequest: DealRequest?
     
+    var statusTimer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = deal.title
         self.loadRequests()
+        
+        switch userTypeId {
+        case .employer:
+            navigationItem.title = NSLocalizedString("Deal Employer View", comment: "")
+        case .freelancer:
+            navigationItem.title = NSLocalizedString("Deal Freelancer View", comment: "")
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadRequests), name: .dealUpdated, object: deal)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func postReload() {
+        NotificationCenter.default.post(name: .dealUpdated, object: deal)
     }
     
     func loadRequests() {
         self.requests = DataStorage.default.dealRequests(for: deal)
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        switch userTypeId {
+        case .employer:
+            return 2
+        case .freelancer:
+            if requests.contains(where: {$0.freelancer == DataStorage.default.freelancer }) {
+                return 2
+            } else {
+                return 3
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)! {
-        case .description, .newRequest:
+        case .description:
+            return 2
+        case .newRequest:
             return 1
         case .requests:
             return max(requests.count, 1)
@@ -56,46 +90,85 @@ class DealViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         cell.textLabel?.textColor = .black
+        cell.detailTextLabel?.textColor = .lightGray
         
         switch Section(rawValue: indexPath.section)! {
         case .description:
-            cell.textLabel?.text = deal.shortDescription
-            cell.selectionStyle = .none
-            cell.detailTextLabel?.text = nil
+            configureCellInDescriptionSection(cell, at: indexPath)
         case .requests:
-            if requests.isEmpty {
-                cell.textLabel?.text = NSLocalizedString("No requests", comment: "")
-                cell.detailTextLabel?.text = nil
-                cell.selectionStyle = .none
-            } else {
-                let request = requests[indexPath.row]
-                cell.textLabel?.text = request.freelancer.title
-                if deal.isClosed {
-                    cell.detailTextLabel?.text = String(format: "Deal closed", request.amount.stringValue)
-                } else {
-                    if request.isCompleted {
-                        cell.detailTextLabel?.text = String(format: "Completed", request.amount.stringValue)
-                    } else if request.isPayed {
-                        cell.detailTextLabel?.text = String(format: "Payed: %@ ₽", request.amount.stringValue)
-                    } else {
-                        cell.detailTextLabel?.text = String(format: "%@ ₽", request.amount.stringValue)
-                    }
-                }
-                cell.selectionStyle = .default
-            }
+            configureCellInRequestsSection(cell, at: indexPath)
         case .newRequest:
-            cell.textLabel?.text = NSLocalizedString("Add Request", comment: "")
-            cell.detailTextLabel?.text = nil
-            cell.selectionStyle = .default
-            cell.textLabel?.textColor = view.tintColor
+            configureCellInAddRequestSection(cell, at: indexPath)
         }
         return cell
+    }
+    
+    func configureCellInDescriptionSection(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        cell.textLabel?.text = indexPath.row == 0 ? deal.title : deal.shortDescription
+        cell.selectionStyle = .none
+        cell.detailTextLabel?.text = nil
+    }
+    
+    func configureCellInRequestsSection(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        if requests.isEmpty {
+            cell.textLabel?.textColor = .black
+            cell.textLabel?.text = NSLocalizedString("No requests", comment: "")
+            cell.detailTextLabel?.text = nil
+            cell.selectionStyle = .none
+        } else {
+            let request = requests[indexPath.row]
+            cell.textLabel?.text = request.freelancer.title
+            cell.selectionStyle = .default
+            
+            switch request.stateId {
+            case .created:
+                cell.detailTextLabel?.text = String(format: NSLocalizedString("%@ ₽", comment: ""), request.amount.stringValue)
+            case .paymentProcessing:
+                cell.detailTextLabel?.text = String(format: NSLocalizedString("Payment Processing... : %@ ₽", comment: ""), request.amount.stringValue)
+                cell.selectionStyle = .none
+            case .paid:
+                cell.detailTextLabel?.text = String(format: NSLocalizedString("Paid: %@ ₽", comment: ""), request.amount.stringValue)
+            case .canceling:
+                cell.detailTextLabel?.text = NSLocalizedString("Canceleing...", comment: "")
+                cell.selectionStyle = .none
+            case .canceled:
+                cell.detailTextLabel?.text = String(format: NSLocalizedString("Canceled: %@ ₽", comment: ""), request.amount.stringValue)
+                cell.selectionStyle = .none
+            case .paymentError:
+                cell.detailTextLabel?.text = String(format: NSLocalizedString("Payment Error: %@ ₽", comment: ""), request.amount.stringValue)
+            case .completed:
+                cell.detailTextLabel?.text = NSLocalizedString("Freelancer Completed", comment: "")
+                cell.detailTextLabel?.textColor = view.tintColor
+            case .confirming:
+                cell.detailTextLabel?.text = NSLocalizedString("Confirming...", comment: "")
+                cell.selectionStyle = .none
+            case .payoutProcessing:
+                cell.detailTextLabel?.text = NSLocalizedString("Payout Processing...", comment: "")
+                cell.detailTextLabel?.textColor = .orange
+                cell.selectionStyle = .none
+            case .payoutProcessingError:
+                cell.detailTextLabel?.text = NSLocalizedString("Payout Processing Error", comment: "")
+                cell.detailTextLabel?.textColor = .red
+                cell.selectionStyle = .none
+            case .done:
+                cell.detailTextLabel?.text = NSLocalizedString("Paid to Freelancer", comment: "")
+                cell.detailTextLabel?.textColor = UIColor(red:0.298,  green:0.851,  blue:0.388, alpha:1)
+                cell.selectionStyle = .none
+            }
+        }
+    }
+    
+    func configureCellInAddRequestSection(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        cell.textLabel?.text = NSLocalizedString("Add Request", comment: "")
+        cell.detailTextLabel?.text = nil
+        cell.selectionStyle = .default
+        cell.textLabel?.textColor = view.tintColor
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch Section(rawValue: section)! {
         case .description:
-            return NSLocalizedString("Short description", comment: "")
+            return "" // NSLocalizedString("Description", comment: "")
         case .requests:
             return NSLocalizedString("Freelancer requests", comment: "")
         case .newRequest:
@@ -128,41 +201,58 @@ class DealViewController: UITableViewController {
     func presentEmployerAlert(for request: DealRequest) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        if deal.isClosed {
-            return
+        let accept: (UIAlertAction) -> Void = { (_) in
+            self.selectedRequest = request
+            self.presentBankCardsViewController(for: .payer)
         }
         
-        if request.isPayed {
-            if request.isCompleted {
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm completion", comment: ""), style: .default, handler: { (_) in
-                    P2PCore.deals.complete(dealId: self.deal.id, complete: { (deal, error) in
-                        if let error = error {
-                            self.present(error: error)
-                        } else {
-                            request.deal.isClosed = true
-                            self.tableView.reloadData()
-                        }
-                    })
-                }))
-            } else {
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel Deal", comment: ""), style: .destructive, handler: { (_) in
-                    P2PCore.deals.cancel(dealId: self.deal.id, complete: { (deal, error) in
-                        if let error = error {
-                            self.present(error: error)
-                        } else {
-                            request.isPayed = false
-                            self.loadRequests()
-                            self.tableView.reloadData()
-                        }
-                    })
-                }))
-            }
+        let cancelDeal = UIAlertAction(title: NSLocalizedString("Cancel Deal", comment: ""), style: .destructive, handler: { (_) in
+            request.stateId = .canceling
+            self.postReload()
+            P2PCore.deals.cancel(dealId: self.deal.id, complete: { (deal, error) in
+                if let error = error {
+                    self.present(error: error)
+                } else {
+                    request.stateId = .canceled
+                    self.postReload()
+                }
+            })
+        })
         
-        } else {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Accept", comment: ""), style: .default, handler: { (_) in
-                self.selectedRequest = request
-                self.presentBankCardsViewController(for: .payer)
+        switch request.stateId {
+        case .created:
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Accept", comment: ""), style: .default, handler: accept))
+        case .paymentProcessing:
+            return
+        case .paid:
+            alert.addAction(cancelDeal)
+        case .canceling:
+            return
+        case .canceled:
+            return
+        case .paymentError:
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: ""), style: .default, handler: accept))
+            alert.addAction(cancelDeal)
+        case .completed:
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm Completion", comment: ""), style: .default, handler: { (_) in
+                request.stateId = .confirming
+                self.postReload()
+                P2PCore.deals.complete(dealId: self.deal.id, complete: { [weak self] (deal, error) in
+                    if let error = error {
+                        self?.present(error: error)
+                    } else {
+                        self?.checkStatus()
+                    }
+                })
             }))
+        case .confirming:
+            return
+        case .payoutProcessing:
+            return
+        case .payoutProcessingError:
+            return
+        case .done:
+            return
         }
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .cancel, handler: nil))
@@ -170,24 +260,38 @@ class DealViewController: UITableViewController {
         present(alert, animated: true)
     }
     
-    func createDeal(employerCardId: Int?) {
-        
-    }
-    
     func presentFreelancerAlert(for request: DealRequest) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        if request.isPayed {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Complete", comment: ""), style: .default, handler: { (_) in
-                request.isCompleted = true
-                self.tableView.reloadData()
-            }))
-        } else {
+        switch request.stateId {
+        case .created:
             alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel Request", comment: ""), style: .destructive, handler: { (_) in
                 DataStorage.default.cancel(request: request)
-                self.loadRequests()
-                self.tableView.reloadData()
+                self.postReload()
             }))
+        case .paymentProcessing:
+            return
+        case .paid:
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Complete", comment: ""), style: .default, handler: { (_) in
+                request.stateId = .completed
+                self.postReload()
+            }))
+        case .canceling:
+            return
+        case .canceled:
+            return
+        case .paymentError:
+            return
+        case .completed:
+            return
+        case .confirming:
+            return
+        case .payoutProcessing:
+            return
+        case .payoutProcessingError:
+            return
+        case .done:
+            return
         }
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .cancel, handler: nil))
@@ -220,10 +324,6 @@ class DealViewController: UITableViewController {
             self.presentBankCardsViewController(for: .benificiary)
         }
     }
-
-}
-
-extension DealViewController: BankCardsViewControllerDelegate, PayDealViewControllerDelegate {
     
     func presentBankCardsViewController(for owner: BankCardsViewController.Owner) {
         
@@ -242,8 +342,7 @@ extension DealViewController: BankCardsViewControllerDelegate, PayDealViewContro
             creatingRequest?.freelancerCardId = bankCard.cardId
             DataStorage.default.dealRequests.append(creatingRequest!)
             creatingRequest = nil
-            loadRequests()
-            self.tableView.reloadData()
+            self.postReload()
         case .payer:
             createP2PDeal(with: bankCard)
             break
@@ -253,6 +352,19 @@ extension DealViewController: BankCardsViewControllerDelegate, PayDealViewContro
     func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController) {
         vc.dismiss(animated: true) { 
             self.createP2PDeal(with: nil)
+        }
+    }
+    
+    func bankCardsViewControllerHeaderTitleForBankCardsSection(_ vc: BankCardsViewController) -> String {
+        return NSLocalizedString("Select Card", comment: "")
+    }
+    
+    func bankCardsViewControllerFooterTitleForBankCardsSection(_ vc: BankCardsViewController) -> String {
+        switch vc.owner {
+        case .benificiary:
+            return NSLocalizedString("Select card for receiving payment after deal completion", comment: "")
+        case .payer:
+            return NSLocalizedString("Select card to make deal payment", comment: "")
         }
     }
     
@@ -295,7 +407,7 @@ extension DealViewController: BankCardsViewControllerDelegate, PayDealViewContro
                 textField.keyboardType = .numberPad
             })
             
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Next", comment: ""), style: .default, handler: { (_) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Pay", comment: ""), style: .default, handler: { (_) in
                 let cvv = alert.textFields?[0].text ?? ""
                 if cvv.characters.count != 3 {
                     self.presentPaymentViewController(redirectToCardAddition: false)
@@ -314,33 +426,46 @@ extension DealViewController: BankCardsViewControllerDelegate, PayDealViewContro
     }
     
     func present(payment vc: PayDealViewController) {
-        
         let nc = UINavigationController(rootViewController: vc)
-        
         present(nc, animated: true, completion: nil)
-        
     }
     
     func payDealViewControllerComplete(_ vc: PayDealViewController) {
-        
         vc.dismiss(animated: true) { }
-        
-        P2PCore.deals.status(dealId: deal.id) { (deal, error) in
+        checkStatus()
+    }
+    
+    func watchStatus() {
+        statusTimer?.invalidate()
+        statusTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkStatus), userInfo: nil, repeats: false)
+    }
+    
+    func checkStatus() {
+        P2PCore.deals.status(dealId: deal.id) { [weak self] (deal, error) in
             if let error = error {
-                self.present(error: error)
+                self?.present(error: error)
             } else if let deal = deal {
-                
-                if deal.dealStateId == DealStateIdPaid || deal.dealStateId == DealStateIdPaymentProcessing {
-                    guard let request = self.selectedRequest else { return }
-                    request.isPayed = true
-                    self.loadRequests()
-                    self.tableView.reloadData()
-                } else {
+                guard let request = self?.selectedRequest else { return }
+                switch deal.dealStateId {
+                case DealStateIdPaymentProcessing:
+                    request.stateId = .paymentProcessing
+                    self?.watchStatus()
+                case DealStateIdPaymentProcessError:
+                    request.stateId = .paymentError
+                case DealStateIdPaid:
+                    request.stateId = .paid
+                case DealStateIdPayoutProcessing:
+                    request.stateId = .payoutProcessing
+                    self?.watchStatus()
+                case DealStateIdPayoutProcessError:
+                    request.stateId = .payoutProcessingError
+                case DealStateIdCompleted:
+                    request.stateId = .done
+                default:
                     let error = NSError.error(deal.dealStateId)
-                    self.present(error: error)
-                    self.loadRequests()
-                    self.tableView.reloadData()
+                    self?.present(error: error)
                 }
+                self?.postReload()
             }
         }
     }

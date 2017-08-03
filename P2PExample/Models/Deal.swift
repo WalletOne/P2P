@@ -24,8 +24,6 @@ class Deal: Equatable {
     
     var employer: Employer
     
-    var isClosed: Bool = false
-    
     init(employer: Employer) {
         self.employer = employer
     }

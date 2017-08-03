@@ -10,17 +10,23 @@ import UIKit
 import P2PCore
 
 @objc public protocol BankCardsViewControllerDelegate: NSObjectProtocol {
+    @objc optional func bankCardsViewControllerHeaderTitleForBankCardsSection(_ vc: BankCardsViewController) -> String
+    @objc optional func bankCardsViewControllerFooterTitleForBankCardsSection(_ vc: BankCardsViewController) -> String
+    
+    @objc optional func bankCardsViewControllerHeaderTitleForLinkNewCardSection(_ vc: BankCardsViewController) -> String
+    @objc optional func bankCardsViewControllerFooterTitleForLinkNewCardSection(_ vc: BankCardsViewController) -> String
+    
     func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard)
     func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController)
 }
 
-@objc public class BankCardsViewController: P2PViewController, TableStructuredViewController {
+@objc open class BankCardsViewController: P2PViewController, TableStructuredViewController {
     
     @objc public enum Owner: Int {
         case benificiary, payer
     }
     
-    @IBOutlet weak public var tableView: UITableView!
+    @IBOutlet weak open var tableView: UITableView!
     
     lazy var cancelButton: UIBarButtonItem = {
         return UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
@@ -41,7 +47,7 @@ import P2PCore
         self.owner = owner
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = NSLocalizedString("Bank Cards", comment: "")
@@ -112,7 +118,7 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
     override func configureTableView() {
         super.configureTableView()
         
-        let nibs = ["BankCardTableViewCell", "LoadingTableViewCell", "BankCardLinkNewTableViewCell"]
+        let nibs = ["BankCardTableViewCell", "LoadingTableViewCell", "BankCardLinkNewTableViewCell", "BankCardsEmptyTableViewCell"]
         
         for nibName in nibs {
             tableView.register(.init(nibName: nibName, bundle: kBundle), forCellReuseIdentifier: nibName)
@@ -129,15 +135,21 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
             section.append("LoadingTableViewCell")
             append(section: &section)
         } else {
-            section.headerTitle = NSLocalizedString("Linked Cards", comment: "")
-            section.append(contentsOf: vc.cards)
+            section.headerTitle = vc.delegate?.bankCardsViewControllerHeaderTitleForBankCardsSection?(vc) ?? NSLocalizedString("Linked Cards", comment: "")
+            section.footerTitle = vc.delegate?.bankCardsViewControllerFooterTitleForBankCardsSection?(vc) ?? ""
             if !vc.cards.isEmpty {
-                append(section: &section)
+                section.append(contentsOf: vc.cards)
+            } else {
+                section.append("BankCardsEmptyTableViewCell")
             }
+            append(section: &section)
         }
         
-        
-        section.append("BankCardLinkNewTableViewCell")
+        if vc.delegate != nil || vc.owner == .benificiary {
+            section.headerTitle = vc.delegate?.bankCardsViewControllerHeaderTitleForLinkNewCardSection?(vc) ?? ""
+            section.footerTitle = vc.delegate?.bankCardsViewControllerFooterTitleForLinkNewCardSection?(vc) ?? ""
+            section.append("BankCardLinkNewTableViewCell")
+        }
         
         append(section: &section)
         
@@ -155,6 +167,13 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
     override func tableView(_ tableView: UITableView, configure cell: UITableViewCell, for object: Any, at indexPath: IndexPath) {
         if let cell = cell as? BankCardTableViewCell, let bankCard = object as? BankCard {
             cell.bankCard = bankCard
+        } else if let cell = cell as? BankCardLinkNewTableViewCell {
+            switch self.vc.owner {
+            case .benificiary:
+                cell.titleLabel.text = NSLocalizedString("Link New Card", comment: "")
+            case .payer:
+                cell.titleLabel.text = NSLocalizedString("Use New Card", comment: "")
+            }
         }
     }
     
@@ -226,7 +245,7 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         vc.cards.remove(at: row)
         self.buildTableStructure(reloadData: false)
         if self.vc.cards.isEmpty {
-            self.tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+            self.tableView.reloadRows(at: [indexPath], with: .left)
         } else {
             self.tableView.deleteRows(at: [indexPath], with: .left)
         }

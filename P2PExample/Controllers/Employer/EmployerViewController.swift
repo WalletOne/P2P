@@ -8,6 +8,7 @@
 
 import UIKit
 import P2PCore
+import P2PUI
 
 class EmployerViewController: UITableViewController {
 
@@ -34,6 +35,29 @@ class EmployerViewController: UITableViewController {
             vc.userTypeId = .employer
         default:break
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let bankCardsIndexPath = IndexPath(row: 0, section: 1)
+        let refundsIndexPath = IndexPath(row: 1, section: 1)
+        switch indexPath {
+        case bankCardsIndexPath:
+            presentBankCards()
+        case refundsIndexPath:
+            presentRefunds()
+        default:
+            break
+        }
+    }
+    
+    func presentBankCards() {
+        let vc = BankCardsViewController(owner: .payer)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func presentRefunds() {
+        let vc = RefundsViewController(dealId: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

@@ -8,38 +8,15 @@
 
 import Foundation
 
-@objc public enum PayoutStateId: Int, RawRepresentable {
-    
-    case undefined
-    
-    case paid
-    
-    public typealias RawValue = String
-    
-    public var rawValue: RawValue {
-        switch self {
-        case .paid:
-            return "Paid"
-        case .undefined:
-            return ""
-        }
-    }
-    
-    public init?(rawValue: RawValue) {
-        switch rawValue {
-        case "Paid":
-            self = .paid
-        default:
-            self = .undefined
-        }
-    }
-}
+public let PayoutStateIdAccepted = "Accepted"
+public let PayoutStateIdProcessing = "Processing"
+public let PayoutStateIdProcessError = "ProcessError"
 
 @objc public class Payout: NSObject, Mappable {
     
     public var payoutId: Int = 0
     
-    public var payoutStateId: PayoutStateId = .undefined
+    public var payoutStateId: String = ""
     
     public var createDate: Date?
     
@@ -51,7 +28,7 @@ import Foundation
     
     public required init(json: [String : Any]) {
         payoutId = map(json["PayoutId"], 0)
-        payoutStateId = map(json["PayoutStateId"], .undefined)
+        payoutStateId = map(json["PayoutStateId"], "")
         createDate = map(json["CreateDate"])
         amount = map(json["Amount"], 0.0)
         currencyId = map(json["CurrencyId"], .rub)

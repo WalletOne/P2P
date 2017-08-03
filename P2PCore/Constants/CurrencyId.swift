@@ -12,4 +12,18 @@ import Foundation
     
     case rub = 643
     
+    public var alphabeticCode: String {
+        switch self {
+        case .rub:
+            return "RUB"
+        }
+    }
+    
+    public var symbol: String {
+        switch self {
+        case .rub:
+            return "₽"
+        }
+    }
+    
 }

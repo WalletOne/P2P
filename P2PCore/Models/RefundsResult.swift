@@ -10,12 +10,12 @@ import Foundation
 
 @objc public class RefundsResult: NSObject, Mappable {
     
-    public var payouts: [Payout] = []
+    public var refunds: [Refund] = []
     
     public var totalCount: Int = 0
     
     public required init(json: [String : Any]) {
-        payouts = map(json["Refunds"], [])
+        refunds = map(json["Refunds"], [])
         totalCount = map(json["TotalCount"], 0)
     }
     

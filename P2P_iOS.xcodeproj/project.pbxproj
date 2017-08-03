@@ -70,9 +70,23 @@
 		7953616B1F3216B10003FE38 /* FreelancerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7953616A1F3216B10003FE38 /* FreelancerViewController.swift */; };
 		7953616E1F3218C10003FE38 /* DealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7953616D1F3218C10003FE38 /* DealsViewController.swift */; };
 		795361711F321AB60003FE38 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795361701F321AB60003FE38 /* DealViewController.swift */; };
-		795361731F321B1C0003FE38 /* DealEmployerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795361721F321B1C0003FE38 /* DealEmployerViewController.swift */; };
-		795361751F321B5B0003FE38 /* DealFreelancerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795361741F321B5B0003FE38 /* DealFreelancerViewController.swift */; };
 		795F0B271F20CAAA00FB95D9 /* URLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B261F20CAAA00FB95D9 /* URLComposer.swift */; };
+		797C1C3B1F330B370009E61A /* BankCardsEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C391F330B370009E61A /* BankCardsEmptyTableViewCell.swift */; };
+		797C1C3C1F330B370009E61A /* BankCardsEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C3A1F330B370009E61A /* BankCardsEmptyTableViewCell.xib */; };
+		797C1C451F3312720009E61A /* PayoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C441F3312720009E61A /* PayoutsViewController.swift */; };
+		797C1C4B1F3312ED0009E61A /* PayoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C491F3312ED0009E61A /* PayoutTableViewCell.swift */; };
+		797C1C4C1F3312ED0009E61A /* PayoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C4A1F3312ED0009E61A /* PayoutTableViewCell.xib */; };
+		797C1C4F1F3313040009E61A /* PayoutsEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C4D1F3313040009E61A /* PayoutsEmptyTableViewCell.swift */; };
+		797C1C501F3313040009E61A /* PayoutsEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C4E1F3313040009E61A /* PayoutsEmptyTableViewCell.xib */; };
+		797C1C521F3324610009E61A /* PayoutsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C511F3324610009E61A /* PayoutsViewController.xib */; };
+		797C1C5B1F332B140009E61A /* RefundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C541F332B140009E61A /* RefundsViewController.swift */; };
+		797C1C5C1F332B140009E61A /* RefundsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C551F332B140009E61A /* RefundsViewController.xib */; };
+		797C1C5D1F332B140009E61A /* RefundsEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C571F332B140009E61A /* RefundsEmptyTableViewCell.swift */; };
+		797C1C5E1F332B140009E61A /* RefundsEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C581F332B140009E61A /* RefundsEmptyTableViewCell.xib */; };
+		797C1C5F1F332B140009E61A /* RefundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C591F332B140009E61A /* RefundTableViewCell.swift */; };
+		797C1C601F332B140009E61A /* RefundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C5A1F332B140009E61A /* RefundTableViewCell.xib */; };
+		797C1C641F33436E0009E61A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797C1C621F33436E0009E61A /* Fabric.framework */; };
+		797C1C651F33436E0009E61A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797C1C631F33436E0009E61A /* Crashlytics.framework */; };
 		798680841F208E34000D541D /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
 		798680861F20960E000D541D /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
 		7986808A1F20980F000D541D /* PayoutsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680891F20980F000D541D /* PayoutsResult.swift */; };
@@ -212,10 +226,24 @@
 		7953616A1F3216B10003FE38 /* FreelancerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreelancerViewController.swift; sourceTree = "<group>"; };
 		7953616D1F3218C10003FE38 /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
 		795361701F321AB60003FE38 /* DealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
-		795361721F321B1C0003FE38 /* DealEmployerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealEmployerViewController.swift; sourceTree = "<group>"; };
-		795361741F321B5B0003FE38 /* DealFreelancerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealFreelancerViewController.swift; sourceTree = "<group>"; };
 		795F0B261F20CAAA00FB95D9 /* URLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComposer.swift; sourceTree = "<group>"; };
 		795F0B291F20D23400FB95D9 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
+		797C1C391F330B370009E61A /* BankCardsEmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCardsEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		797C1C3A1F330B370009E61A /* BankCardsEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardsEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		797C1C441F3312720009E61A /* PayoutsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsViewController.swift; sourceTree = "<group>"; };
+		797C1C491F3312ED0009E61A /* PayoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutTableViewCell.swift; sourceTree = "<group>"; };
+		797C1C4A1F3312ED0009E61A /* PayoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayoutTableViewCell.xib; sourceTree = "<group>"; };
+		797C1C4D1F3313040009E61A /* PayoutsEmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		797C1C4E1F3313040009E61A /* PayoutsEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayoutsEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		797C1C511F3324610009E61A /* PayoutsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayoutsViewController.xib; sourceTree = "<group>"; };
+		797C1C541F332B140009E61A /* RefundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsViewController.swift; sourceTree = "<group>"; };
+		797C1C551F332B140009E61A /* RefundsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundsViewController.xib; sourceTree = "<group>"; };
+		797C1C571F332B140009E61A /* RefundsEmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		797C1C581F332B140009E61A /* RefundsEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundsEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		797C1C591F332B140009E61A /* RefundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundTableViewCell.swift; sourceTree = "<group>"; };
+		797C1C5A1F332B140009E61A /* RefundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundTableViewCell.xib; sourceTree = "<group>"; };
+		797C1C621F33436E0009E61A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		797C1C631F33436E0009E61A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		798680831F208E34000D541D /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		798680851F20960E000D541D /* BankCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCard.swift; sourceTree = "<group>"; };
 		798680891F20980F000D541D /* PayoutsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsResult.swift; sourceTree = "<group>"; };
@@ -246,6 +274,8 @@
 			files = (
 				794816541F1CE9E200DD0783 /* P2PCore.framework in Frameworks */,
 				7948160C1F1CDDFA00DD0783 /* P2PUI.framework in Frameworks */,
+				797C1C651F33436E0009E61A /* Crashlytics.framework in Frameworks */,
+				797C1C641F33436E0009E61A /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +337,8 @@
 				79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */,
 				79E96B731F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift */,
 				79E96B741F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib */,
+				797C1C391F330B370009E61A /* BankCardsEmptyTableViewCell.swift */,
+				797C1C3A1F330B370009E61A /* BankCardsEmptyTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -386,6 +418,8 @@
 		794815EF1F1CDDE200DD0783 /* P2PExample */ = {
 			isa = PBXGroup;
 			children = (
+				797C1C621F33436E0009E61A /* Fabric.framework */,
+				797C1C631F33436E0009E61A /* Crashlytics.framework */,
 				794FB2EA1F2F553E005610DF /* Models */,
 				794815F01F1CDDE200DD0783 /* AppDelegate.swift */,
 				795361651F3215F60003FE38 /* Controllers */,
@@ -460,6 +494,8 @@
 				79430D571F28CD560075EB8E /* BankCards */,
 				794510161F30B09A00DC39EC /* PayDeal */,
 				79E96B7A1F2A332700AE064B /* LinkCard */,
+				797C1C431F3312640009E61A /* Payouts */,
+				797C1C531F332AEB0009E61A /* Refunds */,
 				7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */,
 				7948161E1F1CE86900DD0783 /* P2PViewController.swift */,
 				79430D4F1F28BF080075EB8E /* P2PViewController.xib */,
@@ -557,8 +593,6 @@
 			isa = PBXGroup;
 			children = (
 				795361701F321AB60003FE38 /* DealViewController.swift */,
-				795361721F321B1C0003FE38 /* DealEmployerViewController.swift */,
-				795361741F321B5B0003FE38 /* DealFreelancerViewController.swift */,
 			);
 			path = Deal;
 			sourceTree = "<group>";
@@ -569,6 +603,48 @@
 				795F0B291F20D23400FB95D9 /* module.map */,
 			);
 			path = CommonCrypto;
+			sourceTree = "<group>";
+		};
+		797C1C431F3312640009E61A /* Payouts */ = {
+			isa = PBXGroup;
+			children = (
+				797C1C461F3312C80009E61A /* TableViewCells */,
+				797C1C441F3312720009E61A /* PayoutsViewController.swift */,
+				797C1C511F3324610009E61A /* PayoutsViewController.xib */,
+			);
+			path = Payouts;
+			sourceTree = "<group>";
+		};
+		797C1C461F3312C80009E61A /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				797C1C491F3312ED0009E61A /* PayoutTableViewCell.swift */,
+				797C1C4A1F3312ED0009E61A /* PayoutTableViewCell.xib */,
+				797C1C4D1F3313040009E61A /* PayoutsEmptyTableViewCell.swift */,
+				797C1C4E1F3313040009E61A /* PayoutsEmptyTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		797C1C531F332AEB0009E61A /* Refunds */ = {
+			isa = PBXGroup;
+			children = (
+				797C1C561F332B140009E61A /* TableViewCells */,
+				797C1C541F332B140009E61A /* RefundsViewController.swift */,
+				797C1C551F332B140009E61A /* RefundsViewController.xib */,
+			);
+			path = Refunds;
+			sourceTree = "<group>";
+		};
+		797C1C561F332B140009E61A /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				797C1C571F332B140009E61A /* RefundsEmptyTableViewCell.swift */,
+				797C1C581F332B140009E61A /* RefundsEmptyTableViewCell.xib */,
+				797C1C591F332B140009E61A /* RefundTableViewCell.swift */,
+				797C1C5A1F332B140009E61A /* RefundTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		79E96B6E1F2A132F00AE064B /* TableViewCells */ = {
@@ -645,6 +721,7 @@
 				794815EB1F1CDDE200DD0783 /* Frameworks */,
 				794815EC1F1CDDE200DD0783 /* Resources */,
 				794816111F1CDDFA00DD0783 /* Embed Frameworks */,
+				797C1C611F3343530009E61A /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -714,7 +791,7 @@
 					794815ED1F1CDDE200DD0783 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = P8A8G8XXL8;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					794816041F1CDDFA00DD0783 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -773,8 +850,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				79430D721F28CE5D0075EB8E /* MirMini@2x.png in Resources */,
+				797C1C501F3313040009E61A /* PayoutsEmptyTableViewCell.xib in Resources */,
+				797C1C521F3324610009E61A /* PayoutsViewController.xib in Resources */,
+				797C1C5E1F332B140009E61A /* RefundsEmptyTableViewCell.xib in Resources */,
 				79430D6E1F28CE5D0075EB8E /* MasterCardMini.png in Resources */,
 				794FB2E41F2F3D53005610DF /* linkNewCard@3x.png in Resources */,
+				797C1C3C1F330B370009E61A /* BankCardsEmptyTableViewCell.xib in Resources */,
 				794FB2E31F2F3D53005610DF /* linkNewCard@2x.png in Resources */,
 				79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */,
 				79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */,
@@ -782,6 +863,8 @@
 				794FB2E21F2F3D53005610DF /* linkNewCard.png in Resources */,
 				79E96B7E1F2A333E00AE064B /* LinkCardViewController.xib in Resources */,
 				79430D701F28CE5D0075EB8E /* MasterCardMini@3x.png in Resources */,
+				797C1C4C1F3312ED0009E61A /* PayoutTableViewCell.xib in Resources */,
+				797C1C601F332B140009E61A /* RefundTableViewCell.xib in Resources */,
 				79E96B721F2A134100AE064B /* LoadingTableViewCell.xib in Resources */,
 				79E96B761F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib in Resources */,
 				79430D761F28CE5D0075EB8E /* VisaMini@3x.png in Resources */,
@@ -790,6 +873,7 @@
 				79430D751F28CE5D0075EB8E /* VisaMini@2x.png in Resources */,
 				79430D711F28CE5D0075EB8E /* MirMini.png in Resources */,
 				79430D5B1F28CD620075EB8E /* BankCardsViewController.xib in Resources */,
+				797C1C5C1F332B140009E61A /* RefundsViewController.xib in Resources */,
 				79430D731F28CE5D0075EB8E /* MirMini@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,6 +889,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		797C1C611F3343530009E61A /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 09a5adc9194f075392fe678cdffd51f3024b144c fa8743d01fa70817916612f2a782b36b15b95d89d5d3fae5f77a7f58d821b4c9";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		794815C21F1CDD2700DD0783 /* Sources */ = {
@@ -837,13 +938,11 @@
 				794FB2EC1F2F554B005610DF /* Deal.swift in Sources */,
 				794FB2EE1F2F559A005610DF /* DataStorage.swift in Sources */,
 				794815F11F1CDDE200DD0783 /* AppDelegate.swift in Sources */,
-				795361731F321B1C0003FE38 /* DealEmployerViewController.swift in Sources */,
 				795361711F321AB60003FE38 /* DealViewController.swift in Sources */,
 				795361681F3216190003FE38 /* EmployerViewController.swift in Sources */,
 				794FB2F01F2F55D9005610DF /* Employer.swift in Sources */,
 				7953616E1F3218C10003FE38 /* DealsViewController.swift in Sources */,
 				794FB2F61F2F5DE5005610DF /* DealRequest.swift in Sources */,
-				795361751F321B5B0003FE38 /* DealFreelancerViewController.swift in Sources */,
 				794FB2F21F2F560C005610DF /* Freelancer.swift in Sources */,
 				7953616B1F3216B10003FE38 /* FreelancerViewController.swift in Sources */,
 			);
@@ -854,13 +953,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				79430D4D1F28B29C0075EB8E /* StructuredSection.swift in Sources */,
+				797C1C451F3312720009E61A /* PayoutsViewController.swift in Sources */,
 				79430D4E1F28B29C0075EB8E /* TableStructuredController.swift in Sources */,
+				797C1C4F1F3313040009E61A /* PayoutsEmptyTableViewCell.swift in Sources */,
 				79430D611F28CD9A0075EB8E /* BankCardTableViewCell.swift in Sources */,
 				794FB2E71F2F4194005610DF /* UIAlertController+Error.swift in Sources */,
 				79E96B7C1F2A333400AE064B /* LinkCardViewController.swift in Sources */,
 				79E96B791F2A229200AE064B /* CreditCardValidator.swift in Sources */,
 				794510191F30B09A00DC39EC /* PayDealViewController.swift in Sources */,
+				797C1C5F1F332B140009E61A /* RefundTableViewCell.swift in Sources */,
+				797C1C3B1F330B370009E61A /* BankCardsEmptyTableViewCell.swift in Sources */,
+				797C1C5D1F332B140009E61A /* RefundsEmptyTableViewCell.swift in Sources */,
+				797C1C5B1F332B140009E61A /* RefundsViewController.swift in Sources */,
 				79E96B751F2A15D200AE064B /* BankCardLinkNewTableViewCell.swift in Sources */,
+				797C1C4B1F3312ED0009E61A /* PayoutTableViewCell.swift in Sources */,
 				79430D5A1F28CD620075EB8E /* BankCardsViewController.swift in Sources */,
 				79430D4C1F28B29C0075EB8E /* CollectionStructuredController.swift in Sources */,
 				7948161D1F1CE84800DD0783 /* P2PNavigationController.swift in Sources */,
@@ -1092,10 +1198,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = P2PExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8f525cab-c015-459a-919f-22a121771b83";
+				PROVISIONING_PROFILE_SPECIFIER = "P2P Presentation Dev";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1106,10 +1218,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = P2PExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8f525cab-c015-459a-919f-22a121771b83";
+				PROVISIONING_PROFILE_SPECIFIER = "P2P Presentation Dev";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

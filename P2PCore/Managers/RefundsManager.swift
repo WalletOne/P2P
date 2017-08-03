@@ -27,8 +27,8 @@ extension URLComposer {
     
     /// Get all refunds by payer
     
-    @discardableResult public func refunds(of payerId: String, pageNumber: Int, itemsPerPage: Int, dealId: String? = nil, complete: @escaping ([RefundsResult]?, Error?) -> Void) -> URLSessionDataTask {
-        let url = URLComposer.default.payersRefunds(payerId, pageNumber: pageNumber, itemsPerPage: itemsPerPage, dealId: dealId)
+    @discardableResult public func refunds(pageNumber: Int, itemsPerPage: Int, dealId: String? = nil, complete: @escaping (RefundsResult?, Error?) -> Void) -> URLSessionDataTask {
+        let url = URLComposer.default.payersRefunds(core.payerId, pageNumber: pageNumber, itemsPerPage: itemsPerPage, dealId: dealId)
         return core.networkManager.request(url, method: .get, parameters: nil, complete: complete)
     }
     

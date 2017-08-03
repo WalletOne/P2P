@@ -40,6 +40,14 @@ import Foundation
     lazy var payersCards: PayersCardsManager = { return .init(self) }()
     public class var payersCards: PayersCardsManager { return P2PCore.default.payersCards }
     
+    /// Manager for working with payouts
+    lazy var payouts: PayoutsManager = { return .init(self) }()
+    public class var payouts: PayoutsManager { return P2PCore.default.payouts }
+    
+    /// Manager for working with refunds
+    lazy var refunds: RefundsManager = { return .init(self) }()
+    public class var refunds: RefundsManager { return P2PCore.default.refunds }
+    
     lazy var networkManager: NetworkManager = { return .init(self) }()
     
     public class func setPlatform(id: String, signatureKey: String) {
