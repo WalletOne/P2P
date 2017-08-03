@@ -418,8 +418,6 @@
 		794815EF1F1CDDE200DD0783 /* P2PExample */ = {
 			isa = PBXGroup;
 			children = (
-				797C1C621F33436E0009E61A /* Fabric.framework */,
-				797C1C631F33436E0009E61A /* Crashlytics.framework */,
 				794FB2EA1F2F553E005610DF /* Models */,
 				794815F01F1CDDE200DD0783 /* AppDelegate.swift */,
 				795361651F3215F60003FE38 /* Controllers */,
@@ -428,6 +426,7 @@
 				794815F71F1CDDE200DD0783 /* Assets.xcassets */,
 				794815F91F1CDDE200DD0783 /* LaunchScreen.storyboard */,
 				794815FC1F1CDDE200DD0783 /* Info.plist */,
+				797C1C661F3347A20009E61A /* Frameworks */,
 			);
 			path = P2PExample;
 			sourceTree = "<group>";
@@ -645,6 +644,15 @@
 				797C1C5A1F332B140009E61A /* RefundTableViewCell.xib */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		797C1C661F3347A20009E61A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				797C1C621F33436E0009E61A /* Fabric.framework */,
+				797C1C631F33436E0009E61A /* Crashlytics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		79E96B6E1F2A132F00AE064B /* TableViewCells */ = {
