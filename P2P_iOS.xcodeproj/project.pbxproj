@@ -87,6 +87,24 @@
 		797C1C601F332B140009E61A /* RefundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797C1C5A1F332B140009E61A /* RefundTableViewCell.xib */; };
 		797C1C641F33436E0009E61A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797C1C621F33436E0009E61A /* Fabric.framework */; };
 		797C1C651F33436E0009E61A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797C1C631F33436E0009E61A /* Crashlytics.framework */; };
+		797C1C6E1F3347FF0009E61A /* P2PCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C6D1F3347FF0009E61A /* P2PCoreTests.swift */; };
+		797C1C761F3348410009E61A /* CoreNetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C751F3348410009E61A /* CoreNetworkManagerTests.swift */; };
+		797C1C771F3349AA0009E61A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680911F209EC3000D541D /* NetworkManager.swift */; };
+		797C1C781F3349BC0009E61A /* DealsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816181F1CE72F00DD0783 /* DealsManager.swift */; };
+		797C1C791F3349BC0009E61A /* BeneficiariesCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D281F261D840075EB8E /* BeneficiariesCardsManager.swift */; };
+		797C1C7A1F3349BC0009E61A /* PayersCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2A1F2622240075EB8E /* PayersCardsManager.swift */; };
+		797C1C7B1F3349BC0009E61A /* PayoutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2C1F26245E0075EB8E /* PayoutsManager.swift */; };
+		797C1C7C1F3349BC0009E61A /* RefundsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2E1F2629D40075EB8E /* RefundsManager.swift */; };
+		797C1C7D1F3349CC0009E61A /* P2PCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816161F1CE1E400DD0783 /* P2PCore.swift */; };
+		797C1C7E1F3349CC0009E61A /* CurrencyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816211F1CE93200DD0783 /* CurrencyId.swift */; };
+		797C1C7F1F3349CC0009E61A /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816611F1CEB2F00DD0783 /* Deal.swift */; };
+		797C1C801F3349CC0009E61A /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
+		797C1C811F3349CC0009E61A /* PayoutsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680891F20980F000D541D /* PayoutsResult.swift */; };
+		797C1C821F3349CC0009E61A /* Payout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808B1F209897000D541D /* Payout.swift */; };
+		797C1C831F3349CC0009E61A /* RefundsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808D1F209A59000D541D /* RefundsResult.swift */; };
+		797C1C841F3349CC0009E61A /* Refund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808F1F209C27000D541D /* Refund.swift */; };
+		797C1C851F3349D20009E61A /* URLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795F0B261F20CAAA00FB95D9 /* URLComposer.swift */; };
+		797C1C861F3349D20009E61A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
 		798680841F208E34000D541D /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
 		798680861F20960E000D541D /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
 		7986808A1F20980F000D541D /* PayoutsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680891F20980F000D541D /* PayoutsResult.swift */; };
@@ -131,6 +149,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 794816041F1CDDFA00DD0783;
 			remoteInfo = P2PUI;
+		};
+		797C1C701F3347FF0009E61A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 794815A51F1CDC1A00DD0783 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 794815ED1F1CDDE200DD0783;
+			remoteInfo = P2PExample;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -244,6 +269,10 @@
 		797C1C5A1F332B140009E61A /* RefundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundTableViewCell.xib; sourceTree = "<group>"; };
 		797C1C621F33436E0009E61A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		797C1C631F33436E0009E61A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		797C1C6B1F3347FF0009E61A /* P2PCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = P2PCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		797C1C6D1F3347FF0009E61A /* P2PCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2PCoreTests.swift; sourceTree = "<group>"; };
+		797C1C6F1F3347FF0009E61A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		797C1C751F3348410009E61A /* CoreNetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNetworkManagerTests.swift; sourceTree = "<group>"; };
 		798680831F208E34000D541D /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		798680851F20960E000D541D /* BankCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCard.swift; sourceTree = "<group>"; };
 		798680891F20980F000D541D /* PayoutsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsResult.swift; sourceTree = "<group>"; };
@@ -293,6 +322,13 @@
 			files = (
 				794816581F1CE9E900DD0783 /* P2PCore.framework in Frameworks */,
 				7948165C1F1CE9E900DD0783 /* P2PUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		797C1C681F3347FF0009E61A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +422,7 @@
 				7948163E1F1CE9AC00DD0783 /* P2PExampleObjC */,
 				794816061F1CDDFA00DD0783 /* P2PUI */,
 				794815C81F1CDD2700DD0783 /* P2PCore */,
+				797C1C6C1F3347FF0009E61A /* P2PCoreTests */,
 				794815AE1F1CDC1A00DD0783 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -397,6 +434,7 @@
 				794815EE1F1CDDE200DD0783 /* P2PExample.app */,
 				794816051F1CDDFA00DD0783 /* P2PUI.framework */,
 				7948163D1F1CE9AC00DD0783 /* P2PExampleObjC.app */,
+				797C1C6B1F3347FF0009E61A /* P2PCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -655,6 +693,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		797C1C6C1F3347FF0009E61A /* P2PCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				797C1C6D1F3347FF0009E61A /* P2PCoreTests.swift */,
+				797C1C6F1F3347FF0009E61A /* Info.plist */,
+				797C1C751F3348410009E61A /* CoreNetworkManagerTests.swift */,
+			);
+			path = P2PCoreTests;
+			sourceTree = "<group>";
+		};
 		79E96B6E1F2A132F00AE064B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +828,24 @@
 			productReference = 7948163D1F1CE9AC00DD0783 /* P2PExampleObjC.app */;
 			productType = "com.apple.product-type.application";
 		};
+		797C1C6A1F3347FF0009E61A /* P2PCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 797C1C721F3347FF0009E61A /* Build configuration list for PBXNativeTarget "P2PCoreTests" */;
+			buildPhases = (
+				797C1C671F3347FF0009E61A /* Sources */,
+				797C1C681F3347FF0009E61A /* Frameworks */,
+				797C1C691F3347FF0009E61A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				797C1C711F3347FF0009E61A /* PBXTargetDependency */,
+			);
+			name = P2PCoreTests;
+			productName = P2PCoreTests;
+			productReference = 797C1C6B1F3347FF0009E61A /* P2PCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -812,6 +878,12 @@
 						DevelopmentTeam = P8A8G8XXL8;
 						ProvisioningStyle = Automatic;
 					};
+					797C1C6A1F3347FF0009E61A = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = P8A8G8XXL8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 794815ED1F1CDDE200DD0783;
+					};
 				};
 			};
 			buildConfigurationList = 794815A81F1CDC1A00DD0783 /* Build configuration list for PBXProject "P2P_iOS" */;
@@ -831,6 +903,7 @@
 				7948163C1F1CE9AC00DD0783 /* P2PExampleObjC */,
 				794816041F1CDDFA00DD0783 /* P2PUI */,
 				794815C61F1CDD2700DD0783 /* P2PCore */,
+				797C1C6A1F3347FF0009E61A /* P2PCoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -893,6 +966,13 @@
 				7948164F1F1CE9AC00DD0783 /* LaunchScreen.storyboard in Resources */,
 				7948164C1F1CE9AC00DD0783 /* Assets.xcassets in Resources */,
 				7948164A1F1CE9AC00DD0783 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		797C1C691F3347FF0009E61A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,6 +1073,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		797C1C671F3347FF0009E61A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				797C1C771F3349AA0009E61A /* NetworkManager.swift in Sources */,
+				797C1C7C1F3349BC0009E61A /* RefundsManager.swift in Sources */,
+				797C1C811F3349CC0009E61A /* PayoutsResult.swift in Sources */,
+				797C1C7F1F3349CC0009E61A /* Deal.swift in Sources */,
+				797C1C861F3349D20009E61A /* Mapper.swift in Sources */,
+				797C1C801F3349CC0009E61A /* BankCard.swift in Sources */,
+				797C1C7A1F3349BC0009E61A /* PayersCardsManager.swift in Sources */,
+				797C1C831F3349CC0009E61A /* RefundsResult.swift in Sources */,
+				797C1C7D1F3349CC0009E61A /* P2PCore.swift in Sources */,
+				797C1C781F3349BC0009E61A /* DealsManager.swift in Sources */,
+				797C1C761F3348410009E61A /* CoreNetworkManagerTests.swift in Sources */,
+				797C1C791F3349BC0009E61A /* BeneficiariesCardsManager.swift in Sources */,
+				797C1C841F3349CC0009E61A /* Refund.swift in Sources */,
+				797C1C6E1F3347FF0009E61A /* P2PCoreTests.swift in Sources */,
+				797C1C821F3349CC0009E61A /* Payout.swift in Sources */,
+				797C1C851F3349D20009E61A /* URLComposer.swift in Sources */,
+				797C1C7B1F3349BC0009E61A /* PayoutsManager.swift in Sources */,
+				797C1C7E1F3349CC0009E61A /* CurrencyId.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1015,6 +1120,11 @@
 			isa = PBXTargetDependency;
 			target = 794816041F1CDDFA00DD0783 /* P2PUI */;
 			targetProxy = 7948165E1F1CE9E900DD0783 /* PBXContainerItemProxy */;
+		};
+		797C1C711F3347FF0009E61A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 794815ED1F1CDDE200DD0783 /* P2PExample */;
+			targetProxy = 797C1C701F3347FF0009E61A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1313,6 +1423,36 @@
 			};
 			name = Release;
 		};
+		797C1C731F3347FF0009E61A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				INFOPLIST_FILE = P2PCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.P2PCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/P2PCore/Library/CommonCrypto";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P2PExample.app/P2PExample";
+			};
+			name = Debug;
+		};
+		797C1C741F3347FF0009E61A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = P8A8G8XXL8;
+				INFOPLIST_FILE = P2PCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.P2PCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/P2PCore/Library/CommonCrypto";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P2PExample.app/P2PExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1360,6 +1500,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		797C1C721F3347FF0009E61A /* Build configuration list for PBXNativeTarget "P2PCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				797C1C731F3347FF0009E61A /* Debug */,
+				797C1C741F3347FF0009E61A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
