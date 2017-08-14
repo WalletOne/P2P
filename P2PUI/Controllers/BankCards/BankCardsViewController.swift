@@ -17,6 +17,8 @@ import P2PCore
     @objc optional func bankCardsViewControllerFooterTitleForLinkNewCardSection(_ vc: BankCardsViewController) -> String
     
     func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard)
+    
+    // Called only when owner is .payer
     func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController)
 }
 
@@ -94,8 +96,7 @@ import P2PCore
     }
     
     func presentLinkCardViewController() {
-        let vc = LinkCardViewController(nibName: "LinkCardViewController", bundle: kBundle)
-        vc.delegate = self
+        let vc = LinkCardViewController(delegate: self)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -106,7 +107,7 @@ import P2PCore
 
 extension BankCardsViewController: LinkCardViewControllerDelegate {
  
-    func linkCardViewControllerSuccess(_ vc: LinkCardViewController) {
+    func linkCardViewControllerComplete(_ vc: LinkCardViewController) {
         navigationController?.popViewController(animated: true)
         loadData()
     }

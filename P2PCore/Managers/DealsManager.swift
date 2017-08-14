@@ -50,12 +50,12 @@ extension URLComposer {
     ///   - payerPhoneNumber: Phone number of payer
     ///   - card: Bank card, to which funds will be transferred
 
-    @discardableResult public func create(dealId: String, payerId: String, beneficiaryId: String, payerPhoneNumber: String, payerCardId: Int?, beneficiaryCardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, deferPayout: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func create(dealId: String, beneficiaryId: String, payerCardId: Int?, beneficiaryCardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, deferPayout: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         var parameters: [String: Any] = [
             "PlatformDealId": dealId,
             
-            "PlatformPayerId": payerId,
-            "PayerPhoneNumber": payerPhoneNumber,
+            "PlatformPayerId": core.payerId,
+            "PayerPhoneNumber": core.payerPhoneNumber,
             
             "PlatformBeneficiaryId": beneficiaryId,
             "BeneficiaryCardId": beneficiaryCardId,

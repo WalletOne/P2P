@@ -335,6 +335,8 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         let nc = UINavigationController(rootViewController: vc)
         
         present(nc, animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard) {
@@ -376,9 +378,7 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         
         P2PCore.deals.create(
             dealId: self.deal.id,
-            payerId: self.deal.employer.id,
             beneficiaryId: request.freelancer.id,
-            payerPhoneNumber: self.deal.employer.phoneNumber,
             payerCardId: employerCard?.cardId,
             beneficiaryCardId: request.freelancerCardId,
             amount: request.amount,

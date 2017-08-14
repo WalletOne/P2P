@@ -10,22 +10,20 @@ import UIKit
 import P2PCore
 
 protocol LinkCardViewControllerDelegate: class {
-    func linkCardViewControllerSuccess(_ vc: LinkCardViewController)
+    func linkCardViewControllerComplete(_ vc: LinkCardViewController)
 }
 
 class LinkCardViewController: P2PViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
-    var owner: BankCardsViewController.Owner = .benificiary
-    
     let returnHost = "p2p-success-link-new-card"
     
     weak var delegate: LinkCardViewControllerDelegate?
     
-    public convenience init(owner: BankCardsViewController.Owner) {
+    public convenience init(delegate: LinkCardViewControllerDelegate) {
         self.init(nibName: "LinkCardViewController", bundle: kBundle)
-        self.owner = owner
+        self.delegate = delegate
     }
     
     override func viewDidLoad() {
@@ -57,7 +55,7 @@ extension LinkCardViewController: UIWebViewDelegate {
         guard let host = url.host else { return true }
         switch host {
         case returnHost:
-            delegate?.linkCardViewControllerSuccess(self)
+            delegate?.linkCardViewControllerComplete(self)
             return false
         default:
             return true
