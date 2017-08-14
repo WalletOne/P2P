@@ -79,7 +79,7 @@ P2PCore.setBenificiary(id: "PLATFORM_USER_ID", title: "PLATFORM_USER_TITLE", pho
 
 Имеется 2 способа добавления (выбора) банковской карты:
 
-##### Способ 1 (Используя готовое решение из P2PUI):
+**Способ 1 (Используя готовое решение из P2PUI):**
 
 ```swift
 let vc = BankCardsViewController(owner: .benificiary)
@@ -107,7 +107,7 @@ func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: 
 
 > В `BankCardsViewController` имеется встроенная возможность добавить новую карту.
 
-##### Способ 2 (Построить свой View Controller с добавлением, списком карт):
+**Способ 2 (Построить свой View Controller с добавлением, списком карт):**
 
 Получение списка карт исполнителя:
 
@@ -156,7 +156,7 @@ let request = P2PCore.beneficiariesCards.linkNewCardRequest(returnUrl: "RETURN_U
 
 Выбор карты:
 
-##### Способ 1 (Используя готовое решение из P2PUI):
+**Способ 1 (Используя готовое решение из P2PUI):**
 
 ```swift
 let vc = BankCardsViewController(owner: .payer)
@@ -223,7 +223,7 @@ func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController)
 
 В таком случае, при создании сделки не нужно указывать параметр `payerCardId` или установите значение `nil`.
 
-##### Способ 2 (Построить свой View Controller с добавлением, списком карт):
+**Способ 2 (Построить свой View Controller с добавлением, списком карт):**
 
 Получение списка карт зказчика:
 
@@ -312,7 +312,7 @@ P2PCore.deals.cancel(dealId: self.deal.id, complete: { deal, error in
 
 Получить список выплат исполнителю можно двумя способами:
 
-##### Способ 1 (Используя готовое решение из P2PUI):
+**Способ 1 (Используя готовое решение из P2PUI):**
 
 ```swift
 let vc = PayoutsViewController(dealId: nil)
@@ -322,7 +322,7 @@ navigationController?.pushViewController(vc, animated: true)
 Где `dealId` можно получить выплату по конкретной сделке.
 
 
-##### Способ 2 (Построить свой View Controller):
+**Способ 2 (Построить свой View Controller):**
 
 ```swift
 P2PCore.payouts.payouts(pageNumber: pageNumber, itemsPerPage: itemsPerPage, dealId: dealId) { result, error in
@@ -335,7 +335,7 @@ P2PCore.payouts.payouts(pageNumber: pageNumber, itemsPerPage: itemsPerPage, deal
 
 Получить список возвратов заказчику можно двумя способами:
 
-##### Способ 1 (Используя готовое решение из P2PUI):
+**Способ 1 (Используя готовое решение из P2PUI):**
 
 ```swift
 let vc = RefundsViewController(dealId: nil)
@@ -345,7 +345,7 @@ navigationController?.pushViewController(vc, animated: true)
 Где `dealId` можно получить выплату по конкретной сделке.
 
 
-##### Способ 2 (Построить свой View Controller):
+**Способ 2 (Построить свой View Controller):**
 
 ```swift
 P2PCore.refunds.refunds(pageNumber: pageNumber, itemsPerPage: itemsPerPage, dealId: dealId) { result, error in
