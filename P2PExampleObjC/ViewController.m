@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [P2PCore setWithPartnerId:@"hello"];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

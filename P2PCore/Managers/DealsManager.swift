@@ -46,11 +46,10 @@ extension URLComposer {
     ///
     /// - Parameters:
     ///   - dealId: Deal identifier in your system
-    ///   - payerId: Payer identifier in your system
-    ///   - payerPhoneNumber: Phone number of payer
-    ///   - card: Bank card, to which funds will be transferred
+    ///   - payerCardId: Bank card, to which funds will be transferred
 
-    @discardableResult public func create(dealId: String, beneficiaryId: String, payerCardId: Int?, beneficiaryCardId: Int, amount: NSDecimalNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, deferPayout: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+    
+    @discardableResult public func create(dealId: String, beneficiaryId: String, payerCardId: Int = 0, beneficiaryCardId: Int, amount: NSNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, deferPayout: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         var parameters: [String: Any] = [
             "PlatformDealId": dealId,
             
@@ -69,7 +68,7 @@ extension URLComposer {
             "DeferPayout": deferPayout ? "true" : "false"
         ]
         
-        if let payerCardId = payerCardId {
+        if payerCardId != 0 {
             parameters["PayerCardId"] = payerCardId
         }
         
