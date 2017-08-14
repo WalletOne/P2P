@@ -68,7 +68,9 @@ P2PCore.setBenificiary(id: "PLATFORM_USER_ID", title: "PLATFORM_USER_TITLE", pho
 Где:
 
 `PLATFORM_USER_ID ` - Идентификатор пользователя в Вашей системе.
+
 `PLATFORM_USER_TITLE ` - Имя пользователя в Вашей системе.
+
 `PLATFORM_USER_PHONE_NUMBER ` - Номер телефона пользователя в Вашей системе.
 
 ### Шаг 3 (Выбор карты исполнителя):
@@ -194,10 +196,14 @@ P2PCore.deals.create(
 
 Где:
 
-`PLATFORM_DEAL_ID` - Идентификатор заявки/сделки в Вашей системе
+`PLATFORM_DEAL_ID` - Идентификатор заявки/сделки в Вашей системе.
+
 `PLATFORM_BENEFICIARY_ID` - Идентификатор исполнителя.
+
 `BENEFICIARY_CARD_ID` - Идентификатор карты исполнителя, записанные при создании заявки исполнителем.
-`PLATFORM_DEAL_SHORT_DESCRIPTION` - Краткое описание сделки. Напимер "Создание сайта"
+
+`PLATFORM_DEAL_SHORT_DESCRIPTION` - Краткое описание сделки. Напимер "Создание сайта".
+
 `PLATFORM_DEAL_FULL_DESCRIPTION ` - Полное описание сделки.
 
 Для оплаты сделки можете использовать готовый View Controller:
