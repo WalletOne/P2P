@@ -37,7 +37,7 @@ import P2PCore
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = NSLocalizedString("Payouts", comment: "")
+        navigationItem.title = P2PUILocalizedStrings("Payouts", comment: "")
 
         // Do any additional setup after loading the view.
         loadData()
@@ -129,12 +129,14 @@ class PayoutsTableController: TableStructuredController<PayoutsViewController> {
             if vc.isAllowLoadMore && !vc.isLoadMoreInProgress {
                 vc.loadMore()
             }
+        } else if let cell = cell as? PayoutsEmptyTableViewCell {
+            cell.textLabel?.text = P2PUILocalizedStrings("No Payouts", comment: "")
         }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, for object: Any) {
         if let cell = cell as? LoadingTableViewCell {
-            cell.stopAnimating()
+            cell.startAnimating()
         }
     }
     

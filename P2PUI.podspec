@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
   
   s.dependency 'P2PCore'
   
-  s.resources = 'P2PUI/**/*.{xib,png}'
+  s.resources = 'P2PUI/**/*.{xib,png,bundle}'
   
 end

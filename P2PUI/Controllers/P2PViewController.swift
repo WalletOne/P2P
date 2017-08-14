@@ -9,6 +9,15 @@
 import UIKit
 import P2PCore
 
+private func localizationsBundle() -> Bundle {
+    let assetPath = Bundle(for: P2PViewController.self).resourcePath!
+    return Bundle(path: NSString(string: assetPath).appendingPathComponent("Localizations.bundle"))!
+}
+
+func P2PUILocalizedStrings(_ string: String, comment: String) -> String {
+    let bundle = localizationsBundle()
+    return NSLocalizedString(string, tableName: "P2PUI", bundle: localizationsBundle(), value: "", comment: comment)
+}
 
 open class P2PViewController: UIViewController {
 

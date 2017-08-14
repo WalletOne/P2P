@@ -60,17 +60,17 @@ class PayoutTableViewCell: UITableViewCell {
     }
     
     func displayProcessingState() {
-        stateLabel.text = NSLocalizedString("Payout Processing...", comment: "")
+        stateLabel.text = P2PUILocalizedStrings("Payout Processing...", comment: "")
         amountLabel.textColor = .orange
     }
     
     func displayAcceptedState() {
-        stateLabel.text = NSLocalizedString("Successful Payout", comment: "")
+        stateLabel.text = P2PUILocalizedStrings("Successful Payout", comment: "")
         amountLabel.textColor = UIColor(red:0.298,  green:0.851,  blue:0.388, alpha:1)
     }
     
     func displayErrorState() {
-        stateLabel.text = NSLocalizedString("Process Error", comment: "")
+        stateLabel.text = P2PUILocalizedStrings("Process Error", comment: "")
         amountLabel.textColor = .red
     }
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0309740BC9D32D5EA802CF3F /* Pods_P2PCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891952A2880A5E695C57A142 /* Pods_P2PCoreTests.framework */; };
 		3AF7406EB9699101FE89BABC /* Pods_P2PCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E29C18DE56B8E739B8C443 /* Pods_P2PCore.framework */; };
+		792D590A1F41D813004FCDF6 /* Localizations.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 792D59091F41D813004FCDF6 /* Localizations.bundle */; };
 		79430D291F261D840075EB8E /* BeneficiariesCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D281F261D840075EB8E /* BeneficiariesCardsManager.swift */; };
 		79430D2B1F2622240075EB8E /* PayersCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2A1F2622240075EB8E /* PayersCardsManager.swift */; };
 		79430D2D1F26245E0075EB8E /* PayoutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2C1F26245E0075EB8E /* PayoutsManager.swift */; };
@@ -195,6 +196,11 @@
 		5B857483F9596F9370E68FEB /* Pods-P2PCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PCoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-P2PCoreTests/Pods-P2PCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C901BD0271BFE654ACD1B4D /* Pods-P2PCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-P2PCore/Pods-P2PCore.release.xcconfig"; sourceTree = "<group>"; };
 		72F74B043B56868EA842C1F5 /* Pods_P2PExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		792D59091F41D813004FCDF6 /* Localizations.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Localizations.bundle; sourceTree = "<group>"; };
+		792D590B1F41D87D004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		792D590C1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		792D590D1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		792D590E1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		79430D281F261D840075EB8E /* BeneficiariesCardsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeneficiariesCardsManager.swift; sourceTree = "<group>"; };
 		79430D2A1F2622240075EB8E /* PayersCardsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayersCardsManager.swift; sourceTree = "<group>"; };
 		79430D2C1F26245E0075EB8E /* PayoutsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsManager.swift; sourceTree = "<group>"; };
@@ -410,6 +416,7 @@
 		79430D631F28CDD70075EB8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				792D59091F41D813004FCDF6 /* Localizations.bundle */,
 				79430D641F28CDEC0075EB8E /* Images */,
 			);
 			path = Resources;
@@ -985,6 +992,7 @@
 				794FB2E31F2F3D53005610DF /* linkNewCard@2x.png in Resources */,
 				79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */,
 				79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */,
+				792D590A1F41D813004FCDF6 /* Localizations.bundle in Resources */,
 				7945101A1F30B09A00DC39EC /* PayDealViewController.xib in Resources */,
 				794FB2E21F2F3D53005610DF /* linkNewCard.png in Resources */,
 				79E96B7E1F2A333E00AE064B /* LinkCardViewController.xib in Resources */,
@@ -1345,6 +1353,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				794815F51F1CDDE200DD0783 /* Base */,
+				792D590B1F41D87D004FCDF6 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1353,6 +1362,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				794815FA1F1CDDE200DD0783 /* Base */,
+				792D590C1F41D87E004FCDF6 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1361,6 +1371,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				794816491F1CE9AC00DD0783 /* Base */,
+				792D590D1F41D87E004FCDF6 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1369,6 +1380,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7948164E1F1CE9AC00DD0783 /* Base */,
+				792D590E1F41D87E004FCDF6 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1380,6 +1392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1431,6 +1444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

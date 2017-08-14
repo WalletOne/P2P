@@ -31,7 +31,7 @@ import P2PCore
     @IBOutlet weak open var tableView: UITableView!
     
     lazy var cancelButton: UIBarButtonItem = {
-        return UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
+        return UIBarButtonItem(title: P2PUILocalizedStrings("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
     }()
     
     lazy var tableController: BankCardsTableViewController = { return .init(vc: self) }()
@@ -53,7 +53,7 @@ import P2PCore
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = NSLocalizedString("Bank Cards", comment: "")
+        self.title = P2PUILocalizedStrings("Bank Cards", comment: "")
         
         tableController.buildTableStructure(reloadData: false)
         
@@ -137,7 +137,7 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
             section.append("LoadingTableViewCell")
             append(section: &section)
         } else {
-            section.headerTitle = vc.delegate?.bankCardsViewControllerHeaderTitleForBankCardsSection?(vc) ?? NSLocalizedString("Linked Cards", comment: "")
+            section.headerTitle = vc.delegate?.bankCardsViewControllerHeaderTitleForBankCardsSection?(vc) ?? P2PUILocalizedStrings("Linked Cards", comment: "")
             section.footerTitle = vc.delegate?.bankCardsViewControllerFooterTitleForBankCardsSection?(vc) ?? ""
             if !vc.cards.isEmpty {
                 section.append(contentsOf: vc.cards)
@@ -172,10 +172,12 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         } else if let cell = cell as? BankCardLinkNewTableViewCell {
             switch self.vc.owner {
             case .benificiary:
-                cell.titleLabel.text = NSLocalizedString("Link New Card", comment: "")
+                cell.titleLabel.text = P2PUILocalizedStrings("Link New Card", comment: "")
             case .payer:
-                cell.titleLabel.text = NSLocalizedString("Use New Card", comment: "")
+                cell.titleLabel.text = P2PUILocalizedStrings("Use New Card", comment: "")
             }
+        } else if let cell = cell as? BankCardsEmptyTableViewCell {
+            cell.textLabel?.text = P2PUILocalizedStrings("No Linekd Cards", comment: "")
         }
     }
     
@@ -207,11 +209,11 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, for object: Any, forRowAt indexPath: IndexPath) {
         guard let card = object as? BankCard else { return }
-        let alert = UIAlertController(title: NSLocalizedString("Delete Card", comment: ""), message: NSLocalizedString("Are you really want to delete this card?", comment: ""), preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .destructive, handler: { (_) in
+        let alert = UIAlertController(title: P2PUILocalizedStrings("Delete Card", comment: ""), message: P2PUILocalizedStrings("Are you really want to delete this card?", comment: ""), preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: P2PUILocalizedStrings("Delete", comment: ""), style: .destructive, handler: { (_) in
             self.delete(card: card)
         }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: P2PUILocalizedStrings("Cancel", comment: ""), style: .cancel, handler: nil))
         let cell = tableView.cellForRow(at: indexPath)
         alert.popoverPresentationController?.sourceRect = cell?.frame ?? .zero
         alert.popoverPresentationController?.sourceView = cell?.superview

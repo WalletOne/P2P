@@ -28,7 +28,7 @@ import P2PCore
     public weak var delegate: PayDealViewControllerDelegate?
     
     lazy var cancelButton: UIBarButtonItem = {
-        return UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
+        return UIBarButtonItem(title: P2PUILocalizedStrings("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
     }()
     
     public convenience init(dealId: String, redirectToCardAddition: Bool, authData: String? = nil) {

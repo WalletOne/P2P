@@ -1,0 +1,66 @@
+
+/* Class = "UILabel"; text = "Deals"; ObjectID = "04p-ag-VRh"; */
+"04p-ag-VRh.text" = "Deals";
+
+/* Class = "UINavigationItem"; title = "Deals"; ObjectID = "123-QR-upH"; */
+"123-QR-upH.title" = "Deals";
+
+/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "3wG-2i-F5Q"; */
+"3wG-2i-F5Q.headerTitle" = "Account";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Bcy-2G-Rfn"; */
+"Bcy-2G-Rfn.text" = "Title";
+
+/* Class = "UILabel"; text = "+7 (918) 123-45-67"; ObjectID = "LlR-7Y-hLd"; */
+"LlR-7Y-hLd.text" = "+7 (918) 123-45-67";
+
+/* Class = "UINavigationItem"; title = "Deal"; ObjectID = "OsF-4c-yaL"; */
+"OsF-4c-yaL.title" = "Deal";
+
+/* Class = "UILabel"; text = "Bank Cards"; ObjectID = "PC2-X8-VPZ"; */
+"PC2-X8-VPZ.text" = "Bank Cards";
+
+/* Class = "UITabBarItem"; title = "Employer"; ObjectID = "R1A-tz-WaZ"; */
+"R1A-tz-WaZ.title" = "Employer";
+
+/* Class = "UILabel"; text = "Payouts"; ObjectID = "XWv-uw-yO9"; */
+"XWv-uw-yO9.text" = "Payouts";
+
+/* Class = "UILabel"; text = "Deals"; ObjectID = "aY9-3d-7Q4"; */
+"aY9-3d-7Q4.text" = "Deals";
+
+/* Class = "UILabel"; text = "+7 (928) 123-45-67"; ObjectID = "aYA-re-yMZ"; */
+"aYA-re-yMZ.text" = "+7 (928) 123-45-67";
+
+/* Class = "UILabel"; text = "Bank Cards"; ObjectID = "ahg-9S-HlB"; */
+"ahg-9S-HlB.text" = "Bank Cards";
+
+/* Class = "UITableViewSection"; headerTitle = "Get Work"; ObjectID = "dBb-fe-P5F"; */
+"dBb-fe-P5F.headerTitle" = "Get Work";
+
+/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "dhX-az-gaP"; */
+"dhX-az-gaP.headerTitle" = "Account";
+
+/* Class = "UILabel"; text = "Alina Kuzmenko"; ObjectID = "i7d-Om-b5F"; */
+"i7d-Om-b5F.text" = "Alina Kuzmenko";
+
+/* Class = "UINavigationItem"; title = "Employer"; ObjectID = "ikk-eR-2qJ"; */
+"ikk-eR-2qJ.title" = "Employer";
+
+/* Class = "UITableViewSection"; headerTitle = "Publish Work"; ObjectID = "kS6-3e-fzm"; */
+"kS6-3e-fzm.headerTitle" = "Publish Work";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "lPD-fx-Q3e"; */
+"lPD-fx-Q3e.text" = "Title";
+
+/* Class = "UILabel"; text = "Vitaliy Kuzmenko"; ObjectID = "nJR-K2-jjx"; */
+"nJR-K2-jjx.text" = "Vitaliy Kuzmenko";
+
+/* Class = "UILabel"; text = "Refunds"; ObjectID = "rbj-sJ-ZdU"; */
+"rbj-sJ-ZdU.text" = "Refunds";
+
+/* Class = "UINavigationItem"; title = "Freelancer"; ObjectID = "v6l-7T-Byt"; */
+"v6l-7T-Byt.title" = "Freelancer";
+
+/* Class = "UITabBarItem"; title = "Freelancer"; ObjectID = "zAT-bg-LuL"; */
+"zAT-bg-LuL.title" = "Freelancer";

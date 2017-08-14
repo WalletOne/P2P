@@ -44,7 +44,7 @@ class BankCardTableViewCell: UITableViewCell {
             typeNameLabel.text = type.name
             typeImageView.image = UIImage(named: type.name + "Mini", in: .init(for: classForCoder), compatibleWith: nil)
         } else {
-            typeNameLabel.text = NSLocalizedString("Unknown Card Type", comment: "")
+            typeNameLabel.text = P2PUILocalizedStrings("Unknown Card Type", comment: "")
             typeImageView.image = nil
         }
         

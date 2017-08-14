@@ -11,8 +11,8 @@ import UIKit
 extension UIAlertController {
     
     convenience init(error: Error) {
-        self.init(title: NSLocalizedString("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
-        addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        self.init(title: P2PUILocalizedStrings("Error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+        addAction(UIAlertAction(title: P2PUILocalizedStrings("Cancel", comment: ""), style: .cancel, handler: nil))
     }
     
 }
