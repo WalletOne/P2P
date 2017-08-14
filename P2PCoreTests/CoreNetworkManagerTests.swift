@@ -23,15 +23,15 @@ class CoreNetworkManagerTests: XCTestCase {
     
     func testApiSignatureBuilding() {
         
-        let url = URLComposer.default.deals()
+        let url = URLComposer.default.beneficiariesCards("alinakuzmenko")
         
-        let timeStamp = "2017-08-03T12:59:54"
+        let timeStamp = "2017-08-14T12:09:11"
         
-        let bodyAsString = "{\"PlatformPayerId\":\"vitaliykuzmenko\",\"ShortDescription\":\"2\",\"Amount\":1,\"PayerPhoneNumber\":\"79281234567\",\"CurrencyId\":643,\"DeferPayout\":\"true\",\"PayerCardId\":99,\"FullDescription\":\"\",\"PlatformDealId\":\"8870B45D-FCEF-4572-AEA4-19FD3603F4D9\",\"BeneficiaryCardId\":103,\"PlatformBeneficiaryId\":\"alinakuzmenko\"}"
+        let bodyAsString = ""
         
         let signature = P2PCore.default.networkManager.makeSignature(url: url, timeStamp: timeStamp, requestBody: bodyAsString)
         
-        XCTAssertEqual(signature, "eAU0l/KsX9nJskrqPOJ4Vw99fs6NwRSAplKueGUa0nQ=")
+        XCTAssertEqual(signature, "I5ioVRCeta6BALmnjGZY+tve6PNmmQSPLnDkpJzP8Zc=")
     }
     
     func testWebViewSignature() {

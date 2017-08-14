@@ -329,14 +329,12 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
     
     func presentBankCardsViewController(for owner: BankCardsViewController.Owner) {
         
-        let vc = BankCardsViewController(owner: owner)
-        vc.delegate = self
+        let vc = BankCardsViewController(owner: owner, delegate: self)
         
         let nc = UINavigationController(rootViewController: vc)
         
         present(nc, animated: true, completion: nil)
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard) {

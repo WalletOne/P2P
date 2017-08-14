@@ -50,7 +50,7 @@ class FreelancerViewController: UITableViewController {
     }
     
     func presentBankCards() {
-        let vc = BankCardsViewController(owner: .benificiary)
+        let vc = BankCardsViewController(owner: .benificiary, delegate: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
     

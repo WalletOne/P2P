@@ -22,16 +22,6 @@ Pod::Spec.new do |s|
     'SWIFT_VERSION' => '3.0',
   }
   
-  s.preserve_paths = 'P2PCore/CocoaPods/**/*'
-  
-  s.pod_target_xcconfig = {
-    'SWIFT_INCLUDE_PATHS[sdk=macosx*]'           => '$(PODS_ROOT)/P2PCore/P2PCore/CocoaPods/macosx',
-    'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]'         => '$(PODS_ROOT)/P2PCore/P2PCore/CocoaPods/iphoneos',
-    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  => '$(PODS_ROOT)/P2PCore/P2PCore/CocoaPods/iphonesimulator',
-    'SWIFT_INCLUDE_PATHS[sdk=appletvos*]'        => '$(PODS_ROOT)/P2PCore/P2PCore/CocoaPods/appletvos',
-    'SWIFT_INCLUDE_PATHS[sdk=appletvsimulator*]' => '$(PODS_ROOT)/P2PCore/P2PCore/CocoaPods/appletvsimulator',
-    'SWIFT_INCLUDE_PATHS[sdk=watchos*]'          => '$(PODS_ROOT)/P2PCore/P2PCore/CocoaPods/watchos',
-    'SWIFT_INCLUDE_PATHS[sdk=watchsimulator*]'   => '$(PODS_ROOT)/P2PCore/P2PCore/CocoaPods/watchsimulator'
-}
+  s.dependency 'CryptoSwift'
    
 end

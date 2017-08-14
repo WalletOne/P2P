@@ -51,7 +51,7 @@ class EmployerViewController: UITableViewController {
     }
     
     func presentBankCards() {
-        let vc = BankCardsViewController(owner: .payer)
+        let vc = BankCardsViewController(owner: .payer, delegate: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
     

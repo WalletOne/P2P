@@ -1,0 +1,6 @@
+framework module Pods_P2PUI {
+  umbrella header "Pods-P2PUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

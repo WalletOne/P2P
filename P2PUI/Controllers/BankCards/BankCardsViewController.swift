@@ -44,9 +44,10 @@ import P2PCore
     
     public weak var delegate: BankCardsViewControllerDelegate?
     
-    public convenience init(owner: Owner) {
+    public convenience init(owner: Owner, delegate: BankCardsViewControllerDelegate?) {
         self.init(nibName: "BankCardsViewController", bundle: .init(for: BankCardsViewController.classForCoder()))
         self.owner = owner
+        self.delegate = delegate
     }
     
     override open func viewDidLoad() {
@@ -97,7 +98,7 @@ import P2PCore
     
     func presentLinkCardViewController() {
         let vc = LinkCardViewController(delegate: self)
-        navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func dismissViewController() {

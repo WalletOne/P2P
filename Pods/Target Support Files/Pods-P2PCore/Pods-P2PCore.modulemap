@@ -1,0 +1,6 @@
+framework module Pods_P2PCore {
+  umbrella header "Pods-P2PCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

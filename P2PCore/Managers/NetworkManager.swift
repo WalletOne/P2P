@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CCommonCrypto
+import CryptoSwift
 
 let kP2PErrorDomain = "com.walletone.ios.P2PCore.error"
 
@@ -22,20 +22,6 @@ extension NSError {
     class public func error(_ error: String) -> NSError {
         return NSError(domain: kP2PErrorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: error])
     }
-}
-
-extension Data {
-    
-    // https://stackoverflow.com/questions/25248598/importing-commoncrypto-in-a-swift-framework
-
-    var sha256: Data {
-        var hash = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
-        withUnsafeBytes {
-            _ = CC_SHA256($0, CC_LONG(count), &hash)
-        }
-        return Data(bytes: hash)
-    }
-
 }
 
 extension Date {
@@ -65,7 +51,7 @@ class NetworkManager: Manager {
     func makeSignature(url: String, timeStamp: String, requestBody: String) -> String {
         let stringValue = String(format: "%@%@%@%@", url, timeStamp, requestBody, core.signatureKey)
         let dataValue = stringValue.data(using: .utf8)!
-        let signatureEncoded = dataValue.sha256
+        let signatureEncoded = dataValue.sha256()
         let base64 = signatureEncoded.base64EncodedString()
         return base64
     }
@@ -81,7 +67,7 @@ class NetworkManager: Manager {
         print(stringValue)
         
         let dataValue = stringValue.data(using: .utf8)!
-        let signatureEncoded = dataValue.sha256
+        let signatureEncoded = dataValue.sha256()
         let base64 = signatureEncoded.base64EncodedString()
         return base64
     }
