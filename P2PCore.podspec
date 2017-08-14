@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     'SWIFT_VERSION' => '3.0',
   }
   
-  s.preserve_paths = 'CocoaPods/**/*'
+  s.preserve_paths = 'P2PCore/CocoaPods/**/*'
   
   s.pod_target_xcconfig = {
     'SWIFT_INCLUDE_PATHS[sdk=macosx*]'           => '$(PODS_ROOT)/P2PCore/CocoaPods/macosx',
