@@ -15,7 +15,6 @@ private func localizationsBundle() -> Bundle {
 }
 
 func P2PUILocalizedStrings(_ string: String, comment: String) -> String {
-    let bundle = localizationsBundle()
     return NSLocalizedString(string, tableName: "P2PUI", bundle: localizationsBundle(), value: "", comment: comment)
 }
 
