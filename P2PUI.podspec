@@ -23,7 +23,5 @@ Pod::Spec.new do |s|
   }
   
   s.dependency 'P2PCore'
-  
-}
    
 end
