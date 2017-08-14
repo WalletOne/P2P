@@ -42,7 +42,7 @@ class BankCardTableViewCell: UITableViewCell {
         
         if let type = v.type(from: bankCard.cardMask) {
             typeNameLabel.text = type.name
-            typeImageView.image = UIImage(named: type.name + "Mini", in: kBundle, compatibleWith: nil)
+            typeImageView.image = UIImage(named: type.name + "Mini", in: .init(for: classForCoder), compatibleWith: nil)
         } else {
             typeNameLabel.text = NSLocalizedString("Unknown Card Type", comment: "")
             typeImageView.image = nil

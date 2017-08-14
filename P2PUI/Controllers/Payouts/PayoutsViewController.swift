@@ -30,7 +30,7 @@ import P2PCore
     var itemsPerPage: Int = 10
     
     convenience public init(dealId: String?) {
-        self.init(nibName: "PayoutsViewController", bundle: kBundle)
+        self.init(nibName: "PayoutsViewController", bundle: .init(for: PayoutsViewController.classForCoder()))
         self.dealId = dealId
     }
 
@@ -85,7 +85,7 @@ class PayoutsTableController: TableStructuredController<PayoutsViewController> {
         let nibs = ["PayoutTableViewCell", "LoadingTableViewCell", "PayoutsEmptyTableViewCell"]
         
         for nibName in nibs {
-            tableView.register(.init(nibName: nibName, bundle: kBundle), forCellReuseIdentifier: nibName)
+            tableView.register(.init(nibName: nibName, bundle: .init(for: classForCoder)), forCellReuseIdentifier: nibName)
         }
     }
     
@@ -129,6 +129,12 @@ class PayoutsTableController: TableStructuredController<PayoutsViewController> {
             if vc.isAllowLoadMore && !vc.isLoadMoreInProgress {
                 vc.loadMore()
             }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, for object: Any) {
+        if let cell = cell as? LoadingTableViewCell {
+            cell.stopAnimating()
         }
     }
     

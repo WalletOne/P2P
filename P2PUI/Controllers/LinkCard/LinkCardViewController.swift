@@ -22,7 +22,7 @@ class LinkCardViewController: P2PViewController {
     weak var delegate: LinkCardViewControllerDelegate?
     
     public convenience init(delegate: LinkCardViewControllerDelegate) {
-        self.init(nibName: "LinkCardViewController", bundle: kBundle)
+        self.init(nibName: "LinkCardViewController", bundle: .init(for: LinkCardViewController.classForCoder()))
         self.delegate = delegate
     }
     

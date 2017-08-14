@@ -32,7 +32,7 @@ import P2PCore
     }()
     
     public convenience init(dealId: String, redirectToCardAddition: Bool, authData: String? = nil) {
-        self.init(nibName: "PayDealViewController", bundle: kBundle)
+        self.init(nibName: "PayDealViewController", bundle: .init(for: PayDealViewController.classForCoder()))
         self.dealId = dealId
         self.redirectToCardAddition = redirectToCardAddition
         self.authData = authData

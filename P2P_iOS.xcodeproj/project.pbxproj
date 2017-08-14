@@ -14,7 +14,6 @@
 		79430D4C1F28B29C0075EB8E /* CollectionStructuredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D491F28B29C0075EB8E /* CollectionStructuredController.swift */; };
 		79430D4D1F28B29C0075EB8E /* StructuredSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D4A1F28B29C0075EB8E /* StructuredSection.swift */; };
 		79430D4E1F28B29C0075EB8E /* TableStructuredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D4B1F28B29C0075EB8E /* TableStructuredController.swift */; };
-		79430D501F28BF080075EB8E /* P2PViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79430D4F1F28BF080075EB8E /* P2PViewController.xib */; };
 		79430D5A1F28CD620075EB8E /* BankCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D581F28CD620075EB8E /* BankCardsViewController.swift */; };
 		79430D5B1F28CD620075EB8E /* BankCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79430D591F28CD620075EB8E /* BankCardsViewController.xib */; };
 		79430D611F28CD9A0075EB8E /* BankCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D5F1F28CD9A0075EB8E /* BankCardTableViewCell.swift */; };
@@ -41,7 +40,6 @@
 		794816171F1CE1E400DD0783 /* P2PCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816161F1CE1E400DD0783 /* P2PCore.swift */; };
 		794816191F1CE72F00DD0783 /* DealsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816181F1CE72F00DD0783 /* DealsManager.swift */; };
 		7948161A1F1CE82100DD0783 /* P2PCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794815C71F1CDD2700DD0783 /* P2PCore.framework */; };
-		7948161D1F1CE84800DD0783 /* P2PNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */; };
 		7948161F1F1CE86900DD0783 /* P2PViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948161E1F1CE86900DD0783 /* P2PViewController.swift */; };
 		794816221F1CE93200DD0783 /* CurrencyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816211F1CE93200DD0783 /* CurrencyId.swift */; };
 		794816411F1CE9AC00DD0783 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 794816401F1CE9AC00DD0783 /* main.m */; };
@@ -195,7 +193,6 @@
 		79430D491F28B29C0075EB8E /* CollectionStructuredController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionStructuredController.swift; sourceTree = "<group>"; };
 		79430D4A1F28B29C0075EB8E /* StructuredSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructuredSection.swift; sourceTree = "<group>"; };
 		79430D4B1F28B29C0075EB8E /* TableStructuredController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStructuredController.swift; sourceTree = "<group>"; };
-		79430D4F1F28BF080075EB8E /* P2PViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = P2PViewController.xib; sourceTree = "<group>"; };
 		79430D581F28CD620075EB8E /* BankCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCardsViewController.swift; sourceTree = "<group>"; };
 		79430D591F28CD620075EB8E /* BankCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardsViewController.xib; sourceTree = "<group>"; };
 		79430D5F1F28CD9A0075EB8E /* BankCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -225,7 +222,6 @@
 		794816081F1CDDFA00DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		794816161F1CE1E400DD0783 /* P2PCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PCore.swift; sourceTree = "<group>"; };
 		794816181F1CE72F00DD0783 /* DealsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsManager.swift; sourceTree = "<group>"; };
-		7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PNavigationController.swift; sourceTree = "<group>"; };
 		7948161E1F1CE86900DD0783 /* P2PViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P2PViewController.swift; sourceTree = "<group>"; };
 		794816211F1CE93200DD0783 /* CurrencyId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyId.swift; sourceTree = "<group>"; };
 		7948163D1F1CE9AC00DD0783 /* P2PExampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PExampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -535,9 +531,7 @@
 				79E96B7A1F2A332700AE064B /* LinkCard */,
 				797C1C431F3312640009E61A /* Payouts */,
 				797C1C531F332AEB0009E61A /* Refunds */,
-				7948161C1F1CE84800DD0783 /* P2PNavigationController.swift */,
 				7948161E1F1CE86900DD0783 /* P2PViewController.swift */,
-				79430D4F1F28BF080075EB8E /* P2PViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -953,7 +947,6 @@
 				79E96B761F2A15D200AE064B /* BankCardLinkNewTableViewCell.xib in Resources */,
 				79430D761F28CE5D0075EB8E /* VisaMini@3x.png in Resources */,
 				79430D6F1F28CE5D0075EB8E /* MasterCardMini@2x.png in Resources */,
-				79430D501F28BF080075EB8E /* P2PViewController.xib in Resources */,
 				79430D751F28CE5D0075EB8E /* VisaMini@2x.png in Resources */,
 				79430D711F28CE5D0075EB8E /* MirMini.png in Resources */,
 				79430D5B1F28CD620075EB8E /* BankCardsViewController.xib in Resources */,
@@ -1060,7 +1053,6 @@
 				797C1C4B1F3312ED0009E61A /* PayoutTableViewCell.swift in Sources */,
 				79430D5A1F28CD620075EB8E /* BankCardsViewController.swift in Sources */,
 				79430D4C1F28B29C0075EB8E /* CollectionStructuredController.swift in Sources */,
-				7948161D1F1CE84800DD0783 /* P2PNavigationController.swift in Sources */,
 				79E96B711F2A134100AE064B /* LoadingTableViewCell.swift in Sources */,
 				7948161F1F1CE86900DD0783 /* P2PViewController.swift in Sources */,
 			);
@@ -1512,6 +1504,7 @@
 				797C1C741F3347FF0009E61A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

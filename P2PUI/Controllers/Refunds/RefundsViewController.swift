@@ -30,7 +30,7 @@ import P2PCore
     var itemsPerPage: Int = 10
     
     convenience public init(dealId: String?) {
-        self.init(nibName: "RefundsViewController", bundle: kBundle)
+        self.init(nibName: "RefundsViewController", bundle: .init(for: RefundsViewController.classForCoder()))
         self.dealId = dealId
     }
 
@@ -85,7 +85,7 @@ class RefundsTableController: TableStructuredController<RefundsViewController> {
         let nibs = ["RefundTableViewCell", "LoadingTableViewCell", "RefundsEmptyTableViewCell"]
         
         for nibName in nibs {
-            tableView.register(.init(nibName: nibName, bundle: kBundle), forCellReuseIdentifier: nibName)
+            tableView.register(.init(nibName: nibName, bundle: .init(for: classForCoder)), forCellReuseIdentifier: nibName)
         }
     }
     
@@ -129,6 +129,12 @@ class RefundsTableController: TableStructuredController<RefundsViewController> {
             if vc.isAllowLoadMore && !vc.isLoadMoreInProgress {
                 vc.loadMore()
             }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, for object: Any) {
+        if let cell = cell as? LoadingTableViewCell {
+            cell.stopAnimating()
         }
     }
     

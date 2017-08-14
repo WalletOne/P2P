@@ -45,7 +45,7 @@ import P2PCore
     public weak var delegate: BankCardsViewControllerDelegate?
     
     public convenience init(owner: Owner) {
-        self.init(nibName: "BankCardsViewController", bundle: kBundle)
+        self.init(nibName: "BankCardsViewController", bundle: .init(for: BankCardsViewController.classForCoder()))
         self.owner = owner
     }
     
@@ -122,7 +122,7 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         let nibs = ["BankCardTableViewCell", "LoadingTableViewCell", "BankCardLinkNewTableViewCell", "BankCardsEmptyTableViewCell"]
         
         for nibName in nibs {
-            tableView.register(.init(nibName: nibName, bundle: kBundle), forCellReuseIdentifier: nibName)
+            tableView.register(.init(nibName: nibName, bundle: .init(for: classForCoder)), forCellReuseIdentifier: nibName)
         }
     }
     
