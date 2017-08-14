@@ -357,3 +357,6 @@ P2PCore.refunds.refunds(pageNumber: pageNumber, itemsPerPage: itemsPerPage, deal
 ---
 
 Полный сценарий работы сервиса Вы можете посмотреть в проекте. Таргет `P2PExample`.
+
+### Зависимости:
+* [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
