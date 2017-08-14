@@ -249,7 +249,6 @@
 		7953616D1F3218C10003FE38 /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
 		795361701F321AB60003FE38 /* DealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		795F0B261F20CAAA00FB95D9 /* URLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComposer.swift; sourceTree = "<group>"; };
-		795F0B291F20D23400FB95D9 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		797C1C391F330B370009E61A /* BankCardsEmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCardsEmptyTableViewCell.swift; sourceTree = "<group>"; };
 		797C1C3A1F330B370009E61A /* BankCardsEmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardsEmptyTableViewCell.xib; sourceTree = "<group>"; };
 		797C1C441F3312720009E61A /* PayoutsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsViewController.swift; sourceTree = "<group>"; };
@@ -482,7 +481,6 @@
 		794816121F1CE14600DD0783 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				795F0B281F20D21200FB95D9 /* CommonCrypto */,
 				794816151F1CE16700DD0783 /* NetworkManager */,
 			);
 			path = Library;
@@ -628,14 +626,6 @@
 				795361701F321AB60003FE38 /* DealViewController.swift */,
 			);
 			path = Deal;
-			sourceTree = "<group>";
-		};
-		795F0B281F20D21200FB95D9 /* CommonCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				795F0B291F20D23400FB95D9 /* module.map */,
-			);
-			path = CommonCrypto;
 			sourceTree = "<group>";
 		};
 		797C1C431F3312640009E61A /* Payouts */ = {
@@ -1273,7 +1263,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/P2PCore/Library/CommonCrypto";
+				SWIFT_INCLUDE_PATHS = "";
+				"SWIFT_INCLUDE_PATHS[sdk=appletvos*]" = "${SRCROOT}/P2PCore/CocoaPods/appletvos";
+				"SWIFT_INCLUDE_PATHS[sdk=appletvsimulator*]" = "${SRCROOT}/P2PCore/CocoaPods/appletvsimulator";
+				"SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" = "${SRCROOT}/P2PCore/CocoaPods/iphoneos";
+				"SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]" = "${SRCROOT}/P2PCore/CocoaPods/iphonesimulator";
+				"SWIFT_INCLUDE_PATHS[sdk=macosx*]" = "${SRCROOT}/P2PCore/CocoaPods/macosx";
+				"SWIFT_INCLUDE_PATHS[sdk=watchos*]" = "${SRCROOT}/P2PCore/CocoaPods/watchos";
+				"SWIFT_INCLUDE_PATHS[sdk=watchsimulator*]" = "${SRCROOT}/P2PCore/CocoaPods/watchsimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1299,7 +1296,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletone.ios.P2PCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/P2PCore/Library/CommonCrypto";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/P2PCore/CocoaPods";
+				"SWIFT_INCLUDE_PATHS[sdk=appletvos*]" = "${SRCROOT}/P2PCore/CocoaPods/appletvos";
+				"SWIFT_INCLUDE_PATHS[sdk=appletvsimulator*]" = "${SRCROOT}/P2PCore/CocoaPods/appletvsimulator";
+				"SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" = "${SRCROOT}/P2PCore/CocoaPods/iphoneos";
+				"SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]" = "${SRCROOT}/P2PCore/CocoaPods/iphonesimulator";
+				"SWIFT_INCLUDE_PATHS[sdk=macosx*]" = "${SRCROOT}/P2PCore/CocoaPods/macosx";
+				"SWIFT_INCLUDE_PATHS[sdk=watchos*]" = "${SRCROOT}/P2PCore/CocoaPods/watchos";
+				"SWIFT_INCLUDE_PATHS[sdk=watchsimulator*]" = "${SRCROOT}/P2PCore/CocoaPods/watchsimulator";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
