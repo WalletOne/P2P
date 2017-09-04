@@ -377,7 +377,7 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         P2PCore.deals.create(
             dealId: self.deal.id,
             beneficiaryId: request.freelancer.id,
-            payerCardId: employerCard?.cardId,
+            payerCardId: employerCard?.cardId ?? 0,
             beneficiaryCardId: request.freelancerCardId,
             amount: request.amount,
             currencyId: .rub,
