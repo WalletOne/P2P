@@ -70,7 +70,7 @@ extension String {
     
     public func linkNewCardRequest(returnUrl: String) -> URLRequest {
         
-        let urlString = "https://api.dev.walletone.com/p2p/beneficiary/card"
+        let urlString = URLComposer.default.beneficiaryCard()
         
         let url = URL(string: urlString)!
         
@@ -92,7 +92,7 @@ extension String {
         
         let queryString = items.map({ String(format: "%@=%@", $0.key, $0.value.urlEncode) }).joined(separator: "&")
         
-        print(queryString)
+        P2PCore.printDebug(queryString)
         
         let queryData = queryString.data(using: .utf8)
         

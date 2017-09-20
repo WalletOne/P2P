@@ -78,7 +78,7 @@ import P2PCore
             self?.tableController.buildTableStructure(reloadData: true)
             
             if let error = error {
-                print(error.localizedDescription)
+                P2PCore.printDebug(error.localizedDescription)
             }
         }
         

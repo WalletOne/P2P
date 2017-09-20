@@ -44,8 +44,8 @@ import P2PCore
         // Do any additional setup after loading the view.
         let request = P2PCore.deals.payRequest(dealId: dealId, redirectToCardAddition: redirectToCardAddition, authData: authData, returnUrl: "http://" + returnHost)
         
-        print(request.httpMethod ?? "" + "=======")
-        print(request)
+        P2PCore.printDebug(request.httpMethod ?? "" + "=======")
+        P2PCore.printDebug(request)
         
         webView.loadRequest(request)
         
@@ -78,6 +78,9 @@ extension PayDealViewController: UIWebViewDelegate {
     
     public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         guard let url = request.url else { return true }
+        
+        P2PCore.printDebug(url)
+        
         guard let host = url.host else { return true }
         switch host {
         case returnHost:

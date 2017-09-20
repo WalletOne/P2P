@@ -66,6 +66,14 @@ import Foundation
         P2PCore.default.benificaryTitle = title
         P2PCore.default.benificaryPhoneNumber = phoneNumber
     }
+    
+    public var isPrintDebugEnabled: Bool = false
+    
+    class public func printDebug(_ value: Any) {
+        if P2PCore.default.isPrintDebugEnabled {
+            print(value)
+        }
+    }
 
 }
 

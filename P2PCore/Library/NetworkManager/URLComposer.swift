@@ -18,7 +18,7 @@ public class URLComposer {
     
     public static let `default` = URLComposer()
     
-    var mode: Mode = .sandbox
+    var mode: Mode = .product
     
     var sandboxURL = "https://api.dev.walletone.com/p2p/"
     

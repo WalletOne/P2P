@@ -64,7 +64,7 @@ class NetworkManager: Manager {
         
         let stringValue = array.map({ $0.value }).joined() + core.signatureKey
         
-        print(stringValue)
+        P2PCore.printDebug(stringValue)
         
         let dataValue = stringValue.data(using: .utf8)!
         let signatureEncoded = dataValue.sha256()
@@ -125,13 +125,13 @@ class NetworkManager: Manager {
         request.addValue(signature, forHTTPHeaderField: "X-Wallet-Signature")
         request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
-        print("=======")
-        print("BEGIN NEW REQUEST")
-        print("\(request.httpMethod!) \(urlString)")
-        print("BODY:\n\(bodyAsString)")
-        print("Headers:\n\(String(describing: request.allHTTPHeaderFields ?? [:]))\n")
-        print("END NEW REQUEST\n")
-        print("=======")
+        P2PCore.printDebug("=======")
+        P2PCore.printDebug("BEGIN NEW REQUEST")
+        P2PCore.printDebug("\(request.httpMethod!) \(urlString)")
+        P2PCore.printDebug("BODY:\n\(bodyAsString)")
+        P2PCore.printDebug("Headers:\n\(String(describing: request.allHTTPHeaderFields ?? [:]))\n")
+        P2PCore.printDebug("END NEW REQUEST\n")
+        P2PCore.printDebug("=======")
         
         return lowLevelRequest(request, complete: complete)
     }

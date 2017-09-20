@@ -19,7 +19,7 @@ class FreelancerViewController: UITableViewController {
         let freelancer = Freelancer()
         freelancer.id = "alinakuzmenko" // NSUUID().uuidString
         freelancer.title = "Alina Kuzmenko"
-        freelancer.phoneNumber = "79287654321"
+        freelancer.phoneNumber = "79286635566"
         
         DataStorage.default.freelancer = freelancer
         

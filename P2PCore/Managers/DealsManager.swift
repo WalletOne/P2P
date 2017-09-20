@@ -135,7 +135,7 @@ extension URLComposer {
         
         let queryString = items.map({ String(format: "%@=%@", $0.key, $0.value.urlEncode) }).joined(separator: "&")
         
-        print(queryString)
+        P2PCore.printDebug(queryString)
         
         let queryData = queryString.data(using: .utf8)
         
