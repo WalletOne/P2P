@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
         
-        P2PCore.default.isPrintDebugEnabled = false
+        P2PCore.default.isPrintDebugEnabled = true
         P2PCore.setPlatform(id: "testplatform", signatureKey: "TestPlatformSignatureKey")
         
         return true
