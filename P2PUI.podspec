@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "P2PUI"
-  s.version      = "0.2.3"
+  s.version      = "0.2.4"
   s.summary      = "P2PCore - UI Framework for Wallet One P2P"
 
   s.homepage     = "https://github.com/WalletOne/P2P.git"
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     'SWIFT_VERSION' => '3.0',
   }
   
-  s.dependency 'P2PCore', '0.2.2'
+  s.dependency 'P2PCore', '0.2.4'
   
   s.resources = 'P2PUI/**/*.{xib,png,bundle}'
   
