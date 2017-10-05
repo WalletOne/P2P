@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "P2PCore"
-  s.version      = "0.2.5"
+  s.version      = "0.2.6"
   s.summary      = "P2PCore - Framework for network requests Wallet One P2P"
 
   s.homepage     = "https://github.com/WalletOne/P2P.git"
@@ -14,11 +14,9 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => s.homepage, :tag => s.version.to_s }
 
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
+
   s.source_files  = 'P2PCore/**/*.swift'
-  
-  s.pod_target_xcconfig = {
-    'SWIFT_VERSION' => '4.0',
-  }
   
   s.dependency 'CryptoSwift', '0.7.1'
    
