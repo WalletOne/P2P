@@ -60,7 +60,7 @@ import P2PCore
         }
     }
     
-    func dismissViewController() {
+    @objc func dismissViewController() {
         dismiss(animated: true, completion: nil)
     }
 

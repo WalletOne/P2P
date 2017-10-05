@@ -163,7 +163,7 @@ class NetworkManager: Manager {
             complete(json ?? stringValue, nil)
         default:
             guard let errorJson = json as? [String: String] else {
-                let userInfo: [AnyHashable: Any] = [
+                let userInfo: [String: Any] = [
                     P2PResponseErrorCodeKey: "IS_NOT_NSDICTIONARY",
                     NSLocalizedDescriptionKey: NSLocalizedString("IS_NOT_NSDICTIONARY", comment: ""),
                     P2PResponseStringKey: stringValue
@@ -173,7 +173,7 @@ class NetworkManager: Manager {
             }
             let errorCode = errorJson["Error"] ?? "UNKNOWN"
             let errorDescription = errorJson["ErrorDescription"] ?? errorJson["Message"] ?? "UNKNOWN"
-            let userInfo: [AnyHashable: Any] = [
+            let userInfo: [String: Any] = [
                 P2PResponseErrorCodeKey: errorCode,
                 NSLocalizedDescriptionKey: errorDescription,
                 P2PResponseStringKey: stringValue

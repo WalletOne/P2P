@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "P2PUI"
-  s.version      = "0.2.2"
+  s.version      = "0.2.3"
   s.summary      = "P2PCore - UI Framework for Wallet One P2P"
 
   s.homepage     = "https://github.com/WalletOne/P2P.git"

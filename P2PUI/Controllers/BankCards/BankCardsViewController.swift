@@ -101,7 +101,7 @@ import P2PCore
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func dismissViewController() {
+    @objc func dismissViewController() {
         dismiss(animated: true, completion: nil)
     }
 }

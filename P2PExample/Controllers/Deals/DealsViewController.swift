@@ -93,7 +93,7 @@ class DealsViewController: UITableViewController {
         vc.userTypeId = userTypeId
     }
     
-    func reload() {
+    @objc func reload() {
         tableView.reloadData()
     }
     

@@ -55,7 +55,7 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         NotificationCenter.default.post(name: .dealUpdated, object: deal)
     }
     
-    func loadRequests() {
+    @objc func loadRequests() {
         self.requests = DataStorage.default.dealRequests(for: deal)
         self.tableView.reloadData()
     }
@@ -440,7 +440,7 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         statusTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkStatus), userInfo: nil, repeats: false)
     }
     
-    func checkStatus() {
+    @objc func checkStatus() {
         P2PCore.deals.status(dealId: deal.id) { [weak self] (deal, error) in
             if let error = error {
                 self?.present(error: error)
