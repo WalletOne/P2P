@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     'SWIFT_VERSION' => '3.0',
   }
   
-  s.dependency 'P2PCore', '0.2'
+  s.dependency 'P2PCore', '0.2.2'
   
   s.resources = 'P2PUI/**/*.{xib,png,bundle}'
   
