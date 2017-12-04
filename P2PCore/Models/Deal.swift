@@ -52,13 +52,13 @@ public let DealTypeIdInstant = "Instant"
     
     public var platformPayerId: String = ""
     
-    public var payerCardId: Int = 0
+    public var payerPaymentToolId: Int = 0
     
     public var payerPhoneNumber: String = ""
     
     public var platformBeneficiaryId: String = ""
     
-    public var beneficiaryCardId: Int = 0
+    public var beneficiaryPaymentToolId: Int = 0
     
     public var shortDescription: String = ""
     
@@ -78,9 +78,9 @@ public let DealTypeIdInstant = "Instant"
         platformBonusAmount = map(json["PlatformBonusAmount"], 0.0)
         platformPayerId = map(json["PlatformPayerId"], "")
         payerPhoneNumber = map(json["PayerPhoneNumber"], "")
-        payerCardId = map(json["PayerCardId"], 0)
+        payerPaymentToolId = map(json["PayerPaymentToolId"], 0)
         platformBeneficiaryId = map(json["PlatformBeneficiaryId"], "")
-        beneficiaryCardId = map(json["BeneficiaryCardId"], 0)
+        beneficiaryPaymentToolId = map(json["BeneficiaryPaymentToolId"], 0)
         shortDescription = map(json["ShortDescription"], "")
         fullDescription = map(json["FullDescription"], "")
         dealTypeId = map(json["DealTypeId"], "")

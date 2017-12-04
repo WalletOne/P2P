@@ -1,5 +1,5 @@
 //
-//  BankCardsManager.swift
+//  BeneficiariesPaymentToolsManager.swift
 //  P2P_iOS
 //
 //  Created by Vitaliy Kuzmenko on 24/07/2017.
@@ -26,12 +26,12 @@ extension URLComposer {
         return relative(beneficiaries(), to: id)
     }
     
-    func beneficiariesCards(_ id: String) -> String {
-        return relative(beneficiaries(id), to: "cards")
+    func beneficiariesTools(_ id: String) -> String {
+        return relative(beneficiaries(id), to: "tools")
     }
     
-    func beneficiariesCardsCard(_ id: String, card: Int) -> String {
-        return relative(beneficiariesCards(id), to: String(card))
+    func beneficiariesToolsTool(_ id: String, card: Int) -> String {
+        return relative(beneficiariesTools(id), to: String(card))
     }
     
 }
@@ -46,24 +46,24 @@ extension String {
     
 }
 
-@objc public class BeneficiariesCardsManager: Manager {
+@objc public class BeneficiariesPaymentToolsManager: Manager {
     
     /// Get all cards of beneficiary
     
-    @discardableResult public func cards(complete: @escaping ([BankCard]?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesCards(core.benificaryId), method: .get, parameters: nil, complete: complete)
+    @discardableResult public func paymentTools(complete: @escaping (PaymentToolsResult?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.beneficiariesTools(core.benificaryId), method: .get, parameters: nil, complete: complete)
     }
 
     /// Get card of beneficiary by id
     
-    @discardableResult public func card(with id: Int, complete: @escaping (BankCard?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(core.benificaryId, card: id), method: .get, parameters: nil, complete: complete)
+    @discardableResult public func paymentTool(with id: Int, complete: @escaping (PaymentTool?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.beneficiariesToolsTool(core.benificaryId, card: id), method: .get, parameters: nil, complete: complete)
     }
     
     ///  Delete linked card of beneficiary
     
-    @discardableResult public func delete(cardWith id: Int, complete: @escaping (Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesCardsCard(core.benificaryId, card: id), method: .delete, parameters: nil, complete: complete)
+    @discardableResult public func delete(paymentToolWith id: Int, complete: @escaping (Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.beneficiariesToolsTool(core.benificaryId, card: id), method: .delete, parameters: nil, complete: complete)
     }
     
     /// Link new bank card request

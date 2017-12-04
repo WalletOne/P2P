@@ -24,7 +24,7 @@ public class URLComposer {
     
     var productURL = "https://api.w1.ru/p2p/"
     
-    var apiPath = "api/v2/"
+    var apiPath = "api/v3/"
     
     var `protocol`: String {
         switch mode {

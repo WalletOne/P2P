@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		0309740BC9D32D5EA802CF3F /* Pods_P2PCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891952A2880A5E695C57A142 /* Pods_P2PCoreTests.framework */; };
 		3AF7406EB9699101FE89BABC /* Pods_P2PCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E29C18DE56B8E739B8C443 /* Pods_P2PCore.framework */; };
+		79093E321FD573BD0041AAFF /* PaymentTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79093E311FD573BD0041AAFF /* PaymentTool.swift */; };
+		79093E341FD5742B0041AAFF /* PaymentToolsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79093E331FD5742B0041AAFF /* PaymentToolsResult.swift */; };
+		79093E361FD579AA0041AAFF /* DealsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79093E351FD579AA0041AAFF /* DealsResult.swift */; };
 		792D590A1F41D813004FCDF6 /* Localizations.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 792D59091F41D813004FCDF6 /* Localizations.bundle */; };
-		79430D291F261D840075EB8E /* BeneficiariesCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D281F261D840075EB8E /* BeneficiariesCardsManager.swift */; };
+		79430D291F261D840075EB8E /* BeneficiariesPaymentToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D281F261D840075EB8E /* BeneficiariesPaymentToolsManager.swift */; };
 		79430D2B1F2622240075EB8E /* PayersCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2A1F2622240075EB8E /* PayersCardsManager.swift */; };
 		79430D2D1F26245E0075EB8E /* PayoutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2C1F26245E0075EB8E /* PayoutsManager.swift */; };
 		79430D2F1F2629D40075EB8E /* RefundsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2E1F2629D40075EB8E /* RefundsManager.swift */; };
@@ -92,14 +95,13 @@
 		797C1C761F3348410009E61A /* CoreNetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C751F3348410009E61A /* CoreNetworkManagerTests.swift */; };
 		797C1C771F3349AA0009E61A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680911F209EC3000D541D /* NetworkManager.swift */; };
 		797C1C781F3349BC0009E61A /* DealsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816181F1CE72F00DD0783 /* DealsManager.swift */; };
-		797C1C791F3349BC0009E61A /* BeneficiariesCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D281F261D840075EB8E /* BeneficiariesCardsManager.swift */; };
+		797C1C791F3349BC0009E61A /* BeneficiariesPaymentToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D281F261D840075EB8E /* BeneficiariesPaymentToolsManager.swift */; };
 		797C1C7A1F3349BC0009E61A /* PayersCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2A1F2622240075EB8E /* PayersCardsManager.swift */; };
 		797C1C7B1F3349BC0009E61A /* PayoutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2C1F26245E0075EB8E /* PayoutsManager.swift */; };
 		797C1C7C1F3349BC0009E61A /* RefundsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D2E1F2629D40075EB8E /* RefundsManager.swift */; };
 		797C1C7D1F3349CC0009E61A /* P2PCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816161F1CE1E400DD0783 /* P2PCore.swift */; };
 		797C1C7E1F3349CC0009E61A /* CurrencyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816211F1CE93200DD0783 /* CurrencyId.swift */; };
 		797C1C7F1F3349CC0009E61A /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816611F1CEB2F00DD0783 /* Deal.swift */; };
-		797C1C801F3349CC0009E61A /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
 		797C1C811F3349CC0009E61A /* PayoutsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680891F20980F000D541D /* PayoutsResult.swift */; };
 		797C1C821F3349CC0009E61A /* Payout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808B1F209897000D541D /* Payout.swift */; };
 		797C1C831F3349CC0009E61A /* RefundsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808D1F209A59000D541D /* RefundsResult.swift */; };
@@ -108,7 +110,6 @@
 		797C1C861F3349D20009E61A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
 		797C1C881F33591F0009E61A /* CoreModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797C1C871F33591F0009E61A /* CoreModelsTests.swift */; };
 		798680841F208E34000D541D /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680831F208E34000D541D /* Mapper.swift */; };
-		798680861F20960E000D541D /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680851F20960E000D541D /* BankCard.swift */; };
 		7986808A1F20980F000D541D /* PayoutsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680891F20980F000D541D /* PayoutsResult.swift */; };
 		7986808C1F209897000D541D /* Payout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808B1F209897000D541D /* Payout.swift */; };
 		7986808E1F209A59000D541D /* RefundsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808D1F209A59000D541D /* RefundsResult.swift */; };
@@ -196,6 +197,9 @@
 		5B857483F9596F9370E68FEB /* Pods-P2PCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PCoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-P2PCoreTests/Pods-P2PCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C901BD0271BFE654ACD1B4D /* Pods-P2PCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-P2PCore/Pods-P2PCore.release.xcconfig"; sourceTree = "<group>"; };
 		72F74B043B56868EA842C1F5 /* Pods_P2PExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79093E311FD573BD0041AAFF /* PaymentTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTool.swift; sourceTree = "<group>"; };
+		79093E331FD5742B0041AAFF /* PaymentToolsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentToolsResult.swift; sourceTree = "<group>"; };
+		79093E351FD579AA0041AAFF /* DealsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealsResult.swift; sourceTree = "<group>"; };
 		792068051F8648AA00B63D46 /* P2PUI.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = P2PUI.podspec; sourceTree = "<group>"; };
 		792068061F8648B100B63D46 /* P2PCore.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = P2PCore.podspec; sourceTree = "<group>"; };
 		792D59091F41D813004FCDF6 /* Localizations.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Localizations.bundle; sourceTree = "<group>"; };
@@ -203,7 +207,7 @@
 		792D590C1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		792D590D1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		792D590E1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		79430D281F261D840075EB8E /* BeneficiariesCardsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeneficiariesCardsManager.swift; sourceTree = "<group>"; };
+		79430D281F261D840075EB8E /* BeneficiariesPaymentToolsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeneficiariesPaymentToolsManager.swift; sourceTree = "<group>"; };
 		79430D2A1F2622240075EB8E /* PayersCardsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayersCardsManager.swift; sourceTree = "<group>"; };
 		79430D2C1F26245E0075EB8E /* PayoutsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsManager.swift; sourceTree = "<group>"; };
 		79430D2E1F2629D40075EB8E /* RefundsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsManager.swift; sourceTree = "<group>"; };
@@ -288,7 +292,6 @@
 		797C1C751F3348410009E61A /* CoreNetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNetworkManagerTests.swift; sourceTree = "<group>"; };
 		797C1C871F33591F0009E61A /* CoreModelsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreModelsTests.swift; sourceTree = "<group>"; };
 		798680831F208E34000D541D /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		798680851F20960E000D541D /* BankCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankCard.swift; sourceTree = "<group>"; };
 		798680891F20980F000D541D /* PayoutsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayoutsResult.swift; sourceTree = "<group>"; };
 		7986808B1F209897000D541D /* Payout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payout.swift; sourceTree = "<group>"; };
 		7986808D1F209A59000D541D /* RefundsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsResult.swift; sourceTree = "<group>"; };
@@ -535,7 +538,7 @@
 			children = (
 				798680911F209EC3000D541D /* NetworkManager.swift */,
 				794816181F1CE72F00DD0783 /* DealsManager.swift */,
-				79430D281F261D840075EB8E /* BeneficiariesCardsManager.swift */,
+				79430D281F261D840075EB8E /* BeneficiariesPaymentToolsManager.swift */,
 				79430D2A1F2622240075EB8E /* PayersCardsManager.swift */,
 				79430D2C1F26245E0075EB8E /* PayoutsManager.swift */,
 				79430D2E1F2629D40075EB8E /* RefundsManager.swift */,
@@ -546,8 +549,10 @@
 		794816141F1CE15A00DD0783 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				79093E351FD579AA0041AAFF /* DealsResult.swift */,
 				794816611F1CEB2F00DD0783 /* Deal.swift */,
-				798680851F20960E000D541D /* BankCard.swift */,
+				79093E331FD5742B0041AAFF /* PaymentToolsResult.swift */,
+				79093E311FD573BD0041AAFF /* PaymentTool.swift */,
 				798680891F20980F000D541D /* PayoutsResult.swift */,
 				7986808B1F209897000D541D /* Payout.swift */,
 				7986808D1F209A59000D541D /* RefundsResult.swift */,
@@ -1233,12 +1238,14 @@
 				7986808C1F209897000D541D /* Payout.swift in Sources */,
 				795F0B271F20CAAA00FB95D9 /* URLComposer.swift in Sources */,
 				794816191F1CE72F00DD0783 /* DealsManager.swift in Sources */,
+				79093E361FD579AA0041AAFF /* DealsResult.swift in Sources */,
 				798680921F209EC3000D541D /* NetworkManager.swift in Sources */,
-				79430D291F261D840075EB8E /* BeneficiariesCardsManager.swift in Sources */,
+				79430D291F261D840075EB8E /* BeneficiariesPaymentToolsManager.swift in Sources */,
 				794816221F1CE93200DD0783 /* CurrencyId.swift in Sources */,
 				7986808A1F20980F000D541D /* PayoutsResult.swift in Sources */,
 				79430D2D1F26245E0075EB8E /* PayoutsManager.swift in Sources */,
-				798680861F20960E000D541D /* BankCard.swift in Sources */,
+				79093E341FD5742B0041AAFF /* PaymentToolsResult.swift in Sources */,
+				79093E321FD573BD0041AAFF /* PaymentTool.swift in Sources */,
 				798680901F209C27000D541D /* Refund.swift in Sources */,
 				794816621F1CEB2F00DD0783 /* Deal.swift in Sources */,
 				798680841F208E34000D541D /* Mapper.swift in Sources */,
@@ -1307,14 +1314,13 @@
 				797C1C811F3349CC0009E61A /* PayoutsResult.swift in Sources */,
 				797C1C7F1F3349CC0009E61A /* Deal.swift in Sources */,
 				797C1C861F3349D20009E61A /* Mapper.swift in Sources */,
-				797C1C801F3349CC0009E61A /* BankCard.swift in Sources */,
 				797C1C881F33591F0009E61A /* CoreModelsTests.swift in Sources */,
 				797C1C7A1F3349BC0009E61A /* PayersCardsManager.swift in Sources */,
 				797C1C831F3349CC0009E61A /* RefundsResult.swift in Sources */,
 				797C1C7D1F3349CC0009E61A /* P2PCore.swift in Sources */,
 				797C1C781F3349BC0009E61A /* DealsManager.swift in Sources */,
 				797C1C761F3348410009E61A /* CoreNetworkManagerTests.swift in Sources */,
-				797C1C791F3349BC0009E61A /* BeneficiariesCardsManager.swift in Sources */,
+				797C1C791F3349BC0009E61A /* BeneficiariesPaymentToolsManager.swift in Sources */,
 				797C1C841F3349CC0009E61A /* Refund.swift in Sources */,
 				797C1C6E1F3347FF0009E61A /* P2PCoreTests.swift in Sources */,
 				797C1C821F3349CC0009E61A /* Payout.swift in Sources */,
