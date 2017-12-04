@@ -14,10 +14,6 @@ extension URLComposer {
         return relativeToBase("beneficiary")
     }
     
-    func beneficiaryCard() -> String {
-        return relative(beneficiary(), to: "card")
-    }
-    
     func beneficiaries() -> String {
         return relativeToApi("beneficiaries")
     }
@@ -68,9 +64,9 @@ extension String {
     
     /// Link new bank card request
     
-    public func linkNewCardRequest(returnUrl: String) -> URLRequest {
+    public func addNewPaymentType(returnUrl: String, paymentTypeId: String?, redirectToPaymentToolAddition: Bool?) -> URLRequest {
         
-        let urlString = URLComposer.default.beneficiaryCard()
+        let urlString = URLComposer.default.beneficiary()
         
         let url = URL(string: urlString)!
         
@@ -80,11 +76,18 @@ extension String {
             ("PhoneNumber", core.benificaryPhoneNumber),
             ("PlatformBeneficiaryId", core.benificaryId),
             ("PlatformId", core.platformId),
-            ("RedirectToCardAddition", "true"),
-            ("ReturnUrl", returnUrl),
+            ("ReturnUrl", returnUrl)
             ("Timestamp", timeStamp),
             ("Title", core.benificaryTitle),
         ]
+        
+        if let paymentTypeId = paymentTypeId {
+            items.append(("PaymentTypeId", paymentTypeId))
+        }
+        
+        if let redirectToPaymentToolAddition = redirectToPaymentToolAddition {
+            items.append(("RedirectToPaymentToolAddition", redirectToPaymentToolAddition ? "true" : "false"))
+        }
         
         let signature = core.networkManager.makeSignatureForWeb(parameters: items)
         
