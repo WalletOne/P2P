@@ -1,5 +1,5 @@
 //
-//  BankCardLinkNewTableViewCell.swift
+//  PaymentToolLinkNewTableViewCell.swift
 //  P2P_iOS
 //
 //  Created by Vitaliy Kuzmenko on 27/07/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BankCardLinkNewTableViewCell: UITableViewCell {
+class PaymentToolLinkNewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     

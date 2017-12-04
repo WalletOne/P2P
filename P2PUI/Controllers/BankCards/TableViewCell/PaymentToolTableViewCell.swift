@@ -1,5 +1,5 @@
 //
-//  BankCardTableViewCell.swift
+//  PaymentToolTableViewCell.swift
 //  P2P_iOS
 //
 //  Created by Vitaliy Kuzmenko on 26/07/2017.
@@ -12,7 +12,7 @@ import P2PCore
 extension String {
     
     public var maskEnd: String {
-        if characters.count <= 4 {
+        if self.count <= 4 {
             return self
         }
         var last4digits = String(self.suffix(4))
@@ -22,7 +22,7 @@ extension String {
     
 }
 
-class BankCardTableViewCell: UITableViewCell {
+class PaymentToolTableViewCell: UITableViewCell {
 
     @IBOutlet weak var typeImageView: UIImageView!
     
@@ -30,24 +30,24 @@ class BankCardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var maskedLabel: UILabel!
     
-    weak var bankCard: BankCard! {
+    weak var paymentTool: PaymentTool! {
         didSet {
-            displayBankCard()
+            displayPaymentTool()
         }
     }
     
-    func displayBankCard() {
-        let v = CreditCardValidator()
+    func displayPaymentTool() {
+        let v = CreditPaymentToolValidator()
         
-        if let type = v.type(from: bankCard.cardMask) {
+        if let type = v.type(from: paymentTool.mask) {
             typeNameLabel.text = type.name
             typeImageView.image = UIImage(named: type.name + "Mini", in: .init(for: classForCoder), compatibleWith: nil)
         } else {
-            typeNameLabel.text = P2PUILocalizedStrings("Unknown Card Type", comment: "")
+            typeNameLabel.text = P2PUILocalizedStrings("Unknown PaymentTool Type", comment: "")
             typeImageView.image = nil
         }
         
-        maskedLabel.text = bankCard.cardMask.maskEnd
+        maskedLabel.text = paymentTool.mask.maskEnd
     }
     
 }

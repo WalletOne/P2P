@@ -1,5 +1,5 @@
 //
-//  LinkCardViewController.swift
+//  LinkPaymentToolViewController.swift
 //  P2P_iOS
 //
 //  Created by Vitaliy Kuzmenko on 27/07/2017.
@@ -9,20 +9,20 @@
 import UIKit
 import P2PCore
 
-protocol LinkCardViewControllerDelegate: class {
-    func linkCardViewControllerComplete(_ vc: LinkCardViewController)
+protocol LinkPaymentToolViewControllerDelegate: class {
+    func linkPaymentToolViewControllerComplete(_ vc: LinkPaymentToolViewController)
 }
 
-class LinkCardViewController: P2PViewController {
+class LinkPaymentToolViewController: P2PViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
-    let returnHost = "p2p-success-link-new-card"
+    let returnHost = "p2p-success-link-new-paymentTool"
     
-    weak var delegate: LinkCardViewControllerDelegate?
+    weak var delegate: LinkPaymentToolViewControllerDelegate?
     
-    public convenience init(delegate: LinkCardViewControllerDelegate) {
-        self.init(nibName: "LinkCardViewController", bundle: .init(for: LinkCardViewController.classForCoder()))
+    public convenience init(delegate: LinkPaymentToolViewControllerDelegate) {
+        self.init(nibName: "LinkPaymentToolViewController", bundle: .init(for: LinkPaymentToolViewController.classForCoder()))
         self.delegate = delegate
     }
     
@@ -30,7 +30,7 @@ class LinkCardViewController: P2PViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let request = P2PCore.beneficiariesCards.linkNewCardRequest(returnUrl: "http://" + returnHost)
+        let request = P2PCore.beneficiariesPaymentTools.addNewPaymentType(returnUrl: "http://" + returnHost, paymentTypeId: nil, redirectToPaymentToolAddition: true)
         
         P2PCore.printDebug(request.httpMethod ?? "" + "=======")
         P2PCore.printDebug(request)
@@ -40,7 +40,7 @@ class LinkCardViewController: P2PViewController {
 
 }
 
-extension LinkCardViewController: UIWebViewDelegate {
+extension LinkPaymentToolViewController: UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
         startAnimating()
@@ -55,7 +55,7 @@ extension LinkCardViewController: UIWebViewDelegate {
         guard let host = url.host else { return true }
         switch host {
         case returnHost:
-            delegate?.linkCardViewControllerComplete(self)
+            delegate?.linkPaymentToolViewControllerComplete(self)
             return false
         default:
             return true

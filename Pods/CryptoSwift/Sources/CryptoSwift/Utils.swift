@@ -2,7 +2,7 @@
 //  Utils.swift
 //  CryptoSwift
 //
-//  Copyright (C) 2014-2017 Krzyżanowski <marcin@krzyzanowskim.com>
+//  Copyright (C) 2014-2017 Marcin Krzyżanowski <marcin@krzyzanowskim.com>
 //  This software is provided 'as-is', without any express or implied warranty.
 //
 //  In no event will the authors be held liable for any damages arising from the use of this software.
@@ -15,15 +15,15 @@
 //
 
 func rotateLeft(_ value: UInt8, by: UInt8) -> UInt8 {
-    return ((value << by) & 0xFF) | (value >> (8 - by))
+    return ((value << by) & 0xff) | (value >> (8 - by))
 }
 
 func rotateLeft(_ value: UInt16, by: UInt16) -> UInt16 {
-    return ((value << by) & 0xFFFF) | (value >> (16 - by))
+    return ((value << by) & 0xffff) | (value >> (16 - by))
 }
 
 func rotateLeft(_ value: UInt32, by: UInt32) -> UInt32 {
-    return ((value << by) & 0xFFFFFFFF) | (value >> (32 - by))
+    return ((value << by) & 0xffffffff) | (value >> (32 - by))
 }
 
 func rotateLeft(_ value: UInt64, by: UInt64) -> UInt64 {
@@ -44,9 +44,9 @@ func rotateRight(_ value: UInt64, by: UInt64) -> UInt64 {
 
 func reversed(_ uint8: UInt8) -> UInt8 {
     var v = uint8
-    v = (v & 0xF0) >> 4 | (v & 0x0F) << 4
-    v = (v & 0xCC) >> 2 | (v & 0x33) << 2
-    v = (v & 0xAA) >> 1 | (v & 0x55) << 1
+    v = (v & 0xf0) >> 4 | (v & 0x0f) << 4
+    v = (v & 0xcc) >> 2 | (v & 0x33) << 2
+    v = (v & 0xaa) >> 1 | (v & 0x55) << 1
     return v
 }
 
@@ -60,26 +60,27 @@ func reversed(_ uint32: UInt32) -> UInt32 {
     return v
 }
 
-func xor(_ a: Array<UInt8>, _ b: Array<UInt8>) -> Array<UInt8> {
-    return xor(a.suffix(from: a.startIndex), b.suffix(from: b.startIndex))
+func xor<T, V>(_ left: T, _ right: V) -> ArraySlice<UInt8> where T: RandomAccessCollection, V: RandomAccessCollection, T.Element == UInt8, T.Index == Int, T.IndexDistance == Int, V.Element == UInt8, V.IndexDistance == Int, V.Index == Int {
+    return xor(left, right).slice
 }
 
-func xor(_ a: Array<UInt8>, _ b: ArraySlice<UInt8>) -> Array<UInt8> {
-    return xor(a.suffix(from: a.startIndex), b.suffix(from: b.startIndex))
-}
+func xor<T, V>(_ left: T, _ right: V) -> Array<UInt8> where T: RandomAccessCollection, V: RandomAccessCollection, T.Element == UInt8, T.Index == Int, T.IndexDistance == Int, V.Element == UInt8, V.IndexDistance == Int, V.Index == Int {
+    let length = Swift.min(left.count, right.count)
 
-func xor(_ a: ArraySlice<UInt8>, _ b: Array<UInt8>) -> Array<UInt8> {
-    return xor(a.suffix(from: a.startIndex), b.suffix(from: b.startIndex))
-}
-
-func xor(_ a: ArraySlice<UInt8>, _ b: ArraySlice<UInt8>) -> Array<UInt8> {
-    var xored = Array<UInt8>(repeating: 0, count: min(a.count, b.count))
-    for i in 0 ..< xored.count {
-        xored[xored.startIndex.advanced(by: i)] = a[a.startIndex.advanced(by: i)] ^ b[b.startIndex.advanced(by: i)]
+    let buf = UnsafeMutablePointer<UInt8>.allocate(capacity: length)
+    buf.initialize(to: 0, count: length)
+    defer {
+        buf.deinitialize()
+        buf.deallocate(capacity: length)
     }
-    return xored
-}
 
+    // xor
+    for i in 0..<length {
+        buf[i] = left[left.startIndex.advanced(by: i)] ^ right[right.startIndex.advanced(by: i)]
+    }
+
+    return Array(UnsafeBufferPointer(start: buf, count: length))
+}
 
 /**
  ISO/IEC 9797-1 Padding method 2.

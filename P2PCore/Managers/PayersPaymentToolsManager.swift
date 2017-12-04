@@ -32,13 +32,13 @@ extension URLComposer {
     
     /// Get all cards of payer
     
-    @discardableResult public func cards(complete: @escaping (PaymentToolsResult?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func paymentTools(complete: @escaping (PaymentToolsResult?, Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.payersTools(core.payerId), method: .get, parameters: nil, complete: complete)
     }
     
     /// Get card of payer by id
     
-    @discardableResult public func card(with id: Int, complete: @escaping (PaymentTool?, Error?) -> Void) -> URLSessionDataTask {
+    @discardableResult public func paymentTool(with id: Int, complete: @escaping (PaymentTool?, Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.payersToolsTool(core.payerId, card: id), method: .get, parameters: nil, complete: complete)
     }
     

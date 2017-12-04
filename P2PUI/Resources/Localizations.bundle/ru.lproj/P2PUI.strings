@@ -1,12 +1,12 @@
 "Cancel" = "Отмена";
-"Bank Cards" = "Банковские карты";
-"Linked Cards" = "Привязанные карты";
-"Link New Card" = "Привязать новую карту";
-"Use New Card" = "Использовать новую карту";
-"Delete Card" = "Удалить карту";
-"Are you really want to delete this card?" = "Вы действительно хотите удалить эту карту?";
+"Bank PaymentTools" = "Банковские карты";
+"Linked PaymentTools" = "Привязанные карты";
+"Link New PaymentTool" = "Привязать новую карту";
+"Use New PaymentTool" = "Использовать новую карту";
+"Delete PaymentTool" = "Удалить карту";
+"Are you really want to delete this paymentTool?" = "Вы действительно хотите удалить эту карту?";
 "Delete" = "Удалить";
-"Unknown Card Type" = "Неизвестный тип карты";
+"Unknown PaymentTool Type" = "Неизвестный тип карты";
 "Payouts" = "Выплаты";
 "Payout Processing..." = "Выплата в процессе...";
 "Successful Payout" = "Успешная выплата";
@@ -16,6 +16,6 @@
 "Successful Refund" = "Успешный возврат";
 "Process Error" = "Ошибка";
 "Error" = "Ошибка";
-"No Linekd Cards" = "Нет привязанных карт";
+"No Linekd PaymentTools" = "Нет привязанных карт";
 "No Payouts" = "Список выплат пуст";
 "No Refunds" = "Список возвратов пуст";

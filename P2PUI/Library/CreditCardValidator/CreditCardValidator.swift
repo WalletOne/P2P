@@ -1,5 +1,5 @@
 //
-//  CreditCardValidator.swift
+//  CreditPaymentToolValidator.swift
 //  P2P_iOS
 //
 //  Created by Vitaliy Kuzmenko on 27/07/2017.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-public func ==(lhs: CreditCardValidationType, rhs: CreditCardValidationType) -> Bool {
+public func ==(lhs: CreditPaymentToolValidationType, rhs: CreditPaymentToolValidationType) -> Bool {
     return lhs.name == rhs.name
 }
 
-public struct CreditCardValidationType: Equatable {
+public struct CreditPaymentToolValidationType: Equatable {
     
     public var name: String
     
@@ -34,12 +34,12 @@ public struct CreditCardValidationType: Equatable {
     
 }
 
-public class CreditCardValidator {
+public class CreditPaymentToolValidator {
     
-    public lazy var types: [CreditCardValidationType] = {
-        var types = [CreditCardValidationType]()
-        for object in CreditCardValidator.types {
-            types.append(CreditCardValidationType(dict: object))
+    public lazy var types: [CreditPaymentToolValidationType] = {
+        var types = [CreditPaymentToolValidationType]()
+        for object in CreditPaymentToolValidator.types {
+            types.append(CreditPaymentToolValidationType(dict: object))
         }
         return types
     }()
@@ -47,13 +47,13 @@ public class CreditCardValidator {
     public init() { }
     
     /**
-     Get card type from string
+     Get paymentTool type from string
      
-     - parameter string: card number string
+     - parameter string: paymentTool number string
      
-     - returns: CreditCardValidationType structure
+     - returns: CreditPaymentToolValidationType structure
      */
-    public func type(from string: String) -> CreditCardValidationType? {
+    public func type(from string: String) -> CreditPaymentToolValidationType? {
         for type in types {
             let predicate = NSPredicate(format: "SELF MATCHES %@", type.regex)
             let numbersString = self.onlyNumbers(string: string)
@@ -65,9 +65,9 @@ public class CreditCardValidator {
     }
     
     /**
-     Validate card number
+     Validate paymentTool number
      
-     - parameter string: card number string
+     - parameter string: paymentTool number string
      
      - returns: true or false
      */
@@ -101,14 +101,14 @@ public class CreditCardValidator {
     }
     
     /**
-     Validate card number string for type
+     Validate paymentTool number string for type
      
-     - parameter string: card number string
-     - parameter type:   CreditCardValidationType structure
+     - parameter string: paymentTool number string
+     - parameter type:   CreditPaymentToolValidationType structure
      
      - returns: true or false
      */
-    public func validate(string: String, forType type: CreditCardValidationType) -> Bool {
+    public func validate(string: String, forType type: CreditPaymentToolValidationType) -> Bool {
         return self.type(from: string) == type
     }
     
@@ -128,7 +128,7 @@ public class CreditCardValidator {
             "name": "Visa",
             "regex": "^4\\d{0,}$"
         ], [
-            "name": "MasterCard",
+            "name": "MasterPaymentTool",
             "regex": "^5[1-5]\\d{0,14}$"
         ], [
             "name": "Maestro",

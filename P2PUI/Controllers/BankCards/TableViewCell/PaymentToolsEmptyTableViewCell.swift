@@ -1,5 +1,5 @@
 //
-//  BankCardsEmptyTableViewCell.swift
+//  PaymentToolsEmptyTableViewCell.swift
 //  P2P_iOS
 //
 //  Created by Vitaliy Kuzmenko on 03/08/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BankCardsEmptyTableViewCell: UITableViewCell {
+class PaymentToolsEmptyTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

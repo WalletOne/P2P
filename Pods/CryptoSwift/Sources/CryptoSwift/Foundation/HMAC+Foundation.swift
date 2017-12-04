@@ -2,7 +2,7 @@
 //  HMAC+Foundation.swift
 //  CryptoSwift
 //
-//  Copyright (C) 2014-2017 Krzyżanowski <marcin@krzyzanowskim.com>
+//  Copyright (C) 2014-2017 Marcin Krzyżanowski <marcin@krzyzanowskim.com>
 //  This software is provided 'as-is', without any express or implied warranty.
 //
 //  In no event will the authors be held liable for any damages arising from the use of this software.
@@ -19,10 +19,6 @@ import Foundation
 extension HMAC {
 
     public convenience init(key: String, variant: HMAC.Variant = .md5) throws {
-        guard let kkey = key.data(using: String.Encoding.utf8, allowLossyConversion: false)?.bytes else {
-            throw Error.invalidInput
-        }
-
-        self.init(key: kkey, variant: variant)
+        self.init(key: key.bytes, variant: variant)
     }
 }

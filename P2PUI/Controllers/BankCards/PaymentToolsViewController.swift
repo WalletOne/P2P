@@ -1,5 +1,5 @@
 //
-//  BankCardsTableViewController.swift
+//  PaymentToolsTableViewController.swift
 //  P2P_iOS
 //
 //  Created by Vitaliy Kuzmenko on 26/07/2017.
@@ -9,20 +9,20 @@
 import UIKit
 import P2PCore
 
-@objc public protocol BankCardsViewControllerDelegate: NSObjectProtocol {
-    @objc optional func bankCardsViewControllerHeaderTitleForBankCardsSection(_ vc: BankCardsViewController) -> String
-    @objc optional func bankCardsViewControllerFooterTitleForBankCardsSection(_ vc: BankCardsViewController) -> String
+@objc public protocol PaymentToolsViewControllerDelegate: NSObjectProtocol {
+    @objc optional func paymentToolsViewControllerHeaderTitleForPaymentToolsSection(_ vc: PaymentToolsViewController) -> String
+    @objc optional func paymentToolsViewControllerFooterTitleForPaymentToolsSection(_ vc: PaymentToolsViewController) -> String
     
-    @objc optional func bankCardsViewControllerHeaderTitleForLinkNewCardSection(_ vc: BankCardsViewController) -> String
-    @objc optional func bankCardsViewControllerFooterTitleForLinkNewCardSection(_ vc: BankCardsViewController) -> String
+    @objc optional func paymentToolsViewControllerHeaderTitleForLinkNewPaymentToolSection(_ vc: PaymentToolsViewController) -> String
+    @objc optional func paymentToolsViewControllerFooterTitleForLinkNewPaymentToolSection(_ vc: PaymentToolsViewController) -> String
     
-    func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard)
+    func paymentToolsViewController(_ vc: PaymentToolsViewController, didSelect paymentTool: PaymentTool)
     
     // Called only when owner is .payer
-    func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController)
+    func paymentToolsViewControllerDidSelectLinkNew(_ vc: PaymentToolsViewController)
 }
 
-@objc open class BankCardsViewController: P2PViewController, TableStructuredViewController {
+@objc open class PaymentToolsViewController: P2PViewController, TableStructuredViewController {
     
     @objc public enum Owner: Int {
         case benificiary, payer
@@ -34,18 +34,18 @@ import P2PCore
         return UIBarButtonItem(title: P2PUILocalizedStrings("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
     }()
     
-    lazy var tableController: BankCardsTableViewController = { return .init(vc: self) }()
+    lazy var tableController: PaymentToolsTableViewController = { return .init(vc: self) }()
     
-    public var cards: [BankCard] = []
+    public var paymentTools: [PaymentTool] = []
     
     public var owner: Owner = .benificiary
     
     var isLoading = true
     
-    public weak var delegate: BankCardsViewControllerDelegate?
+    public weak var delegate: PaymentToolsViewControllerDelegate?
     
-    public convenience init(owner: Owner, delegate: BankCardsViewControllerDelegate?) {
-        self.init(nibName: "BankCardsViewController", bundle: .init(for: BankCardsViewController.classForCoder()))
+    public convenience init(owner: Owner, delegate: PaymentToolsViewControllerDelegate?) {
+        self.init(nibName: "PaymentToolsViewController", bundle: .init(for: PaymentToolsViewController.classForCoder()))
         self.owner = owner
         self.delegate = delegate
     }
@@ -53,7 +53,7 @@ import P2PCore
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = P2PUILocalizedStrings("Bank Cards", comment: "")
+        self.title = P2PUILocalizedStrings("Bank PaymentTools", comment: "")
         
         tableController.buildTableStructure(reloadData: false)
         
@@ -72,9 +72,9 @@ import P2PCore
 
     func loadData() {
         
-        let completion: ([BankCard]?, Error?) -> Void = { [weak self] cards, error in
+        let completion: (PaymentToolsResult?, Error?) -> Void = { [weak self] paymentTools, error in
             self?.isLoading = false
-            self?.cards = cards ?? []
+            self?.paymentTools = paymentTools?.paymentTools ?? []
             self?.tableController.buildTableStructure(reloadData: true)
             
             if let error = error {
@@ -84,20 +84,20 @@ import P2PCore
         
         isLoading = true
         
-        self.cards = []
+        self.paymentTools = []
         
         self.tableController.buildTableStructure(reloadData: true)
         
         switch owner {
         case .benificiary:
-            P2PCore.beneficiariesCards.cards(complete: completion)
+            P2PCore.beneficiariesPaymentTools.paymentTools(complete: completion)
         case .payer:
-            P2PCore.payersCards.cards(complete: completion)
+            P2PCore.payersPaymentTools.paymentTools(complete: completion)
         }
     }
     
-    func presentLinkCardViewController() {
-        let vc = LinkCardViewController(delegate: self)
+    func presentLinkPaymentToolViewController() {
+        let vc = LinkPaymentToolViewController(delegate: self)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -106,21 +106,21 @@ import P2PCore
     }
 }
 
-extension BankCardsViewController: LinkCardViewControllerDelegate {
+extension PaymentToolsViewController: LinkPaymentToolViewControllerDelegate {
  
-    func linkCardViewControllerComplete(_ vc: LinkCardViewController) {
+    func linkPaymentToolViewControllerComplete(_ vc: LinkPaymentToolViewController) {
         navigationController?.popViewController(animated: true)
         loadData()
     }
     
 }
 
-class BankCardsTableViewController: TableStructuredController<BankCardsViewController> {
+class PaymentToolsTableViewController: TableStructuredController<PaymentToolsViewController> {
     
     override func configureTableView() {
         super.configureTableView()
         
-        let nibs = ["BankCardTableViewCell", "LoadingTableViewCell", "BankCardLinkNewTableViewCell", "BankCardsEmptyTableViewCell"]
+        let nibs = ["PaymentToolTableViewCell", "LoadingTableViewCell", "PaymentToolLinkNewTableViewCell", "PaymentToolsEmptyTableViewCell"]
         
         for nibName in nibs {
             tableView.register(.init(nibName: nibName, bundle: .init(for: classForCoder)), forCellReuseIdentifier: nibName)
@@ -137,20 +137,20 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
             section.append("LoadingTableViewCell")
             append(section: &section)
         } else {
-            section.headerTitle = vc.delegate?.bankCardsViewControllerHeaderTitleForBankCardsSection?(vc) ?? P2PUILocalizedStrings("Linked Cards", comment: "")
-            section.footerTitle = vc.delegate?.bankCardsViewControllerFooterTitleForBankCardsSection?(vc) ?? ""
-            if !vc.cards.isEmpty {
-                section.append(contentsOf: vc.cards)
+            section.headerTitle = vc.delegate?.paymentToolsViewControllerHeaderTitleForPaymentToolsSection?(vc) ?? P2PUILocalizedStrings("Linked PaymentTools", comment: "")
+            section.footerTitle = vc.delegate?.paymentToolsViewControllerFooterTitleForPaymentToolsSection?(vc) ?? ""
+            if !vc.paymentTools.isEmpty {
+                section.append(contentsOf: vc.paymentTools)
             } else {
-                section.append("BankCardsEmptyTableViewCell")
+                section.append("PaymentToolsEmptyTableViewCell")
             }
             append(section: &section)
         }
         
         if vc.delegate != nil || vc.owner == .benificiary {
-            section.headerTitle = vc.delegate?.bankCardsViewControllerHeaderTitleForLinkNewCardSection?(vc) ?? ""
-            section.footerTitle = vc.delegate?.bankCardsViewControllerFooterTitleForLinkNewCardSection?(vc) ?? ""
-            section.append("BankCardLinkNewTableViewCell")
+            section.headerTitle = vc.delegate?.paymentToolsViewControllerHeaderTitleForLinkNewPaymentToolSection?(vc) ?? ""
+            section.footerTitle = vc.delegate?.paymentToolsViewControllerFooterTitleForLinkNewPaymentToolSection?(vc) ?? ""
+            section.append("PaymentToolLinkNewTableViewCell")
         }
         
         append(section: &section)
@@ -159,25 +159,25 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
     }
     
     override func tableView(_ tableView: UITableView, reuseIdentifierFor object: Any) -> String? {
-        if object is BankCard {
-            return "BankCardTableViewCell"
+        if object is PaymentTool {
+            return "PaymentToolTableViewCell"
         } else {
             return super.tableView(tableView, reuseIdentifierFor: object)
         }
     }
     
     override func tableView(_ tableView: UITableView, configure cell: UITableViewCell, for object: Any, at indexPath: IndexPath) {
-        if let cell = cell as? BankCardTableViewCell, let bankCard = object as? BankCard {
-            cell.bankCard = bankCard
-        } else if let cell = cell as? BankCardLinkNewTableViewCell {
+        if let cell = cell as? PaymentToolTableViewCell, let paymentTool = object as? PaymentTool {
+            cell.paymentTool = paymentTool
+        } else if let cell = cell as? PaymentToolLinkNewTableViewCell {
             switch self.vc.owner {
             case .benificiary:
-                cell.titleLabel.text = P2PUILocalizedStrings("Link New Card", comment: "")
+                cell.titleLabel.text = P2PUILocalizedStrings("Link New PaymentTool", comment: "")
             case .payer:
-                cell.titleLabel.text = P2PUILocalizedStrings("Use New Card", comment: "")
+                cell.titleLabel.text = P2PUILocalizedStrings("Use New PaymentTool", comment: "")
             }
-        } else if let cell = cell as? BankCardsEmptyTableViewCell {
-            cell.textLabel?.text = P2PUILocalizedStrings("No Linekd Cards", comment: "")
+        } else if let cell = cell as? PaymentToolsEmptyTableViewCell {
+            cell.textLabel?.text = P2PUILocalizedStrings("No Linekd PaymentTools", comment: "")
         }
     }
     
@@ -189,14 +189,14 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
     
     override func tableView(_ tableView: UITableView, didSelectCellWith identifier: String, object: Any, at indexPath: IndexPath) {
         switch identifier {
-        case "BankCardTableViewCell":
-            vc.delegate?.bankCardsViewController(vc, didSelect: object as! BankCard)
-        case "BankCardLinkNewTableViewCell":
+        case "PaymentToolTableViewCell":
+            vc.delegate?.paymentToolsViewController(vc, didSelect: object as! PaymentTool)
+        case "PaymentToolLinkNewTableViewCell":
             switch self.vc.owner {
             case .benificiary:
-                vc.presentLinkCardViewController()
+                vc.presentLinkPaymentToolViewController()
             case .payer:
-                vc.delegate?.bankCardsViewControllerDidSelectLinkNew(vc)
+                vc.delegate?.paymentToolsViewControllerDidSelectLinkNew(vc)
             }
         default:
             break
@@ -204,14 +204,14 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
     }
     
     override func tableView(_ tableView: UITableView, canEditRowWith object: Any, at indexPath: IndexPath) -> Bool {
-        return object is BankCard
+        return object is PaymentTool
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, for object: Any, forRowAt indexPath: IndexPath) {
-        guard let card = object as? BankCard else { return }
-        let alert = UIAlertController(title: P2PUILocalizedStrings("Delete Card", comment: ""), message: P2PUILocalizedStrings("Are you really want to delete this card?", comment: ""), preferredStyle: .actionSheet)
+        guard let paymentTool = object as? PaymentTool else { return }
+        let alert = UIAlertController(title: P2PUILocalizedStrings("Delete PaymentTool", comment: ""), message: P2PUILocalizedStrings("Are you really want to delete this paymentTool?", comment: ""), preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: P2PUILocalizedStrings("Delete", comment: ""), style: .destructive, handler: { (_) in
-            self.delete(card: card)
+            self.delete(paymentTool: paymentTool)
         }))
         alert.addAction(UIAlertAction(title: P2PUILocalizedStrings("Cancel", comment: ""), style: .cancel, handler: nil))
         let cell = tableView.cellForRow(at: indexPath)
@@ -220,14 +220,14 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         vc.present(alert, animated: true, completion: nil)
     }
     
-    func delete(card: BankCard) {
+    func delete(paymentTool: PaymentTool) {
         let completion: (Error?) -> Void = { [weak self] (error) in
             self?.vc.stopAnimating()
             self?.tableView.isUserInteractionEnabled = true
             if let error = error {
                 self?.vc.present(error: error)
             } else {
-                self?.deleteRow(with: card)
+                self?.deleteRow(with: paymentTool)
             }
         }
         
@@ -236,19 +236,19 @@ class BankCardsTableViewController: TableStructuredController<BankCardsViewContr
         
         switch vc.owner {
         case .benificiary:
-            P2PCore.beneficiariesCards.delete(cardWith: card.cardId, complete: completion)
+            P2PCore.beneficiariesPaymentTools.delete(paymentToolWith: paymentTool.paymentToolId, complete: completion)
         case .payer:
-            P2PCore.payersCards.delete(cardWith: card.cardId, complete: completion)
+            P2PCore.payersPaymentTools.delete(paymentToolWith: paymentTool.paymentToolId, complete: completion)
         }
     }
     
-    func deleteRow(with card: BankCard) {
-        guard let row = vc.cards.index(of: card), let indexPath = self.indexPath(for: card), row == indexPath.row else {
+    func deleteRow(with paymentTool: PaymentTool) {
+        guard let row = vc.paymentTools.index(of: paymentTool), let indexPath = self.indexPath(for: paymentTool), row == indexPath.row else {
             return self.buildTableStructure(reloadData: true)
         }
-        vc.cards.remove(at: row)
+        vc.paymentTools.remove(at: row)
         self.buildTableStructure(reloadData: false)
-        if self.vc.cards.isEmpty {
+        if self.vc.paymentTools.isEmpty {
             self.tableView.reloadRows(at: [indexPath], with: .left)
         } else {
             self.tableView.deleteRows(at: [indexPath], with: .left)

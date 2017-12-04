@@ -21,7 +21,7 @@ import P2PCore
     
     public var authData: String?
     
-    public var redirectToCardAddition: Bool = false
+    public var redirectToPaymentToolAddition: Bool = false
     
     let returnHost = "p2p-success-pay-deal"
     
@@ -31,10 +31,10 @@ import P2PCore
         return UIBarButtonItem(title: P2PUILocalizedStrings("Cancel", comment: ""), style: .done, target: self, action: #selector(dismissViewController))
     }()
     
-    public convenience init(dealId: String, redirectToCardAddition: Bool, authData: String? = nil) {
+    public convenience init(dealId: String, redirectToPaymentToolAddition: Bool, authData: String? = nil) {
         self.init(nibName: "PayDealViewController", bundle: .init(for: PayDealViewController.classForCoder()))
         self.dealId = dealId
-        self.redirectToCardAddition = redirectToCardAddition
+        self.redirectToPaymentToolAddition = redirectToPaymentToolAddition
         self.authData = authData
     }
     
@@ -42,7 +42,7 @@ import P2PCore
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let request = P2PCore.deals.payRequest(dealId: dealId, redirectToCardAddition: redirectToCardAddition, authData: authData, returnUrl: "http://" + returnHost)
+        let request = P2PCore.deals.payRequest(dealId: dealId, paymentTypeId: nil, redirectToPaymentToolAddition: redirectToPaymentToolAddition, authData: authData, returnUrl: "http://" + returnHost)
         
         P2PCore.printDebug(request.httpMethod ?? "" + "=======")
         P2PCore.printDebug(request)
