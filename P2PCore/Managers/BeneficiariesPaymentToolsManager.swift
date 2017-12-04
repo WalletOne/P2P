@@ -76,7 +76,7 @@ extension String {
             ("PhoneNumber", core.benificaryPhoneNumber),
             ("PlatformBeneficiaryId", core.benificaryId),
             ("PlatformId", core.platformId),
-            ("ReturnUrl", returnUrl)
+            ("ReturnUrl", returnUrl),
             ("Timestamp", timeStamp),
             ("Title", core.benificaryTitle),
         ]
