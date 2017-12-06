@@ -23,10 +23,9 @@
 		79430D5A1F28CD620075EB8E /* PaymentToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D581F28CD620075EB8E /* PaymentToolsViewController.swift */; };
 		79430D5B1F28CD620075EB8E /* PaymentToolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79430D591F28CD620075EB8E /* PaymentToolsViewController.xib */; };
 		79430D611F28CD9A0075EB8E /* PaymentToolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79430D5F1F28CD9A0075EB8E /* PaymentToolTableViewCell.swift */; };
-		79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */; };
-		79430D6E1F28CE5D0075EB8E /* MasterCardMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D651F28CE5D0075EB8E /* MasterCardMini.png */; };
-		79430D6F1F28CE5D0075EB8E /* MasterCardMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D661F28CE5D0075EB8E /* MasterCardMini@2x.png */; };
-		79430D701F28CE5D0075EB8E /* MasterCardMini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D671F28CE5D0075EB8E /* MasterCardMini@3x.png */; };
+		79430D6E1F28CE5D0075EB8E /* MasterPaymentToolMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D651F28CE5D0075EB8E /* MasterPaymentToolMini.png */; };
+		79430D6F1F28CE5D0075EB8E /* MasterPaymentToolMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D661F28CE5D0075EB8E /* MasterPaymentToolMini@2x.png */; };
+		79430D701F28CE5D0075EB8E /* MasterPaymentToolMini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D671F28CE5D0075EB8E /* MasterPaymentToolMini@3x.png */; };
 		79430D711F28CE5D0075EB8E /* MirMini.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D681F28CE5D0075EB8E /* MirMini.png */; };
 		79430D721F28CE5D0075EB8E /* MirMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D691F28CE5D0075EB8E /* MirMini@2x.png */; };
 		79430D731F28CE5D0075EB8E /* MirMini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79430D6A1F28CE5D0075EB8E /* MirMini@3x.png */; };
@@ -61,9 +60,9 @@
 		7948165C1F1CE9E900DD0783 /* P2PUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; };
 		7948165D1F1CE9E900DD0783 /* P2PUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 794816051F1CDDFA00DD0783 /* P2PUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		794816621F1CEB2F00DD0783 /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794816611F1CEB2F00DD0783 /* Deal.swift */; };
-		794FB2E21F2F3D53005610DF /* linkNewCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2DF1F2F3D53005610DF /* linkNewCard.png */; };
-		794FB2E31F2F3D53005610DF /* linkNewCard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2E01F2F3D53005610DF /* linkNewCard@2x.png */; };
-		794FB2E41F2F3D53005610DF /* linkNewCard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2E11F2F3D53005610DF /* linkNewCard@3x.png */; };
+		794FB2E21F2F3D53005610DF /* linkNewPaymentTool.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2DF1F2F3D53005610DF /* linkNewPaymentTool.png */; };
+		794FB2E31F2F3D53005610DF /* linkNewPaymentTool@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2E01F2F3D53005610DF /* linkNewPaymentTool@2x.png */; };
+		794FB2E41F2F3D53005610DF /* linkNewPaymentTool@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794FB2E11F2F3D53005610DF /* linkNewPaymentTool@3x.png */; };
 		794FB2E71F2F4194005610DF /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2E61F2F4194005610DF /* UIAlertController+Error.swift */; };
 		794FB2EC1F2F554B005610DF /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2EB1F2F554B005610DF /* Deal.swift */; };
 		794FB2EE1F2F559A005610DF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FB2ED1F2F559A005610DF /* DataStorage.swift */; };
@@ -116,13 +115,17 @@
 		798680901F209C27000D541D /* Refund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986808F1F209C27000D541D /* Refund.swift */; };
 		798680921F209EC3000D541D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798680911F209EC3000D541D /* NetworkManager.swift */; };
 		79A578A21FD5839F009F5AF4 /* PaymentToolsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79093E331FD5742B0041AAFF /* PaymentToolsResult.swift */; };
+		79D106A11FD6B4E200760660 /* DealsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79093E351FD579AA0041AAFF /* DealsResult.swift */; };
+		79D106A41FD6BC3B00760660 /* UIImageView+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D106A31FD6BC3B00760660 /* UIImageView+Icon.swift */; };
+		79D106A51FD6C7A500760660 /* PaymentTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79093E311FD573BD0041AAFF /* PaymentTool.swift */; };
 		79E96B711F2A134100AE064B /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B6F1F2A134100AE064B /* LoadingTableViewCell.swift */; };
 		79E96B721F2A134100AE064B /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E96B701F2A134100AE064B /* LoadingTableViewCell.xib */; };
 		79E96B751F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B731F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.swift */; };
 		79E96B761F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E96B741F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.xib */; };
 		79E96B791F2A229200AE064B /* CreditCardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B781F2A229200AE064B /* CreditCardValidator.swift */; };
-		79E96B7C1F2A333400AE064B /* LinkCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B7B1F2A333400AE064B /* LinkCardViewController.swift */; };
-		79E96B7E1F2A333E00AE064B /* LinkCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E96B7D1F2A333E00AE064B /* LinkCardViewController.xib */; };
+		79E96B7C1F2A333400AE064B /* LinkPaymentToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E96B7B1F2A333400AE064B /* LinkPaymentToolViewController.swift */; };
+		79E96B7E1F2A333E00AE064B /* LinkPaymentToolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E96B7D1F2A333E00AE064B /* LinkPaymentToolViewController.xib */; };
+		79EE63D21FD6B182009685A8 /* PaymentToolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79EE63D11FD6B182009685A8 /* PaymentToolTableViewCell.xib */; };
 		B63307D796E271BA80D73C8E /* Pods_P2PExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F74B043B56868EA842C1F5 /* Pods_P2PExample.framework */; };
 		C7A5A929727B21DA5EFA5123 /* Pods_P2PUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D8F7F7C1F7C2FD93664D38 /* Pods_P2PUI.framework */; };
 /* End PBXBuildFile section */
@@ -204,7 +207,6 @@
 		792068051F8648AA00B63D46 /* P2PUI.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = P2PUI.podspec; sourceTree = "<group>"; };
 		792068061F8648B100B63D46 /* P2PCore.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = P2PCore.podspec; sourceTree = "<group>"; };
 		792D59091F41D813004FCDF6 /* Localizations.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Localizations.bundle; sourceTree = "<group>"; };
-		792D590B1F41D87D004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		792D590C1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		792D590D1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		792D590E1F41D87E004FCDF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -218,10 +220,9 @@
 		79430D581F28CD620075EB8E /* PaymentToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentToolsViewController.swift; sourceTree = "<group>"; };
 		79430D591F28CD620075EB8E /* PaymentToolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentToolsViewController.xib; sourceTree = "<group>"; };
 		79430D5F1F28CD9A0075EB8E /* PaymentToolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentToolTableViewCell.swift; sourceTree = "<group>"; };
-		79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardTableViewCell.xib; sourceTree = "<group>"; };
-		79430D651F28CE5D0075EB8E /* MasterCardMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MasterCardMini.png; sourceTree = "<group>"; };
-		79430D661F28CE5D0075EB8E /* MasterCardMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterCardMini@2x.png"; sourceTree = "<group>"; };
-		79430D671F28CE5D0075EB8E /* MasterCardMini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterCardMini@3x.png"; sourceTree = "<group>"; };
+		79430D651F28CE5D0075EB8E /* MasterPaymentToolMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MasterPaymentToolMini.png; sourceTree = "<group>"; };
+		79430D661F28CE5D0075EB8E /* MasterPaymentToolMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterPaymentToolMini@2x.png"; sourceTree = "<group>"; };
+		79430D671F28CE5D0075EB8E /* MasterPaymentToolMini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterPaymentToolMini@3x.png"; sourceTree = "<group>"; };
 		79430D681F28CE5D0075EB8E /* MirMini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MirMini.png; sourceTree = "<group>"; };
 		79430D691F28CE5D0075EB8E /* MirMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MirMini@2x.png"; sourceTree = "<group>"; };
 		79430D6A1F28CE5D0075EB8E /* MirMini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MirMini@3x.png"; sourceTree = "<group>"; };
@@ -257,9 +258,9 @@
 		7948164E1F1CE9AC00DD0783 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		794816501F1CE9AC00DD0783 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		794816611F1CEB2F00DD0783 /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
-		794FB2DF1F2F3D53005610DF /* linkNewCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkNewCard.png; sourceTree = "<group>"; };
-		794FB2E01F2F3D53005610DF /* linkNewCard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkNewCard@2x.png"; sourceTree = "<group>"; };
-		794FB2E11F2F3D53005610DF /* linkNewCard@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkNewCard@3x.png"; sourceTree = "<group>"; };
+		794FB2DF1F2F3D53005610DF /* linkNewPaymentTool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkNewPaymentTool.png; sourceTree = "<group>"; };
+		794FB2E01F2F3D53005610DF /* linkNewPaymentTool@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkNewPaymentTool@2x.png"; sourceTree = "<group>"; };
+		794FB2E11F2F3D53005610DF /* linkNewPaymentTool@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkNewPaymentTool@3x.png"; sourceTree = "<group>"; };
 		794FB2E61F2F4194005610DF /* UIAlertController+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		794FB2EB1F2F554B005610DF /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		794FB2ED1F2F559A005610DF /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
@@ -298,13 +299,15 @@
 		7986808D1F209A59000D541D /* RefundsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsResult.swift; sourceTree = "<group>"; };
 		7986808F1F209C27000D541D /* Refund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refund.swift; sourceTree = "<group>"; };
 		798680911F209EC3000D541D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		79D106A31FD6BC3B00760660 /* UIImageView+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Icon.swift"; sourceTree = "<group>"; };
 		79E96B6F1F2A134100AE064B /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		79E96B701F2A134100AE064B /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		79E96B731F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentToolLinkNewTableViewCell.swift; sourceTree = "<group>"; };
 		79E96B741F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentToolLinkNewTableViewCell.xib; sourceTree = "<group>"; };
 		79E96B781F2A229200AE064B /* CreditCardValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardValidator.swift; sourceTree = "<group>"; };
-		79E96B7B1F2A333400AE064B /* LinkCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCardViewController.swift; sourceTree = "<group>"; };
-		79E96B7D1F2A333E00AE064B /* LinkCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkCardViewController.xib; sourceTree = "<group>"; };
+		79E96B7B1F2A333400AE064B /* LinkPaymentToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkPaymentToolViewController.swift; sourceTree = "<group>"; };
+		79E96B7D1F2A333E00AE064B /* LinkPaymentToolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkPaymentToolViewController.xib; sourceTree = "<group>"; };
+		79EE63D11FD6B182009685A8 /* PaymentToolTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentToolTableViewCell.xib; sourceTree = "<group>"; };
 		891952A2880A5E695C57A142 /* Pods_P2PCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5944DC6E9F563DAFF37EE2 /* Pods-P2PExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-P2PExample/Pods-P2PExample.release.xcconfig"; sourceTree = "<group>"; };
 		96E29C18DE56B8E739B8C443 /* Pods_P2PCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,21 +399,22 @@
 			path = TableCollectionStructured;
 			sourceTree = "<group>";
 		};
-		79430D571F28CD560075EB8E /* BankCards */ = {
+		79430D571F28CD560075EB8E /* PaymentTools */ = {
 			isa = PBXGroup;
 			children = (
+				79D106A21FD6BB7100760660 /* Extensions */,
 				79430D5C1F28CD6E0075EB8E /* TableViewCell */,
 				79430D581F28CD620075EB8E /* PaymentToolsViewController.swift */,
 				79430D591F28CD620075EB8E /* PaymentToolsViewController.xib */,
 			);
-			path = BankCards;
+			path = PaymentTools;
 			sourceTree = "<group>";
 		};
 		79430D5C1F28CD6E0075EB8E /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				79430D5F1F28CD9A0075EB8E /* PaymentToolTableViewCell.swift */,
-				79430D601F28CD9A0075EB8E /* BankCardTableViewCell.xib */,
+				79EE63D11FD6B182009685A8 /* PaymentToolTableViewCell.xib */,
 				79E96B731F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.swift */,
 				79E96B741F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.xib */,
 				797C1C391F330B370009E61A /* PaymentToolsEmptyTableViewCell.swift */,
@@ -431,12 +435,12 @@
 		79430D641F28CDEC0075EB8E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				794FB2DF1F2F3D53005610DF /* linkNewCard.png */,
-				794FB2E01F2F3D53005610DF /* linkNewCard@2x.png */,
-				794FB2E11F2F3D53005610DF /* linkNewCard@3x.png */,
-				79430D651F28CE5D0075EB8E /* MasterCardMini.png */,
-				79430D661F28CE5D0075EB8E /* MasterCardMini@2x.png */,
-				79430D671F28CE5D0075EB8E /* MasterCardMini@3x.png */,
+				794FB2DF1F2F3D53005610DF /* linkNewPaymentTool.png */,
+				794FB2E01F2F3D53005610DF /* linkNewPaymentTool@2x.png */,
+				794FB2E11F2F3D53005610DF /* linkNewPaymentTool@3x.png */,
+				79430D651F28CE5D0075EB8E /* MasterPaymentToolMini.png */,
+				79430D661F28CE5D0075EB8E /* MasterPaymentToolMini@2x.png */,
+				79430D671F28CE5D0075EB8E /* MasterPaymentToolMini@3x.png */,
 				79430D681F28CE5D0075EB8E /* MirMini.png */,
 				79430D691F28CE5D0075EB8E /* MirMini@2x.png */,
 				79430D6A1F28CE5D0075EB8E /* MirMini@3x.png */,
@@ -574,7 +578,7 @@
 		7948161B1F1CE83200DD0783 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				79430D571F28CD560075EB8E /* BankCards */,
+				79430D571F28CD560075EB8E /* PaymentTools */,
 				794510161F30B09A00DC39EC /* PayDeal */,
 				79E96B7A1F2A332700AE064B /* LinkCard */,
 				797C1C431F3312640009E61A /* Payouts */,
@@ -740,6 +744,14 @@
 			path = P2PCoreTests;
 			sourceTree = "<group>";
 		};
+		79D106A21FD6BB7100760660 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				79D106A31FD6BC3B00760660 /* UIImageView+Icon.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		79E96B6E1F2A132F00AE064B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,8 +772,8 @@
 		79E96B7A1F2A332700AE064B /* LinkCard */ = {
 			isa = PBXGroup;
 			children = (
-				79E96B7B1F2A333400AE064B /* LinkCardViewController.swift */,
-				79E96B7D1F2A333E00AE064B /* LinkCardViewController.xib */,
+				79E96B7B1F2A333400AE064B /* LinkPaymentToolViewController.swift */,
+				79E96B7D1F2A333E00AE064B /* LinkPaymentToolViewController.xib */,
 			);
 			path = LinkCard;
 			sourceTree = "<group>";
@@ -998,24 +1010,24 @@
 				797C1C501F3313040009E61A /* PayoutsEmptyTableViewCell.xib in Resources */,
 				797C1C521F3324610009E61A /* PayoutsViewController.xib in Resources */,
 				797C1C5E1F332B140009E61A /* RefundsEmptyTableViewCell.xib in Resources */,
-				79430D6E1F28CE5D0075EB8E /* MasterCardMini.png in Resources */,
-				794FB2E41F2F3D53005610DF /* linkNewCard@3x.png in Resources */,
+				79430D6E1F28CE5D0075EB8E /* MasterPaymentToolMini.png in Resources */,
+				794FB2E41F2F3D53005610DF /* linkNewPaymentTool@3x.png in Resources */,
 				797C1C3C1F330B370009E61A /* PaymentToolsEmptyTableViewCell.xib in Resources */,
-				794FB2E31F2F3D53005610DF /* linkNewCard@2x.png in Resources */,
-				79430D621F28CD9A0075EB8E /* BankCardTableViewCell.xib in Resources */,
+				794FB2E31F2F3D53005610DF /* linkNewPaymentTool@2x.png in Resources */,
 				79430D741F28CE5D0075EB8E /* VisaMini.png in Resources */,
 				792D590A1F41D813004FCDF6 /* Localizations.bundle in Resources */,
 				7945101A1F30B09A00DC39EC /* PayDealViewController.xib in Resources */,
-				794FB2E21F2F3D53005610DF /* linkNewCard.png in Resources */,
-				79E96B7E1F2A333E00AE064B /* LinkCardViewController.xib in Resources */,
-				79430D701F28CE5D0075EB8E /* MasterCardMini@3x.png in Resources */,
+				794FB2E21F2F3D53005610DF /* linkNewPaymentTool.png in Resources */,
+				79E96B7E1F2A333E00AE064B /* LinkPaymentToolViewController.xib in Resources */,
+				79430D701F28CE5D0075EB8E /* MasterPaymentToolMini@3x.png in Resources */,
 				797C1C4C1F3312ED0009E61A /* PayoutTableViewCell.xib in Resources */,
 				797C1C601F332B140009E61A /* RefundTableViewCell.xib in Resources */,
 				79E96B721F2A134100AE064B /* LoadingTableViewCell.xib in Resources */,
 				79E96B761F2A15D200AE064B /* PaymentToolLinkNewTableViewCell.xib in Resources */,
 				79430D761F28CE5D0075EB8E /* VisaMini@3x.png in Resources */,
-				79430D6F1F28CE5D0075EB8E /* MasterCardMini@2x.png in Resources */,
+				79430D6F1F28CE5D0075EB8E /* MasterPaymentToolMini@2x.png in Resources */,
 				79430D751F28CE5D0075EB8E /* VisaMini@2x.png in Resources */,
+				79EE63D21FD6B182009685A8 /* PaymentToolTableViewCell.xib in Resources */,
 				79430D711F28CE5D0075EB8E /* MirMini.png in Resources */,
 				79430D5B1F28CD620075EB8E /* PaymentToolsViewController.xib in Resources */,
 				797C1C5C1F332B140009E61A /* RefundsViewController.xib in Resources */,
@@ -1279,8 +1291,9 @@
 				79430D4E1F28B29C0075EB8E /* TableStructuredController.swift in Sources */,
 				797C1C4F1F3313040009E61A /* PayoutsEmptyTableViewCell.swift in Sources */,
 				79430D611F28CD9A0075EB8E /* PaymentToolTableViewCell.swift in Sources */,
+				79D106A41FD6BC3B00760660 /* UIImageView+Icon.swift in Sources */,
 				794FB2E71F2F4194005610DF /* UIAlertController+Error.swift in Sources */,
-				79E96B7C1F2A333400AE064B /* LinkCardViewController.swift in Sources */,
+				79E96B7C1F2A333400AE064B /* LinkPaymentToolViewController.swift in Sources */,
 				79E96B791F2A229200AE064B /* CreditCardValidator.swift in Sources */,
 				794510191F30B09A00DC39EC /* PayDealViewController.swift in Sources */,
 				797C1C5F1F332B140009E61A /* RefundTableViewCell.swift in Sources */,
@@ -1318,6 +1331,7 @@
 				797C1C861F3349D20009E61A /* Mapper.swift in Sources */,
 				797C1C881F33591F0009E61A /* CoreModelsTests.swift in Sources */,
 				797C1C7A1F3349BC0009E61A /* PayersPaymentToolsManager.swift in Sources */,
+				79D106A11FD6B4E200760660 /* DealsResult.swift in Sources */,
 				797C1C831F3349CC0009E61A /* RefundsResult.swift in Sources */,
 				797C1C7D1F3349CC0009E61A /* P2PCore.swift in Sources */,
 				797C1C781F3349BC0009E61A /* DealsManager.swift in Sources */,
@@ -1326,6 +1340,7 @@
 				797C1C841F3349CC0009E61A /* Refund.swift in Sources */,
 				797C1C6E1F3347FF0009E61A /* P2PCoreTests.swift in Sources */,
 				797C1C821F3349CC0009E61A /* Payout.swift in Sources */,
+				79D106A51FD6C7A500760660 /* PaymentTool.swift in Sources */,
 				797C1C851F3349D20009E61A /* URLComposer.swift in Sources */,
 				797C1C7B1F3349BC0009E61A /* PayoutsManager.swift in Sources */,
 				797C1C7E1F3349CC0009E61A /* CurrencyId.swift in Sources */,
@@ -1367,7 +1382,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				794815F51F1CDDE200DD0783 /* Base */,
-				792D590B1F41D87D004FCDF6 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

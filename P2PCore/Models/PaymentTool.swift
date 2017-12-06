@@ -23,8 +23,8 @@ import Foundation
     }
     
     public override func isEqual(_ object: Any?) -> Bool {
-        guard let card = object as? PaymentTool else { return false }
-        return card.paymentToolId == self.paymentToolId && self.paymentToolId != 0
+        guard let paymentTool = object as? PaymentTool else { return false }
+        return paymentTool.paymentToolId == self.paymentToolId && self.paymentToolId != 0
     }
     
 }

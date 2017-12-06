@@ -53,7 +53,7 @@ import P2PCore
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = P2PUILocalizedStrings("Bank PaymentTools", comment: "")
+        self.title = P2PUILocalizedStrings("Payment Tools", comment: "")
         
         tableController.buildTableStructure(reloadData: false)
         
@@ -137,7 +137,7 @@ class PaymentToolsTableViewController: TableStructuredController<PaymentToolsVie
             section.append("LoadingTableViewCell")
             append(section: &section)
         } else {
-            section.headerTitle = vc.delegate?.paymentToolsViewControllerHeaderTitleForPaymentToolsSection?(vc) ?? P2PUILocalizedStrings("Linked PaymentTools", comment: "")
+            section.headerTitle = vc.delegate?.paymentToolsViewControllerHeaderTitleForPaymentToolsSection?(vc) ?? P2PUILocalizedStrings("Linked Payment Tools", comment: "")
             section.footerTitle = vc.delegate?.paymentToolsViewControllerFooterTitleForPaymentToolsSection?(vc) ?? ""
             if !vc.paymentTools.isEmpty {
                 section.append(contentsOf: vc.paymentTools)
@@ -172,12 +172,12 @@ class PaymentToolsTableViewController: TableStructuredController<PaymentToolsVie
         } else if let cell = cell as? PaymentToolLinkNewTableViewCell {
             switch self.vc.owner {
             case .benificiary:
-                cell.titleLabel.text = P2PUILocalizedStrings("Link New PaymentTool", comment: "")
+                cell.titleLabel.text = P2PUILocalizedStrings("Link New Payment Tool", comment: "")
             case .payer:
-                cell.titleLabel.text = P2PUILocalizedStrings("Use New PaymentTool", comment: "")
+                cell.titleLabel.text = P2PUILocalizedStrings("Use New Payment Tool", comment: "")
             }
         } else if let cell = cell as? PaymentToolsEmptyTableViewCell {
-            cell.textLabel?.text = P2PUILocalizedStrings("No Linekd PaymentTools", comment: "")
+            cell.textLabel?.text = P2PUILocalizedStrings("No Linekd Payment Tools", comment: "")
         }
     }
     
@@ -209,7 +209,7 @@ class PaymentToolsTableViewController: TableStructuredController<PaymentToolsVie
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, for object: Any, forRowAt indexPath: IndexPath) {
         guard let paymentTool = object as? PaymentTool else { return }
-        let alert = UIAlertController(title: P2PUILocalizedStrings("Delete PaymentTool", comment: ""), message: P2PUILocalizedStrings("Are you really want to delete this paymentTool?", comment: ""), preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: P2PUILocalizedStrings("Delete Payment Tool", comment: ""), message: P2PUILocalizedStrings("Are you really want to delete this payment tool?", comment: ""), preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: P2PUILocalizedStrings("Delete", comment: ""), style: .destructive, handler: { (_) in
             self.delete(paymentTool: paymentTool)
         }))

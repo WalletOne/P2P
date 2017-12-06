@@ -32,11 +32,11 @@ import Foundation
     lazy var deals: DealsManager = { return .init(self) }()
     public class var deals: DealsManager { return P2PCore.default.deals }
     
-    /// Manager for working with beneficiaries cards
+    /// Manager for working with beneficiaries paymentTools
     lazy var beneficiariesPaymentTools: BeneficiariesPaymentToolsManager = { return .init(self) }()
     public class var beneficiariesPaymentTools: BeneficiariesPaymentToolsManager { return P2PCore.default.beneficiariesPaymentTools }
     
-    /// Manager for working with payers cards
+    /// Manager for working with payers paymentTools
     lazy var payersPaymentTools: PayersPaymentToolsManager = { return .init(self) }()
     public class var payersPaymentTools: PayersPaymentToolsManager { return P2PCore.default.payersPaymentTools }
     

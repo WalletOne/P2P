@@ -13,7 +13,7 @@ func ==(l: DealRequest, r: DealRequest) -> Bool {
 }
 
 enum DealStateId {
-    case created, paymentProcessing, paid, canceling, canceled, paymentError, done, confirming, payoutProcessing, payoutProcessingError, completed
+    case created, paymentProcessing, paymentHold, paid, canceling, canceled, paymentError, done, confirming, payoutProcessing, payoutProcessingError, completed
 }
 
 class DealRequest: Equatable {
@@ -24,7 +24,7 @@ class DealRequest: Equatable {
     
     var amount: NSDecimalNumber = 0.0
     
-    var freelancerCardId: Int = 0
+    var freelancerPaymentToolId: Int = 0
     
     var stateId: DealStateId = .created
     

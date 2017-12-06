@@ -14,7 +14,7 @@ extension Notification.Name {
     static let dealUpdated = Notification.Name("dealUpdated")
 }
 
-class DealViewController: UITableViewController, BankCardsViewControllerDelegate, PayDealViewControllerDelegate  {
+class DealViewController: UITableViewController, PaymentToolsViewControllerDelegate, PayDealViewControllerDelegate  {
 
     enum Section: Int {
         case description, requests, newRequest
@@ -126,6 +126,9 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
             case .paymentProcessing:
                 cell.detailTextLabel?.text = String(format: NSLocalizedString("Payment Processing... : %@ ₽", comment: ""), request.amount.stringValue)
                 cell.selectionStyle = .none
+            case .paymentHold:
+                cell.detailTextLabel?.text = String(format: NSLocalizedString("Payment Hold... : %@ ₽", comment: ""), request.amount.stringValue)
+                cell.selectionStyle = .none
             case .paid:
                 cell.detailTextLabel?.text = String(format: NSLocalizedString("Paid: %@ ₽", comment: ""), request.amount.stringValue)
             case .canceling:
@@ -203,7 +206,7 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         
         let accept: (UIAlertAction) -> Void = { (_) in
             self.selectedRequest = request
-            self.presentBankCardsViewController(for: .payer)
+            self.presentPaymentToolsViewController(for: .payer)
         }
         
         let cancelDeal = UIAlertAction(title: NSLocalizedString("Cancel Deal", comment: ""), style: .destructive, handler: { (_) in
@@ -223,6 +226,8 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         case .created:
             alert.addAction(UIAlertAction(title: NSLocalizedString("Accept", comment: ""), style: .default, handler: accept))
         case .paymentProcessing:
+            return
+        case .paymentHold:
             return
         case .paid:
             alert.addAction(cancelDeal)
@@ -272,6 +277,8 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
                 self.postReload()
             }))
         case .paymentProcessing:
+            return
+        case .paymentHold:
             return
         case .paid:
             alert.addAction(UIAlertAction(title: NSLocalizedString("Complete", comment: ""), style: .default, handler: { (_) in
@@ -323,13 +330,13 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
         if creatingRequest!.amount.stringValue == "NaN" {
             self.didSelectNewRequest()
         } else {
-            self.presentBankCardsViewController(for: .benificiary)
+            self.presentPaymentToolsViewController(for: .benificiary)
         }
     }
     
-    func presentBankCardsViewController(for owner: BankCardsViewController.Owner) {
+    func presentPaymentToolsViewController(for owner: PaymentToolsViewController.Owner) {
         
-        let vc = BankCardsViewController(owner: owner, delegate: self)
+        let vc = PaymentToolsViewController(owner: owner, delegate: self)
         
         let nc = UINavigationController(rootViewController: vc)
         
@@ -337,48 +344,48 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
 
     }
     
-    func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard) {
+    func paymentToolsViewController(_ vc: PaymentToolsViewController, didSelect paymentTool: PaymentTool) {
         vc.dismiss(animated: true, completion: nil)
         switch vc.owner {
         case .benificiary:
-            creatingRequest?.freelancerCardId = bankCard.cardId
+            creatingRequest?.freelancerPaymentToolId = paymentTool.paymentToolId
             DataStorage.default.dealRequests.append(creatingRequest!)
             creatingRequest = nil
             self.postReload()
         case .payer:
-            createP2PDeal(with: bankCard)
+            createP2PDeal(with: paymentTool)
             break
         }
     }
     
-    func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController) {
+    func paymentToolsViewControllerDidSelectLinkNew(_ vc: PaymentToolsViewController) {
         vc.dismiss(animated: true) { 
             self.createP2PDeal(with: nil)
         }
     }
     
-    func bankCardsViewControllerHeaderTitleForBankCardsSection(_ vc: BankCardsViewController) -> String {
-        return NSLocalizedString("Select Card", comment: "")
+    func paymentToolsViewControllerHeaderTitleForPaymentToolsSection(_ vc: PaymentToolsViewController) -> String {
+        return NSLocalizedString("Select PaymentTool", comment: "")
     }
     
-    func bankCardsViewControllerFooterTitleForBankCardsSection(_ vc: BankCardsViewController) -> String {
+    func paymentToolsViewControllerFooterTitleForPaymentToolsSection(_ vc: PaymentToolsViewController) -> String {
         switch vc.owner {
         case .benificiary:
-            return NSLocalizedString("Select card for receiving payment after deal completion", comment: "")
+            return NSLocalizedString("Select paymentTool for receiving payment after deal completion", comment: "")
         case .payer:
-            return NSLocalizedString("Select card to make deal payment", comment: "")
+            return NSLocalizedString("Select paymentTool to make deal payment", comment: "")
         }
     }
     
-    func createP2PDeal(with employerCard: BankCard?) {
+    func createP2PDeal(with employerPaymentTool: PaymentTool?) {
         
         guard let request = selectedRequest else { return }
         
         P2PCore.deals.create(
             dealId: self.deal.id,
             beneficiaryId: request.freelancer.id,
-            payerCardId: employerCard?.cardId ?? 0,
-            beneficiaryCardId: request.freelancerCardId,
+            payerPaymentToolId: employerPaymentTool?.paymentToolId ?? 0,
+            beneficiaryPaymentToolId: request.freelancerPaymentToolId,
             amount: request.amount,
             currencyId: .rub,
             shortDescription: self.deal.shortDescription,
@@ -388,41 +395,16 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
                 if let error = error {
                     self.present(error: error)
                 } else  if deal != nil {
-                    self.presentPaymentViewController(redirectToCardAddition: employerCard == nil)
+                    self.presentPaymentViewController(redirectToPaymentToolAddition: employerPaymentTool == nil)
                 }
             }
         )
     }
     
-    func presentPaymentViewController(redirectToCardAddition: Bool) {
-        
-        let vc = PayDealViewController(dealId: deal.id, redirectToCardAddition: redirectToCardAddition)
+    func presentPaymentViewController(redirectToPaymentToolAddition: Bool) {
+        let vc = PayDealViewController(dealId: deal.id, redirectToPaymentToolAddition: redirectToPaymentToolAddition)
         vc.delegate = self
-        
-        if !redirectToCardAddition {
-            let alert = UIAlertController(title: NSLocalizedString("Enter CVV", comment: ""), message: nil, preferredStyle: .alert)
-            
-            alert.addTextField(configurationHandler: { (textField) in
-                textField.placeholder = "CVV/CVC - 3 digits"
-                textField.keyboardType = .numberPad
-            })
-            
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Pay", comment: ""), style: .default, handler: { (_) in
-                let cvv = alert.textFields?[0].text ?? ""
-                if cvv.characters.count != 3 {
-                    self.presentPaymentViewController(redirectToCardAddition: false)
-                } else {
-                    vc.authData = cvv
-                }
-                self.present(payment: vc)
-            }))
-            
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-            
-            self.present(alert, animated: true)
-        } else {
-            self.present(payment: vc)
-        }
+        self.present(payment: vc)
     }
     
     func present(payment vc: PayDealViewController) {
@@ -450,6 +432,8 @@ class DealViewController: UITableViewController, BankCardsViewControllerDelegate
                 case DealStateIdPaymentProcessing:
                     request.stateId = .paymentProcessing
                     self?.watchStatus()
+                case DealStateIdPaymentHold:
+                    request.stateId = .paymentHold
                 case DealStateIdPaymentProcessError:
                     request.stateId = .paymentError
                 case DealStateIdPaid:

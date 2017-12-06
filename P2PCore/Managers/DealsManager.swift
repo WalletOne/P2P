@@ -38,8 +38,8 @@ extension URLComposer {
         return relative(deals(platformDealId: platformDealId), to: "cancel")
     }
     
-    func dealsBeneficiaryCard(platformDealId: String) -> String {
-        return relative(deals(platformDealId: platformDealId), to: "beneficiaryCard")
+    func dealsBeneficiaryPaymentTool(platformDealId: String) -> String {
+        return relative(deals(platformDealId: platformDealId), to: "beneficiaryPaymentTool")
     }
     
     func beneficiariesDeals(_ id: String, pageNumber: Int, itemsPerPage: Int, dealStates: [String]? = nil, searchString: String? = nil) -> String {
@@ -55,7 +55,7 @@ extension URLComposer {
             items.append(.init(format: "searchString=%@", searchString))
         }
         
-        return relative(beneficiaries(id), to: "deals")
+        return relative(beneficiaries(id), to: "deals") + "?" + items.joined(separator: "&")
     }
     
 }
@@ -72,7 +72,7 @@ extension URLComposer {
     ///
     /// - Parameters:
     ///   - dealId: Deal identifier in your system
-    ///   - payerCardId: Bank card, to which funds will be transferred
+    ///   - payerPaymentToolId: Bank paymentTool, to which funds will be transferred
 
     @discardableResult public func create(dealId: String, beneficiaryId: String, payerPaymentToolId: Int = 0, beneficiaryPaymentToolId: Int, amount: NSNumber, currencyId: CurrencyId, shortDescription: String, fullDescription: String, deferPayout: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         var parameters: [String: Any] = [
@@ -126,18 +126,18 @@ extension URLComposer {
         return core.networkManager.request(URLComposer.default.deals(platformDealId: dealId), method: .get, parameters: nil, complete: complete)
     }
     
-    /// Change bank card in deal.
+    /// Change bank paymentTool in deal.
     /// This action acceptable when deal status one of (Created | PaymentProcessing | PaymentProcessError | Paid | PayoutProcessError)
     ///
     /// - Parameters:
-    ///   - autoComplete: Perfrom transaction after the card has been updated
+    ///   - autoComplete: Perfrom transaction after the paymentTool has been updated
 
     @discardableResult public func set(paymentToolId: Int, for dealId: String, autoComplete: Bool, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
         let parameters: [String: Any] = [
             "PaymentToolId": paymentToolId,
             "AutoComplete": autoComplete
         ]
-        return core.networkManager.request(URLComposer.default.dealsBeneficiaryCard(platformDealId: dealId), method: .put, parameters: parameters, complete: complete)
+        return core.networkManager.request(URLComposer.default.dealsBeneficiaryPaymentTool(platformDealId: dealId), method: .put, parameters: parameters, complete: complete)
     }
     
     // Pay deal

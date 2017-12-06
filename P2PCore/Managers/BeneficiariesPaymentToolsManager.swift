@@ -11,7 +11,7 @@ import Foundation
 extension URLComposer {
     
     func beneficiary() -> String {
-        return relativeToBase("beneficiary")
+        return relativeToBase("v2/beneficiary")
     }
     
     func beneficiaries() -> String {
@@ -26,8 +26,8 @@ extension URLComposer {
         return relative(beneficiaries(id), to: "tools")
     }
     
-    func beneficiariesToolsTool(_ id: String, card: Int) -> String {
-        return relative(beneficiariesTools(id), to: String(card))
+    func beneficiariesToolsTool(_ id: String, paymentTool: Int) -> String {
+        return relative(beneficiariesTools(id), to: String(paymentTool))
     }
     
 }
@@ -44,29 +44,29 @@ extension String {
 
 @objc public class BeneficiariesPaymentToolsManager: Manager {
     
-    /// Get all cards of beneficiary
+    /// Get all paymentTools of beneficiary
     
     @discardableResult public func paymentTools(complete: @escaping (PaymentToolsResult?, Error?) -> Void) -> URLSessionDataTask {
         return core.networkManager.request(URLComposer.default.beneficiariesTools(core.benificaryId), method: .get, parameters: nil, complete: complete)
     }
 
-    /// Get card of beneficiary by id
+    /// Get paymentTool of beneficiary by id
     
     @discardableResult public func paymentTool(with id: Int, complete: @escaping (PaymentTool?, Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesToolsTool(core.benificaryId, card: id), method: .get, parameters: nil, complete: complete)
+        return core.networkManager.request(URLComposer.default.beneficiariesToolsTool(core.benificaryId, paymentTool: id), method: .get, parameters: nil, complete: complete)
     }
     
-    ///  Delete linked card of beneficiary
+    ///  Delete linked paymentTool of beneficiary
     
     @discardableResult public func delete(paymentToolWith id: Int, complete: @escaping (Error?) -> Void) -> URLSessionDataTask {
-        return core.networkManager.request(URLComposer.default.beneficiariesToolsTool(core.benificaryId, card: id), method: .delete, parameters: nil, complete: complete)
+        return core.networkManager.request(URLComposer.default.beneficiariesToolsTool(core.benificaryId, paymentTool: id), method: .delete, parameters: nil, complete: complete)
     }
     
-    /// Link new bank card request
+    /// Link new bank paymentTool request
     
     public func addNewPaymentType(returnUrl: String, paymentTypeId: String?, redirectToPaymentToolAddition: Bool?) -> URLRequest {
         
-        let urlString = URLComposer.default.beneficiary()
+         let urlString = URLComposer.default.beneficiary()
         
         let url = URL(string: urlString)!
         

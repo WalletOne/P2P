@@ -23,7 +23,7 @@ class CoreNetworkManagerTests: XCTestCase {
     
     func testApiSignatureBuilding() {
         
-        let url = URLComposer.default.beneficiariesCards("alinakuzmenko")
+        let url = URLComposer.default.beneficiariesPaymentTools("alinakuzmenko")
         
         let timeStamp = "2017-08-14T12:09:11"
         
@@ -41,8 +41,8 @@ class CoreNetworkManagerTests: XCTestCase {
             ("PhoneNumber", "79287654321"),
             ("PlatformBeneficiaryId", "alinakuzmenko"),
             ("PlatformId", "testplatform"),
-            ("RedirectToCardAddition", "true"),
-            ("ReturnUrl", "http://p2p-success-link-new-card"),
+            ("RedirectToPaymentToolAddition", "true"),
+            ("ReturnUrl", "http://p2p-success-link-new-paymentTool"),
             ("Timestamp", timestamp),
             ("Title", "Alina Kuzmenko"),
         ]

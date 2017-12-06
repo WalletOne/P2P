@@ -10,6 +10,8 @@ import Foundation
 
 /// WARNING! USE EXTENSION FOR FILL URLS
 
+let currentApiVersion = "3"
+
 public class URLComposer {
     
     enum Mode {
@@ -24,7 +26,7 @@ public class URLComposer {
     
     var productURL = "https://api.w1.ru/p2p/"
     
-    var apiPath = "api/v3/"
+    var apiPath = "api/v%@/"
     
     var `protocol`: String {
         switch mode {
@@ -44,8 +46,8 @@ public class URLComposer {
         }
     }
     
-    var apiURL: String {
-        return baseURL + apiPath
+    func apiURL(ver: String) -> String {
+        return baseURL + String(format: apiPath, ver)
     }
     
     class var baseURL: String { return URLComposer.default.baseURL }
@@ -56,8 +58,8 @@ public class URLComposer {
         return relative(baseURL, to: to)
     }
     
-    func relativeToApi(_ to: String) -> String {
-        return relative(apiURL, to: to)
+    func relativeToApi(_ to: String, ver: String = currentApiVersion) -> String {
+        return relative(apiURL(ver: ver), to: to)
     }
     
     func relative(_ base: String, to: String) -> String {

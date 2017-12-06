@@ -38,11 +38,11 @@ class EmployerViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let bankCardsIndexPath = IndexPath(row: 0, section: 1)
+        let paymentToolsIndexPath = IndexPath(row: 0, section: 1)
         let refundsIndexPath = IndexPath(row: 1, section: 1)
         switch indexPath {
-        case bankCardsIndexPath:
-            presentBankCards()
+        case paymentToolsIndexPath:
+            presentPaymentTools()
         case refundsIndexPath:
             presentRefunds()
         default:
@@ -50,8 +50,8 @@ class EmployerViewController: UITableViewController {
         }
     }
     
-    func presentBankCards() {
-        let vc = BankCardsViewController(owner: .payer, delegate: nil)
+    func presentPaymentTools() {
+        let vc = PaymentToolsViewController(owner: .payer, delegate: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -18,6 +18,7 @@ extension String {
 
 public let DealStateIdCreated = "Created"
 public let DealStateIdPaymentProcessing = "PaymentProcessing"
+public let DealStateIdPaymentHold = "PaymentHold"
 public let DealStateIdPaymentProcessError = "PaymentProcessError"
 public let DealStateIdPaid = "Paid"
 public let DealStateIdPayoutProcessing = "PayoutProcessing"

@@ -29,9 +29,9 @@ class CoreModelsTests: XCTestCase {
             "PayerCommissionAmount": 0,
             "PlatformBonusAmount": 0,
             "PayerPhoneNumber": "79281234567",
-            "PayerCardId": 99,
+            "PayerPaymentToolId": 99,
             "PlatformBeneficiaryId": "alinakuzmenko",
-            "BeneficiaryCardId": 98,
+            "BeneficiaryPaymentToolId": 98,
             "ShortDescription": "2",
             "FullDescription": "3",
             "DealTypeId": "Deferred"
@@ -50,15 +50,15 @@ class CoreModelsTests: XCTestCase {
         XCTAssertEqual(deal.payerCommissionAmount, json["PayerCommissionAmount"] as! NSNumber)
         XCTAssertEqual(deal.platformBonusAmount, json["PlatformBonusAmount"] as! NSNumber)
         XCTAssertEqual(deal.payerPhoneNumber, json["PayerPhoneNumber"] as! String)
-        XCTAssertEqual(deal.payerCardId, json["PayerCardId"] as! Int)
+        XCTAssertEqual(deal.payerPaymentToolId, json["PayerPaymentToolId"] as! Int)
         XCTAssertEqual(deal.platformBeneficiaryId, json["PlatformBeneficiaryId"] as! String)
-        XCTAssertEqual(deal.beneficiaryCardId, json["BeneficiaryCardId"] as! Int)
+        XCTAssertEqual(deal.beneficiaryPaymentToolId, json["BeneficiaryPaymentToolId"] as! Int)
         XCTAssertEqual(deal.shortDescription, json["ShortDescription"] as! String)
         XCTAssertEqual(deal.fullDescription, json["FullDescription"] as! String)
         XCTAssertEqual(deal.dealTypeId, json["DealTypeId"] as! String)
     }
     
-    func testBankCardModel() {
+    func testPaymentToolModel() {
         
     }
     

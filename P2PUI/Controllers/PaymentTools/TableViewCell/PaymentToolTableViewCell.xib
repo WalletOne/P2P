@@ -19,10 +19,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MasterPaymentToolMini.png" translatesAutoresizingMaskIntoConstraints="NO" id="NlJ-NG-0xB">
-                        <rect key="frame" x="15" y="14" width="16" height="16"/>
+                        <rect key="frame" x="15" y="9.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="H8J-tI-Wgf"/>
+                            <constraint firstAttribute="height" constant="25" id="jDt-XT-nXS"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Master PaymentTool" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-Jf-4Su">
-                        <rect key="frame" x="46" y="11" width="155.5" height="21"/>
+                        <rect key="frame" x="55" y="11" width="155.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -53,6 +57,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="MasterPaymentToolMini.png" width="16" height="16"/>
+        <image name="MasterPaymentToolMini.png" width="25" height="25"/>
     </resources>
 </document>

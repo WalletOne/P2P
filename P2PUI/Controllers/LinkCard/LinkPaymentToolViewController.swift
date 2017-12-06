@@ -17,7 +17,7 @@ class LinkPaymentToolViewController: P2PViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
-    let returnHost = "p2p-success-link-new-paymentTool"
+    let returnHost = "p2p-success-link-new-paymenttool"
     
     weak var delegate: LinkPaymentToolViewControllerDelegate?
     
@@ -60,6 +60,10 @@ extension LinkPaymentToolViewController: UIWebViewDelegate {
         default:
             return true
         }
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        
     }
     
 }

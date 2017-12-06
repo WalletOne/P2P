@@ -1,10 +1,10 @@
 "Cancel" = "Отмена";
-"Bank PaymentTools" = "Банковские карты";
-"Linked PaymentTools" = "Привязанные карты";
-"Link New PaymentTool" = "Привязать новую карту";
-"Use New PaymentTool" = "Использовать новую карту";
-"Delete PaymentTool" = "Удалить карту";
-"Are you really want to delete this paymentTool?" = "Вы действительно хотите удалить эту карту?";
+"Payment Tools" = "Платежные способы";
+"Linked Payment Tools" = "Привязанные платежные способы";
+"Link New Payment Tool" = "Добавить";
+"Use New Payment Tool" = "Использовать другой способ";
+"Delete Payment Tool" = "Удалить карту";
+"Are you really want to delete this payment tool?" = "Вы действительно хотите удалить этот платежный способ?";
 "Delete" = "Удалить";
 "Unknown PaymentTool Type" = "Неизвестный тип карты";
 "Payouts" = "Выплаты";
@@ -16,6 +16,15 @@
 "Successful Refund" = "Успешный возврат";
 "Process Error" = "Ошибка";
 "Error" = "Ошибка";
-"No Linekd PaymentTools" = "Нет привязанных карт";
+"No Linekd Payment Tools" = "Нет привязанных карт";
 "No Payouts" = "Список выплат пуст";
 "No Refunds" = "Список возвратов пуст";
+
+// Identifiers
+
+"AlfaclickRUB" = "Альфа-Клик";
+"BeelineRUB" = "Билайн";
+"CreditCardRUB" = "Кредитная карта";
+"PsbRetailRUB" = "Промсвязьбанк";
+"QiwiWalletRUB" = "Qiwi Кошелек";
+"YandexMoneyRUB" = "Яндекс.Деньги";

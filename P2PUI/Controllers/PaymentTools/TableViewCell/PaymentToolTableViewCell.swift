@@ -37,16 +37,10 @@ class PaymentToolTableViewCell: UITableViewCell {
     }
     
     func displayPaymentTool() {
-        let v = CreditPaymentToolValidator()
-        
-        if let type = v.type(from: paymentTool.mask) {
-            typeNameLabel.text = type.name
-            typeImageView.image = UIImage(named: type.name + "Mini", in: .init(for: classForCoder), compatibleWith: nil)
-        } else {
-            typeNameLabel.text = P2PUILocalizedStrings("Unknown PaymentTool Type", comment: "")
-            typeImageView.image = nil
-        }
-        
+        typeNameLabel.text = P2PUILocalizedStrings(paymentTool.paymentTypeId, comment: "")
+
+        typeImageView.set(paymentTypeId: paymentTool.paymentTypeId)
+
         maskedLabel.text = paymentTool.mask.maskEnd
     }
     
