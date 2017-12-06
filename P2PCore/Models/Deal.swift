@@ -10,8 +10,8 @@ import Foundation
 
 extension String {
     var uppercaseFirst: String {
-        let first = String(characters.prefix(1)).capitalized
-        let other = String(characters.dropFirst())
+        let first = String(prefix(1)).capitalized
+        let other = String(dropFirst())
         return first + other
     }
 }
@@ -30,6 +30,12 @@ public let DealStateIdCanceled = "Canceled"
 
 public let DealTypeIdDeferred = "Deferred"
 public let DealTypeIdInstant = "Instant"
+
+extension Array where Element: Deal {
+ 
+    public var platformDealIds: [String] { return map({ $0.platformDealId }) }
+    
+}
 
 @objc public class Deal: NSObject, Mappable {
     

@@ -13,7 +13,7 @@ func ==(l: DealRequest, r: DealRequest) -> Bool {
 }
 
 enum DealStateId {
-    case created, paymentProcessing, paymentHold, paid, canceling, canceled, paymentError, done, confirming, payoutProcessing, payoutProcessingError, completed
+    case created, paymentProcessing, paymentHold, paid, canceling, canceled, paymentError, freelancerCompleted, confirming, payoutProcessing, payoutProcessingError, done
 }
 
 class DealRequest: Equatable {

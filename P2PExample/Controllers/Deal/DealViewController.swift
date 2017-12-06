@@ -139,7 +139,7 @@ class DealViewController: UITableViewController, PaymentToolsViewControllerDeleg
                 cell.selectionStyle = .none
             case .paymentError:
                 cell.detailTextLabel?.text = String(format: NSLocalizedString("Payment Error: %@ ₽", comment: ""), request.amount.stringValue)
-            case .completed:
+            case .freelancerCompleted:
                 cell.detailTextLabel?.text = NSLocalizedString("Freelancer Completed", comment: "")
                 cell.detailTextLabel?.textColor = view.tintColor
             case .confirming:
@@ -238,14 +238,14 @@ class DealViewController: UITableViewController, PaymentToolsViewControllerDeleg
         case .paymentError:
             alert.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: ""), style: .default, handler: accept))
             alert.addAction(cancelDeal)
-        case .completed:
+        case .freelancerCompleted:
             alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm Completion", comment: ""), style: .default, handler: { (_) in
                 request.stateId = .confirming
                 self.postReload()
                 P2PCore.deals.complete(dealId: self.deal.id, complete: { [weak self] (deal, error) in
                     if let error = error {
                         self?.present(error: error)
-                        request.stateId = .completed
+                        request.stateId = .freelancerCompleted
                         self?.postReload()
                     } else {
                         self?.checkStatus()
@@ -278,11 +278,9 @@ class DealViewController: UITableViewController, PaymentToolsViewControllerDeleg
             }))
         case .paymentProcessing:
             return
-        case .paymentHold:
-            return
-        case .paid:
+        case .paid, .paymentHold:
             alert.addAction(UIAlertAction(title: NSLocalizedString("Complete", comment: ""), style: .default, handler: { (_) in
-                request.stateId = .completed
+                request.stateId = .freelancerCompleted
                 self.postReload()
             }))
         case .canceling:
@@ -291,7 +289,7 @@ class DealViewController: UITableViewController, PaymentToolsViewControllerDeleg
             return
         case .paymentError:
             return
-        case .completed:
+        case .freelancerCompleted:
             return
         case .confirming:
             return
@@ -371,20 +369,20 @@ class DealViewController: UITableViewController, PaymentToolsViewControllerDeleg
     func paymentToolsViewControllerFooterTitleForPaymentToolsSection(_ vc: PaymentToolsViewController) -> String {
         switch vc.owner {
         case .benificiary:
-            return NSLocalizedString("Select paymentTool for receiving payment after deal completion", comment: "")
+            return NSLocalizedString("Select payment tool for receiving payment after deal completion", comment: "")
         case .payer:
-            return NSLocalizedString("Select paymentTool to make deal payment", comment: "")
+            return NSLocalizedString("Select payment tool to make deal payment", comment: "")
         }
     }
     
-    func createP2PDeal(with employerPaymentTool: PaymentTool?) {
+    func createP2PDeal(with paymentTool: PaymentTool?) {
         
         guard let request = selectedRequest else { return }
         
         P2PCore.deals.create(
             dealId: self.deal.id,
             beneficiaryId: request.freelancer.id,
-            payerPaymentToolId: employerPaymentTool?.paymentToolId ?? 0,
+            payerPaymentToolId: paymentTool?.paymentToolId ?? 0,
             beneficiaryPaymentToolId: request.freelancerPaymentToolId,
             amount: request.amount,
             currencyId: .rub,
@@ -395,7 +393,7 @@ class DealViewController: UITableViewController, PaymentToolsViewControllerDeleg
                 if let error = error {
                     self.present(error: error)
                 } else  if deal != nil {
-                    self.presentPaymentViewController(redirectToPaymentToolAddition: employerPaymentTool == nil)
+                    self.presentPaymentViewController(redirectToPaymentToolAddition: paymentTool == nil)
                 }
             }
         )
