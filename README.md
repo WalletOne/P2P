@@ -16,8 +16,9 @@ pod 'P2PCore'
 ```
 
 ```ruby
-'0.2.2' # Swift 3.2 
-'~> 0.2.6' # Swift 4.0 
+'0.2.2' # Swift 3.2 (Поддержка только на банковских карт)
+'~> 0.2.6' # Swift 4.0 (Поддержка только на банковских карт)
+'~> 0.2.6' # Swift 4.0 (Поддержка разных платежных средств (Карты, Альфа-Клик, Qiwi и т.д.))
 ```
 
 > P2PCore - предназначен для выполнения сетевых запросов
@@ -27,8 +28,9 @@ pod 'P2PUI'
 ```
 
 ```ruby
-'0.2.2' # Swift 3.2 
-'~> 0.2.6' # Swift 4.0 
+'0.2.2' # Swift 3.2 (Поддержка только на банковских карт)
+'~> 0.2.6' # Swift 4.0 (Поддержка только на банковских карт)
+'~> 0.2.6' # Swift 4.0 (Поддержка разных платежных средств (Карты, Альфа-Клик, Qiwi и т.д.))
 ```
 
 > P2PUI - содержит в себе интерфейсную часть выбора, добавления банковской карты, а так же экран истории выплат и возвратов денежных средтсв.
@@ -89,13 +91,13 @@ P2PCore.setBenificiary(id: "PLATFORM_USER_ID", title: "PLATFORM_USER_TITLE", pho
 
 Если заказчиком во время создания заказа был указан метод расчета "Безопасная сделка ([P2P Wallet One](https://www.walletone.com/ru/p2p/))", то когда исполнитель подает заявку на исполнение заказа, он дожен добавить (выбрать) карту, на которую будет зачислен платеж после выполнения.
 
-Имеется 2 способа добавления (выбора) банковской карты:
+Имеется 2 способа добавления (выбора) платжного средства:
 
 **Способ 1 (Используя готовое решение из P2PUI):**
 
 ```swift
-let vc = BankCardsViewController(owner: .benificiary)
-vc.delegate = self // BankCardsViewControllerDelegate
+let vc = PaymentToolsViewController(owner: .benificiary)
+vc.delegate = self // PaymentToolsViewControllerDelegate
 ```
 
 Показать модально, в новом `UINavigationController` (Modal): 
@@ -111,86 +113,86 @@ self.present(nc, animated: true)
 self.navigationController?.pushViewController(vc, animated: true)
 ```
 
-После выбора карты, будет вызван метод делегата `BankCardsViewControllerDelegate`:
+После выбора платежного средства, будет вызван метод делегата `PaymentToolsViewControllerDelegate`:
 
 ```swift
-func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard)
+func paymentToolsViewController(_ vc: PaymentToolsViewController, didSelect paymentTool: PaymentTool)
 ```
 
-> В `BankCardsViewController` имеется встроенная возможность добавить новую карту.
+> В `PaymentToolsViewController` имеется встроенная возможность добавить новое платежное средство.
 
-**Способ 2 (Построить свой View Controller с добавлением, списком карт):**
+**Способ 2 (Построить свой View Controller с добавлением, списком платежных средств):**
 
-Получение списка карт исполнителя:
+Получение списка платежных средств исполнителя:
 
 ```swift
-P2PCore.beneficiariesCards.cards { cards, error in
-	// cards: [BankCard]? - Массив объектов [BankCard]. Будет nil в случае ошибки запроса
+P2PCore.beneficiariesPaymentTools.paymentTools { paymentTools, error in
+	// paymentTools: [PaymentTool]? - Массив объектов [PaymentTool]. Будет nil в случае ошибки запроса
 	// error: NSError - Будет nil в случае успешного запроса.
 }
 ```
 ---
 
-Если у исполнителя нет привязанных раннее карт, то необходимо ее добавить используя UIWebView. 
+Если у исполнителя нет привязанных раннее платежных средств, то необходимо его добавить используя UIWebView. 
 
-вы можете использовать готовый `LinkCardViewController`.
+вы можете использовать готовый `LinkPaymentToolViewController`.
 
 ```swift
-let vc = LinkCardViewController(delegate: self)
+let vc = LinkPaymentToolViewController(delegate: self)
 self.navigationController?.pushViewController(vc, animated: true)
 ```
 
-После того, как исполнитель добавит карту, будет вызван метод делегата `LinkCardViewControllerDelegate`:
+После того, как исполнитель добавит платежное средство, будет вызван метод делегата `LinkPaymentToolViewControllerDelegate`:
 
 ```swift
-func linkCardViewControllerComplete(_ vc: LinkCardViewController)
+func linkPaymentToolViewControllerComplete(_ vc: LinkPaymentToolViewController)
 ```
 
-После добавления карты, Вам необходимо получить `id` добавленой карты. Для это воспользуйтесь методом получения списка карт (см. выше).
+После добавления платежного средства, Вам необходимо получить его `id`. Для это воспользуйтесь методом получения списка платежных средств (см. выше).
 
-Еслы вы хотите сделать собственный View Controller добавления карты, то для получения `URLRequest` используйте следующий код:
+Еслы вы хотите сделать собственный View Controller добавления платежного средства, то для получения `URLRequest` используйте следующий код:
 
 ```swift
-let request = P2PCore.beneficiariesCards.linkNewCardRequest(returnUrl: "RETURN_URL")
+let request = P2PCore.beneficiariesPaymentTools.linkNewPaymentToolRequest(returnUrl: "RETURN_URL")
 ```
 
 Где:
 
 `RETURN_URL` - URL на который произойдет переадресация, после завершения добавления.
 
-> ВНИМАНИЕ! выбранные идентификатор карты `bankCard.id` Вам необходимо записать в заявку исполнителя к задаче. Идентификатор карты исполнителя понадобится при принятии завки заказчиком.
+> ВНИМАНИЕ! выбранный идентификатор платежного средства `paymentTool.id` Вам необходимо записать в заявку исполнителя к задаче. Идентификатор платежного средства исполнителя понадобится при принятии завки заказчиком.
 
 ### Шаг 4 (Оплата сделки - HOLD):
 
-Когда заказчик выбрал оптимальное для него предложение исполнителя, необходимо создать сделку на стороне [P2P Wallet One](https://www.walletone.com/ru/p2p/) и оплатить ее (поставить средства в _HOLD_ на карте заказчика).
+Когда заказчик выбрал оптимальное для него предложение исполнителя, необходимо создать сделку на стороне [P2P Wallet One](https://www.walletone.com/ru/p2p/) и оплатить ее (поставить средства в _HOLD_ на платежном средстве заказчика).
 
-Для оплаты необходимо выбрать уже привязанную карту или добавить новую.
+Для оплаты необходимо выбрать уже привязанное платежное средство или добавить новое.
 
-выбор карты:
+выбор платежного средства:
 
 **Способ 1 (Используя готовое решение из P2PUI):**
 
 ```swift
-let vc = BankCardsViewController(owner: .payer)
-vc.delegate = self // BankCardsViewControllerDelegate
+let vc = PaymentToolsViewController(owner: .payer)
+vc.delegate = self // PaymentToolsViewControllerDelegate
 ```
 
 Презентовать его можно аналогично двумя способоми, в текущем `UINavigationController` (Push) и в модальном (Modal). Эти способы описаны выше.
 
-Если заказчик выбрал привязанную ранее карту, то вызовится метод делегата `BankCardsViewControllerDelegate`:
+Если заказчик выбрал привязанное ранее платежное средство, то вызовится метод делегата `PaymentToolsViewControllerDelegate`:
 
 ```swift
-func bankCardsViewController(_ vc: BankCardsViewController, didSelect bankCard: BankCard)
+func paymentToolsViewController(_ vc: PaymentToolsViewController, didSelect paymentTool: PaymentTool)
 ```
 
-После выбора карты необходимо создать сделку на стороне P2P Wallet One:
+После выбора платежного средства необходимо создать сделку на стороне P2P Wallet One:
 
 ```swift
 P2PCore.deals.create(
 	dealId: "PLATFORM_DEAL_ID",
 	beneficiaryId: "PLATFORM_BENEFICIARY_ID",
-	payerCardId: selectedCard.id, // опицоинальный
-	beneficiaryCardId: BENEFICIARY_CARD_ID,
+	payerPaymentToolId: selectedPaymentTool.id, // опицоинальный
+	beneficiaryPaymentToolId: BENEFICIARY_PAYMENT_TOOL_ID,
 	amount: 100,
 	currencyId: .rub,
 	shortDescription: "PLATFORM_DEAL_SHORT_DESCRIPTION",
@@ -212,7 +214,7 @@ P2PCore.deals.create(
 
 `PLATFORM_BENEFICIARY_ID` - Идентификатор исполнителя.
 
-`BENEFICIARY_CARD_ID` - Идентификатор карты исполнителя, записанные при создании заявки исполнителем.
+`BENEFICIARY_PAYMENT_TOOL_ID` - Идентификатор карты исполнителя, записанные при создании заявки исполнителем.
 
 `PLATFORM_DEAL_SHORT_DESCRIPTION` - Краткое описание сделки. Напимер "Создание сайта".
 
@@ -221,38 +223,38 @@ P2PCore.deals.create(
 Для оплаты сделки можете использовать готовый View Controller:
 
 ```swift
-let vc = PayDealViewController(dealId: deal.id, redirectToCardAddition: redirectToCardAddition)
+let vc = PayDealViewController(dealId: deal.id, redirectToPaymentToolAddition: redirectToPaymentToolAddition)
 vc.delegate = self
 ```
 
-У `PayDealViewController ` имеется опциональный параметр `authData`. вы можете у пользоателся предварительно запросить _CVV_ выбраной карты и инициализировать контроллер оплаты вместе с _CVV_. В таком случае пользователю не будет предложено ввести _CVV_на странице оплаты.
+У `PayDealViewController ` имеется опциональный параметр `authData`. вы можете у пользоателся предварительно запросить _CVV_ выбраной карты и инициализировать контроллер оплаты вместе с _CVV_. В таком случае пользователю не будет предложено ввести _CVV_ на странице оплаты.
 
-Если у пользователя нет приявзанных карт и он но странице списка карты выберет "Использовать новую карту" то вызовется метод делегата:
+Если у пользователя нет приявзанных платежных средств и он на странице списка выберет "Использовать новое платежное средство" то вызовется метод делегата:
 
 ```swift
-func bankCardsViewControllerDidSelectLinkNew(_ vc: BankCardsViewController)
+func paymentToolsViewControllerDidSelectLinkNew(_ vc: PaymentToolsViewController)
 ```
 
-В таком случае, при создании сделки не нужно указывать параметр `payerCardId` или установите значение `nil`.
+В таком случае, при создании сделки не нужно указывать параметр `payerPaymentToolId` или установите значение `nil`.
 
 **Способ 2 (Построить свой View Controller с добавлением, списком карт):**
 
-Получение списка карт зказчика:
+Получение списка платежных средств зказчика:
 
 ```swift
-P2PCore.payersCards.cards { cards, error in
-	// cards: [BankCard]? - Массив объектов [BankCard]. Будет nil в случае ошибки запроса
+P2PCore.payersPaymentTools.paymentTools { paymentTools, error in
+	// paymentTools: [PaymentTool]? - Массив объектов [PaymentTool]. Будет nil в случае ошибки запроса
 	// error: NSError - Будет nil в случае успешного запроса.
 }
 ```
 ---
 
-Если у заказчика нет привязанных раннее карт, то необходимо оплатить с новой картой используя UIWebView. 
+Если у заказчика нет привязанных раннее платежных средств, то необходимо оплатить с нового используя UIWebView. 
 
 Для получения `URLRequest` оплаты используйте следующий код:
 
 ```swift
-let request = P2PCore.deals.payRequest(dealId: "PLATFORM_DEAL_ID", redirectToCardAddition: true, authData: "CVV/CVC", returnUrl: "RETURN_URL")
+let request = P2PCore.deals.payRequest(dealId: "PLATFORM_DEAL_ID", redirectToPaymentToolAddition: true, authData: "CVV/CVC", returnUrl: "RETURN_URL")
 ```
 
 Где:
@@ -367,6 +369,17 @@ P2PCore.refunds.refunds(pageNumber: pageNumber, itemsPerPage: itemsPerPage, deal
 ```
 
 ---
+
+### Массовая оплта сделок:
+
+В `P2PCore` имеется возможность массово завершить сделки.
+
+```swift
+P2PCore.dealsManager.complete(dealIds: [String], paymentToolId: String) { result, error in
+	// result: [Deal]? - Массив с объектами сделок
+	// error: NSError? - nil в случае успешного запроса
+}
+```
 
 Полный сценарий работы сервиса Вы можете посмотреть в проекте. Таргет `P2PExample`.
 
