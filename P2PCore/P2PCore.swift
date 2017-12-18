@@ -50,7 +50,8 @@ import Foundation
     
     lazy var networkManager: NetworkManager = { return .init(self) }()
     
-    public class func setPlatform(id: String, signatureKey: String) {
+    public class func setPlatform(id: String, signatureKey: String, environment: Environment = .product) {
+        URLComposer.default.environment = environment
         P2PCore.default.platformId = id
         P2PCore.default.signatureKey = signatureKey
     }

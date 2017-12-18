@@ -12,15 +12,15 @@ import Foundation
 
 let currentApiVersion = "3"
 
+public enum Environment: Int {
+    case sandbox, product
+}
+
 public class URLComposer {
-    
-    enum Mode {
-        case sandbox, product
-    }
     
     public static let `default` = URLComposer()
     
-    var mode: Mode = .sandbox
+    public var environment: Environment = .sandbox
     
     var sandboxURL = "https://api.dev.walletone.com/p2p/"
     
@@ -29,7 +29,7 @@ public class URLComposer {
     var apiPath = "api/v%@/"
     
     var `protocol`: String {
-        switch mode {
+        switch environment {
         case .sandbox:
             return "https"
         case .product:
@@ -38,7 +38,7 @@ public class URLComposer {
     }
     
     var baseURL: String {
-        switch mode {
+        switch environment {
         case .sandbox:
             return sandboxURL
         case .product:
