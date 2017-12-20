@@ -9,11 +9,11 @@
 import UIKit
 import P2PCore
 
-protocol LinkPaymentToolViewControllerDelegate: class {
+public protocol LinkPaymentToolViewControllerDelegate: class {
     func linkPaymentToolViewControllerComplete(_ vc: LinkPaymentToolViewController)
 }
 
-class LinkPaymentToolViewController: P2PViewController {
+open class LinkPaymentToolViewController: P2PViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
@@ -26,7 +26,7 @@ class LinkPaymentToolViewController: P2PViewController {
         self.delegate = delegate
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -42,15 +42,15 @@ class LinkPaymentToolViewController: P2PViewController {
 
 extension LinkPaymentToolViewController: UIWebViewDelegate {
     
-    func webViewDidStartLoad(_ webView: UIWebView) {
+    open func webViewDidStartLoad(_ webView: UIWebView) {
         startAnimating()
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+    open func webViewDidFinishLoad(_ webView: UIWebView) {
         stopAnimating()
     }
     
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    open func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         guard let url = request.url else { return true }
         guard let host = url.host else { return true }
         switch host {
@@ -62,9 +62,8 @@ extension LinkPaymentToolViewController: UIWebViewDelegate {
         }
     }
     
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+    open func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         
     }
     
 }
-

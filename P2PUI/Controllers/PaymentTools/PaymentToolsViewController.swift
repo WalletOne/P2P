@@ -108,7 +108,7 @@ import P2PCore
 
 extension PaymentToolsViewController: LinkPaymentToolViewControllerDelegate {
  
-    func linkPaymentToolViewControllerComplete(_ vc: LinkPaymentToolViewController) {
+    open func linkPaymentToolViewControllerComplete(_ vc: LinkPaymentToolViewController) {
         navigationController?.popViewController(animated: true)
         loadData()
     }
