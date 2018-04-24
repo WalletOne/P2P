@@ -27,10 +27,12 @@ extension NSError {
 extension Date {
     
     var ISO8601TimeStamp: String {
-        let df = DateFormatter()
-        df.timeZone = TimeZone(identifier: "UTC")
-        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        return df.string(from: self)
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return formatter.string(from: self)
     }
     
 }
