@@ -136,7 +136,7 @@
 		214FDE86BA31C777758D3A83386B3468 /* CTR.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CTR.swift; path = Sources/CryptoSwift/BlockMode/CTR.swift; sourceTree = "<group>"; };
 		242456D20DD91561A239FF28A5390109 /* Utils+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Utils+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/Utils+Foundation.swift"; sourceTree = "<group>"; };
 		25385CCD718CCC7AF04DBBA56A4E1538 /* ECB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECB.swift; path = Sources/CryptoSwift/BlockMode/ECB.swift; sourceTree = "<group>"; };
-		2E20890682EE55D89C1156245054525B /* Pods_P2PUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_P2PUI.framework; path = "Pods-P2PUI.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E20890682EE55D89C1156245054525B /* Pods_P2PUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F900334DBA8AC31EDD0C9C96B8A69A0 /* BlockCipher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockCipher.swift; path = Sources/CryptoSwift/BlockCipher.swift; sourceTree = "<group>"; };
 		30444FFD043FCB6E76E9B923139A0247 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35301D778F516FF5BB4BE25C82DB7DA7 /* Pods-P2PExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-P2PExample-dummy.m"; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		5AA4AFCEA326C5E2BD0D0DA6D7D84729 /* UInt32+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt32+Extension.swift"; path = "Sources/CryptoSwift/UInt32+Extension.swift"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		668A6DD444C7F033B675EFEE13BF6BA7 /* RandomAccessBlockModeWorker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RandomAccessBlockModeWorker.swift; path = Sources/CryptoSwift/BlockMode/RandomAccessBlockModeWorker.swift; sourceTree = "<group>"; };
-		68E6AE9F4BC41E4B88003F36749E8F4E /* Pods_P2PExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_P2PExample.framework; path = "Pods-P2PExample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68E6AE9F4BC41E4B88003F36749E8F4E /* Pods_P2PExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F8AC7C5A8D65AF64026EDDF40FC735 /* Pods-P2PCoreTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-P2PCoreTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		6B89B4A7D54EFE4B303F7D51EF9971E7 /* Bit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bit.swift; path = Sources/CryptoSwift/Bit.swift; sourceTree = "<group>"; };
 		6B97F4C7DDA03E5CEDDA2C04D5BFEF00 /* Data+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Extension.swift"; path = "Sources/CryptoSwift/Foundation/Data+Extension.swift"; sourceTree = "<group>"; };
@@ -173,25 +173,25 @@
 		718DC8151CA091B7FB327CFDCA1AC2EE /* Pods-P2PExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-P2PExample-umbrella.h"; sourceTree = "<group>"; };
 		76623C0810B8CF2B1315AF10CB96677A /* Pods-P2PCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-P2PCore.debug.xcconfig"; sourceTree = "<group>"; };
 		7A6F3816BAD95324A98CA2B1F79A3DF9 /* Pods-P2PCore-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-P2PCore-acknowledgements.plist"; sourceTree = "<group>"; };
-		7B47A5C2E7537D3142B30D6B090F5535 /* CryptoSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CryptoSwift.modulemap; sourceTree = "<group>"; };
+		7B47A5C2E7537D3142B30D6B090F5535 /* CryptoSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CryptoSwift.modulemap; sourceTree = "<group>"; };
 		7C4B1BDDEFDFB666383A866E26BCE5A5 /* Pods-P2PCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-P2PCore-umbrella.h"; sourceTree = "<group>"; };
-		7D1424A53F8174764C19255F71B8E88C /* Pods-P2PCoreTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-P2PCoreTests.modulemap"; sourceTree = "<group>"; };
+		7D1424A53F8174764C19255F71B8E88C /* Pods-P2PCoreTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-P2PCoreTests.modulemap"; sourceTree = "<group>"; };
 		7D5BB3DBCAAD60BFEEF402DFD7F0388C /* String+FoundationExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+FoundationExtension.swift"; path = "Sources/CryptoSwift/Foundation/String+FoundationExtension.swift"; sourceTree = "<group>"; };
 		811F9DDDED694B6FE49CD1954E750311 /* Authenticator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Sources/CryptoSwift/Authenticator.swift; sourceTree = "<group>"; };
 		875559EC9EAD2DA91C05952CAC2B508B /* Pods-P2PUI-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-P2PUI-resources.sh"; sourceTree = "<group>"; };
 		8D1CD4A6B675AA1546D39F449F766860 /* DigestType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DigestType.swift; path = Sources/CryptoSwift/DigestType.swift; sourceTree = "<group>"; };
 		8DE8B4CD9CB7BA56C66CFD6A57896FE4 /* Pods-P2PCore-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-P2PCore-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8FB79019CDAF4DE7A2B62925C583A5E0 /* Pods-P2PExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-P2PExample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		943AD6D8F747D54AFEB36DEAA1A5B7AD /* Pods-P2PCoreTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-P2PCoreTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		94D89A461E94C507B71F27341C3C20FC /* Pods-P2PCoreTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-P2PCoreTests-dummy.m"; sourceTree = "<group>"; };
 		9501A35738D873BF9133250F22425E47 /* Poly1305.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Poly1305.swift; path = Sources/CryptoSwift/Poly1305.swift; sourceTree = "<group>"; };
 		97A9862ABEC2B1D6ACAFEF1D5E9D75B6 /* CryptoSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CryptoSwift.xcconfig; sourceTree = "<group>"; };
 		97F94ED4A64D5B5D0E2E4971DFE9F948 /* Cryptors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cryptors.swift; path = Sources/CryptoSwift/Cryptors.swift; sourceTree = "<group>"; };
-		98ECE81730C3F37C7EFD242AA426FB2A /* Pods-P2PCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-P2PCore.modulemap"; sourceTree = "<group>"; };
-		9C1C2EC8A4180AF6505F4301D83BBF87 /* Pods_P2PCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_P2PCore.framework; path = "Pods-P2PCore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98ECE81730C3F37C7EFD242AA426FB2A /* Pods-P2PCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-P2PCore.modulemap"; sourceTree = "<group>"; };
+		9C1C2EC8A4180AF6505F4301D83BBF87 /* Pods_P2PCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB3770B771D6221537CD5318F2531BB /* Pods-P2PCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-P2PCore.release.xcconfig"; sourceTree = "<group>"; };
-		9E74B3F3F011365B0E13878AF6AE4FBB /* Pods-P2PUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-P2PUI.modulemap"; sourceTree = "<group>"; };
+		9E74B3F3F011365B0E13878AF6AE4FBB /* Pods-P2PUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-P2PUI.modulemap"; sourceTree = "<group>"; };
 		A13A8589D1956E54BED2BF3603E51A05 /* ChaCha20.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChaCha20.swift; path = Sources/CryptoSwift/ChaCha20.swift; sourceTree = "<group>"; };
 		A30DE90386BD62716735BB0E8C93C4A3 /* Pods-P2PExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-P2PExample.release.xcconfig"; sourceTree = "<group>"; };
 		A31703A6509CFF70DD3A0AB2401FBADD /* Pods-P2PUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-P2PUI.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		A5D9F5C3115749B106BD55CBC98FE64C /* Cipher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cipher.swift; path = Sources/CryptoSwift/Cipher.swift; sourceTree = "<group>"; };
 		A6D20ED5EDAD8FF7F6CF09798F097533 /* HMAC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HMAC.swift; path = Sources/CryptoSwift/HMAC.swift; sourceTree = "<group>"; };
 		A708DF35AC52034484199C8A5590E811 /* CryptoSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CryptoSwift-dummy.m"; sourceTree = "<group>"; };
-		AA9E168DE3FFD56DF0F6076DBC3FA359 /* Pods_P2PCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_P2PCoreTests.framework; path = "Pods-P2PCoreTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9E168DE3FFD56DF0F6076DBC3FA359 /* Pods_P2PCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABAFBF1F42ADF4611682833E74A6AB37 /* Pods-P2PCoreTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-P2PCoreTests-resources.sh"; sourceTree = "<group>"; };
 		AC72A635FEDC12CD4BBF159119BA8499 /* Pods-P2PExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-P2PExample-frameworks.sh"; sourceTree = "<group>"; };
 		ADA0E8BA6E8C1EB1E38B6A36920D39B6 /* Blowfish.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Blowfish.swift; path = Sources/CryptoSwift/Blowfish.swift; sourceTree = "<group>"; };
@@ -213,14 +213,14 @@
 		C532193F60F7AEFBE5CAD48FD3DB8D36 /* Pods-P2PCore-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-P2PCore-resources.sh"; sourceTree = "<group>"; };
 		C8B1DEF3FE6F3B89FD6C30BF4BA14726 /* OFB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OFB.swift; path = Sources/CryptoSwift/BlockMode/OFB.swift; sourceTree = "<group>"; };
 		CC9AFC16F5AA45FA7772D0F451F3CA82 /* PCBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PCBC.swift; path = Sources/CryptoSwift/BlockMode/PCBC.swift; sourceTree = "<group>"; };
-		CD5898EDD92D7EC55BDF621F14F49EA4 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CryptoSwift.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD5898EDD92D7EC55BDF621F14F49EA4 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED4014F7ACD2FD43CADEFD0BF3E3CFC /* AES.Cryptors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES.Cryptors.swift; path = Sources/CryptoSwift/AES.Cryptors.swift; sourceTree = "<group>"; };
 		D075E168A158BFF0AB93A794E2CF6171 /* BlockModeWorker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockModeWorker.swift; path = Sources/CryptoSwift/BlockMode/BlockModeWorker.swift; sourceTree = "<group>"; };
 		D58508390333AE0712C3EDD789B7D4C9 /* PBKDF2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PBKDF2.swift; path = Sources/CryptoSwift/PKCS/PBKDF2.swift; sourceTree = "<group>"; };
 		D6D394141534C2913CCFC2FED26A4946 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9E555AB0ADD7013B0DB87735EC9F29A /* Array+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/Array+Foundation.swift"; sourceTree = "<group>"; };
 		DA17DC7BC29CB72489F2636E9D82ECA1 /* Array+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extension.swift"; path = "Sources/CryptoSwift/Array+Extension.swift"; sourceTree = "<group>"; };
-		E1481F3B1C16FEC6F7DFED2FE5EB6BD2 /* Pods-P2PExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-P2PExample.modulemap"; sourceTree = "<group>"; };
+		E1481F3B1C16FEC6F7DFED2FE5EB6BD2 /* Pods-P2PExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-P2PExample.modulemap"; sourceTree = "<group>"; };
 		E5B4F77483F497B9CD7130089E7F6816 /* Pods-P2PUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-P2PUI-dummy.m"; sourceTree = "<group>"; };
 		E8E12A81088CDCE43742D22CCA40D3C7 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Sources/CryptoSwift/Utils.swift; sourceTree = "<group>"; };
 		E96AAC78DDC58CC795F0301DA7F8B8BF /* RandomBytesSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RandomBytesSequence.swift; path = Sources/CryptoSwift/RandomBytesSequence.swift; sourceTree = "<group>"; };
@@ -347,7 +347,6 @@
 				452F89839E4AF23C22C2D74A29AF885F /* ZeroPadding.swift */,
 				355ABCF3E20FB91EA31A4A16C69429D0 /* Support Files */,
 			);
-			name = CryptoSwift;
 			path = CryptoSwift;
 			sourceTree = "<group>";
 		};
@@ -635,7 +634,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1073,6 +1072,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1080,6 +1080,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1162,6 +1163,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1169,6 +1171,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
