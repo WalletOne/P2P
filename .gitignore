@@ -63,3 +63,4 @@ fastlane/test_output
 iOSInjectionProject/
 
 *.DS_Store
+/P2P_iOS.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
