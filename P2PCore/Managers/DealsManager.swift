@@ -34,6 +34,10 @@ extension URLComposer {
         return relative(deals(platformDealId: platformDealId), to: "complete")
     }
     
+    func dealsConfirm(platformDealId: String) -> String {
+        return relative(deals(platformDealId: platformDealId), to: "confirm")
+    }
+    
     func dealsCancel(platformDealId: String) -> String {
         return relative(deals(platformDealId: platformDealId), to: "cancel")
     }
@@ -98,6 +102,12 @@ extension URLComposer {
         }
         
         return core.networkManager.request(URLComposer.default.deals(), method: .post, parameters: parameters, complete: complete)
+    }
+    
+    /// Confirm
+    
+    @discardableResult public func confirm(dealId: String, complete: @escaping (Deal?, Error?) -> Void) -> URLSessionDataTask {
+        return core.networkManager.request(URLComposer.default.dealsConfirm(platformDealId: dealId), method: .put, parameters: nil, complete: complete)
     }
     
     /// Complete deal
