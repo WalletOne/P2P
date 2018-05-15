@@ -283,9 +283,19 @@ P2PCore.deals.status(dealId: self.deal.id) { deal, error
 }
 ```
 
-> Статусы сделаны не `enum: String` для поддержки Objective-C
+### Шаг 6 (Подтверждение сделки):
 
-### Шаг 6 (Завершение сделки):
+```swift
+P2PCore.deals.confirm(dealId: self.deal.id, complete: { deal, error in
+    if let error = error {
+		// process error
+    } else if let deal = deal {
+		// ...
+	}
+})
+```
+
+### Шаг 7 (Завершение сделки):
 
 После выполнения работы фрилансером, ему необходимо перевести средства и завершить сделку.
 
