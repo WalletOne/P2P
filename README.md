@@ -272,11 +272,15 @@ let request = P2PCore.deals.payRequest(dealId: "PLATFORM_DEAL_ID", redirectToPay
 P2PCore.deals.status(dealId: self.deal.id) { deal, error 
 	switch deal.dealStateId {
 	case DealStateIdPaymentProcessing:
-	    // В процессе оплаты. Тут необходимо проверить статус еще раз через некоторое время
+		// В процессе оплаты. Тут необходимо проверить статус еще раз через некоторое время
 	case DealStateIdPaymentProcessError:
-	    // Возникает в случае ошики оплаты. Например недостаточно средств на карте заказчика
+		// Возникает в случае ошики оплаты. Например недостаточно средств на карте заказчика
+	case DealStateIdPaymentHold:
+		// Средства успешно зарезервированы
 	case DealStateIdPaid:
-	    // Средства успешно зарезевированы
+    	// Сделка оплачена
+	case DealStateIdCompleted:
+    	// Сделка успешно завершена
 	default:
 		break
 	}
